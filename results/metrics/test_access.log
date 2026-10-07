@@ -1,0 +1,1 @@
+2026-10-07T23:33:30 models=['finbert', 'majority', 'qwen3-1.7b-lora-s0', 'qwen3-1.7b-lora-s1', 'qwen3-1.7b-lora-s2', 'qwen3-1.7b-zeroshot', 'qwen3.6-35b-a3b-zeroshot', 'tfidf-logreg']
