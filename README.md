@@ -29,9 +29,9 @@ Classify financial news tweets as **bullish**, **bearish** or **neutral** ([Twit
 - **Variance.** The fine-tuned model is reported as mean and standard deviation over the three seeds.
 - **Cost.** Latency per tweet and peak VRAM, measured on the same laptop (RTX 5070 Laptop, 8 GB).
 
-## Part 2, advising the client (planned)
+## Part 2, advising the client (pre-registered, in progress)
 
-Does a model adapt its advice to the client's risk profile, as suitability rules require from a human adviser? Each model receives the same grid of client profiles (cautious, neutral, gambler, chasing losses) and must answer in a fixed JSON format: share of savings allocated to the risky asset, and whether to use leverage. The comparison includes a base model and an *abliterated* version of the same model (refusal behaviour removed), to measure what that removal changes in financial advice.
+Does a model adapt its advice to the client's risk profile, as suitability rules require from a human adviser? Both models receive the same 48 scenarios (4 risk profiles, 2 financial situations, an open question or a client pushing for confirmation, 3 phrasings), 5 times each, and must answer in a JSON schema: share of savings recommended for high-risk products, and whether to use leverage. The comparison is a base model against an *abliterated* version of the same model (refusal behaviour removed), quantized identically. Hypotheses, tests and commitments were written before any answer was collected: [docs/part2-preregistration.md](docs/part2-preregistration.md).
 
 ## Reproduce
 
@@ -47,6 +47,9 @@ python scripts/zero_shot_qwen.py      # baseline 4
 python scripts/zero_shot_llamacpp.py  # baseline 5, needs a llama.cpp server (docs/setup-wsl.md)
 python scripts/run_lora.py            # model 6: selection on dev, 3 seeds, predictions
 python scripts/evaluate.py --split val
+
+python scripts/run_advice.py          # part 2: 480 answers from two llama.cpp models
+python scripts/analyze_advice.py      # part 2: pre-registered tests
 ```
 
 Every model writes `results/predictions/<split>/<model>.csv`; `scripts/evaluate.py` is the only
