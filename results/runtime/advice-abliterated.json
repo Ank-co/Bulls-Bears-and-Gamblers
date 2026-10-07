@@ -1,0 +1,9 @@
+{
+  "advice": {
+    "items": 240,
+    "seconds": 575.91,
+    "ms_per_item": 2399.625,
+    "server_model": "qwen3.6-35b-abliterated",
+    "note": "sequential requests"
+  }
+}
