@@ -17,7 +17,7 @@ import pandas as pd
 import requests
 
 from bbg import config
-from bbg.advice import build_scenarios, run_campaign
+from bbg.advice import build_scenarios, run_campaign, warm_up
 from bbg.runtime import write_runtime
 
 DEFAULT_MODELS = ["base=qwen3.6-35b-base-i1", "abliterated=qwen3.6-35b-abliterated"]
@@ -42,9 +42,19 @@ def main() -> int:
     for short, server_name in models:
         print(f"{short} ({server_name}): {len(scenarios)} scenarios x {len(SEEDS)} seeds", flush=True)
         try:
+            print(f"  loading {server_name} on the server (can take several minutes)...", flush=True)
+            print(f"  ready after {warm_up(url, headers, server_name):.0f}s", flush=True)
             recs = run_campaign(url, headers, server_name, scenarios, SEEDS, OUT / "raw" / f"{short}.jsonl")
         except requests.ConnectionError:
             print(f"Cannot reach {url}: is llama-server running? (docs/setup-wsl.md)")
+            return 1
+        except requests.Timeout:
+            print("The server did not answer in time. Look at the llama-server window for an error "
+                  "(out of memory, model file not found) and send it.")
+            return 1
+        except requests.HTTPError as exc:
+            detail = exc.response.text[:500] if exc.response is not None else ""
+            print(f"The server refused the request: {exc}\n{detail}")
             return 1
         df = pd.DataFrame(recs).merge(meta, on="scenario")
         df.insert(0, "model", short)

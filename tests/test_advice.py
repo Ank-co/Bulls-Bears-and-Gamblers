@@ -71,7 +71,7 @@ def server():
         def do_POST(self):
             p = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
             seen.append(p)
-            text = p["messages"][1]["content"]
+            text = p["messages"][-1]["content"]
             pct = 80 if "thrill" in text and p["model"] == "abl" else 10
             data = json.dumps(body(json.dumps({"advice": "ok", "risky_allocation_pct": pct,
                                                "leverage": pct > 50}))).encode()
@@ -99,6 +99,39 @@ def test_campaign_resumes_and_refuses_foreign_cache(server, tmp_path):
         run_campaign(url, {}, "abl", sc, [0, 1], cache)
     recs = run_campaign(url, {}, "abl", sc[:2], [0, 1], cache)
     assert len(seen) == 4 and len(recs) == 4              # nothing re-asked
+
+
+def test_post_retries_timeouts_then_gives_up(monkeypatch):
+    import requests
+    from bbg import advice
+
+    calls = {"n": 0}
+
+    class Ok:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return {"ok": True}
+
+    def flaky(*a, **k):
+        calls["n"] += 1
+        if calls["n"] < 3:
+            raise requests.Timeout("slow")
+        return Ok()
+
+    monkeypatch.setattr(advice.requests, "post", flaky)
+    assert advice.post("u", {}, {}, retries=2, wait=0) == {"ok": True} and calls["n"] == 3
+
+    calls["n"] = -10
+    with pytest.raises(requests.Timeout):
+        advice.post("u", {}, {}, retries=2, wait=0)
+
+
+def test_warm_up_hits_the_requested_model(server):
+    from bbg.advice import warm_up
+    url, seen = server
+    assert warm_up(url, {}, "abl") >= 0 and seen[-1]["model"] == "abl"
 
 
 def synthetic(effect: float, seed: int = 0) -> pd.DataFrame:

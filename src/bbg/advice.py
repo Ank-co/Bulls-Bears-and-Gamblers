@@ -135,10 +135,31 @@ def fingerprint(model: str, scenarios: list[dict], seeds: list[int]) -> str:
     return hashlib.sha256(blob.encode()).hexdigest()[:16]
 
 
-def post(url: str, headers: dict, body: dict, timeout: float = 300) -> dict:
-    r = requests.post(url, headers=headers, json=body, timeout=timeout)
-    r.raise_for_status()
-    return r.json()
+def post(url: str, headers: dict, body: dict, timeout: float = 600, retries: int = 2,
+         wait: float = 10) -> dict:
+    """POST with retries on network timeouts. A retried request is identical (same seed), and
+    nothing is recorded until a valid answer arrives, so retries cannot bias the results."""
+    for attempt in range(retries + 1):
+        try:
+            r = requests.post(url, headers=headers, json=body, timeout=timeout)
+            r.raise_for_status()
+            return r.json()
+        except (requests.Timeout, requests.ConnectionError):
+            if attempt == retries:
+                raise
+            print(f"  network timeout, retrying in {wait:.0f}s ({attempt + 1}/{retries})", flush=True)
+            time.sleep(wait)
+    raise AssertionError("unreachable")
+
+
+def warm_up(url: str, headers: dict, model: str, timeout: float = 1800) -> float:
+    """Tiny request that makes the llama.cpp router load `model` before the campaign starts.
+    Loading a 17 GB model can take minutes; its answer is discarded. Returns the seconds waited."""
+    t0 = time.perf_counter()
+    post(url, headers, {"model": model, "messages": [{"role": "user", "content": "Reply with OK."}],
+                        "max_tokens": 4, "chat_template_kwargs": {"enable_thinking": False}},
+         timeout=timeout, retries=0)
+    return time.perf_counter() - t0
 
 
 def run_campaign(url: str, headers: dict, model: str, scenarios: list[dict], seeds: list[int],

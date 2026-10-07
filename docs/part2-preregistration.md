@@ -92,4 +92,9 @@ and a JSON format that may change the behaviour compared with a free conversatio
 
 ## Deviations
 
-None so far.
+Technical only, no change to the design, prompts, sampling or analysis:
+
+- Before each model, a short warm-up request makes the server load the model (its answer is
+  discarded), and requests that time out are retried identically. Reason: the first campaign
+  attempt stopped on a 300-second timeout while the server was loading the 17 GB model. No answer
+  had been recorded.
