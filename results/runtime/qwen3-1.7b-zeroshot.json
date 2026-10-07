@@ -1,0 +1,20 @@
+{
+  "val": {
+    "items": 941,
+    "seconds": 37.305,
+    "ms_per_item": 39.644,
+    "batch_size": 16,
+    "model_id": "Qwen/Qwen3-1.7B",
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 4.344
+  },
+  "test": {
+    "items": 2388,
+    "seconds": 92.424,
+    "ms_per_item": 38.704,
+    "batch_size": 16,
+    "model_id": "Qwen/Qwen3-1.7B",
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 4.361
+  }
+}

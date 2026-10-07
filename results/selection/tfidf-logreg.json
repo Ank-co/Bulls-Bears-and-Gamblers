@@ -1,0 +1,179 @@
+{
+  "selected": {
+    "features": "word+char",
+    "C": 8.0,
+    "class_weight": "balanced"
+  },
+  "val_macro_f1": 0.7580019140213695,
+  "inference_ms_per_item_cpu": 0.09826729983250074,
+  "grid": [
+    {
+      "features": "word",
+      "C": 0.5,
+      "class_weight": null,
+      "val_macro_f1": 0.646551305926902,
+      "fit_seconds": 2.93
+    },
+    {
+      "features": "word",
+      "C": 0.5,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7052784526481126,
+      "fit_seconds": 2.64
+    },
+    {
+      "features": "word",
+      "C": 1.0,
+      "class_weight": null,
+      "val_macro_f1": 0.6826016970889377,
+      "fit_seconds": 2.65
+    },
+    {
+      "features": "word",
+      "C": 1.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.714732461783523,
+      "fit_seconds": 2.93
+    },
+    {
+      "features": "word",
+      "C": 2.0,
+      "class_weight": null,
+      "val_macro_f1": 0.7004141856899256,
+      "fit_seconds": 4.08
+    },
+    {
+      "features": "word",
+      "C": 2.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7199562729537846,
+      "fit_seconds": 2.84
+    },
+    {
+      "features": "word",
+      "C": 4.0,
+      "class_weight": null,
+      "val_macro_f1": 0.7074881445959177,
+      "fit_seconds": 3.73
+    },
+    {
+      "features": "word",
+      "C": 4.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7187979839067432,
+      "fit_seconds": 3.83
+    },
+    {
+      "features": "word",
+      "C": 8.0,
+      "class_weight": null,
+      "val_macro_f1": 0.6982037093341441,
+      "fit_seconds": 4.1
+    },
+    {
+      "features": "word",
+      "C": 8.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7230683897863188,
+      "fit_seconds": 1.73
+    },
+    {
+      "features": "word",
+      "C": 16.0,
+      "class_weight": null,
+      "val_macro_f1": 0.7036570401350275,
+      "fit_seconds": 5.66
+    },
+    {
+      "features": "word",
+      "C": 16.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7159147631667739,
+      "fit_seconds": 3.46
+    },
+    {
+      "features": "word+char",
+      "C": 0.5,
+      "class_weight": null,
+      "val_macro_f1": 0.6815523150330236,
+      "fit_seconds": 5.62
+    },
+    {
+      "features": "word+char",
+      "C": 0.5,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7374381461138834,
+      "fit_seconds": 6.04
+    },
+    {
+      "features": "word+char",
+      "C": 1.0,
+      "class_weight": null,
+      "val_macro_f1": 0.7146686159844055,
+      "fit_seconds": 6.93
+    },
+    {
+      "features": "word+char",
+      "C": 1.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7429773531335502,
+      "fit_seconds": 6.23
+    },
+    {
+      "features": "word+char",
+      "C": 2.0,
+      "class_weight": null,
+      "val_macro_f1": 0.7207988322538202,
+      "fit_seconds": 7.35
+    },
+    {
+      "features": "word+char",
+      "C": 2.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7554448018293988,
+      "fit_seconds": 6.88
+    },
+    {
+      "features": "word+char",
+      "C": 4.0,
+      "class_weight": null,
+      "val_macro_f1": 0.729162662633509,
+      "fit_seconds": 6.63
+    },
+    {
+      "features": "word+char",
+      "C": 4.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7518377047788812,
+      "fit_seconds": 8.63
+    },
+    {
+      "features": "word+char",
+      "C": 8.0,
+      "class_weight": null,
+      "val_macro_f1": 0.7310030421904578,
+      "fit_seconds": 7.62
+    },
+    {
+      "features": "word+char",
+      "C": 8.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7580019140213695,
+      "fit_seconds": 4.57
+    },
+    {
+      "features": "word+char",
+      "C": 16.0,
+      "class_weight": null,
+      "val_macro_f1": 0.742108546382719,
+      "fit_seconds": 8.63
+    },
+    {
+      "features": "word+char",
+      "C": 16.0,
+      "class_weight": "balanced",
+      "val_macro_f1": 0.7449493425442825,
+      "fit_seconds": 7.57
+    }
+  ]
+}

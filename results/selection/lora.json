@@ -1,0 +1,54 @@
+{
+  "grid": {
+    "lr": [
+      0.0001,
+      0.0002
+    ],
+    "weighting": [
+      "none",
+      "balanced"
+    ]
+  },
+  "candidates": [
+    {
+      "run": "lr1e-4-none-s0",
+      "lr": 0.0001,
+      "weighting": "none",
+      "dev_macro_f1": 0.885886314795854,
+      "step": 528
+    },
+    {
+      "run": "lr1e-4-balanced-s0",
+      "lr": 0.0001,
+      "weighting": "balanced",
+      "dev_macro_f1": 0.8748059430411015,
+      "step": 528
+    },
+    {
+      "run": "lr2e-4-none-s0",
+      "lr": 0.0002,
+      "weighting": "none",
+      "dev_macro_f1": 0.8829163200209148,
+      "step": 530
+    },
+    {
+      "run": "lr2e-4-balanced-s0",
+      "lr": 0.0002,
+      "weighting": "balanced",
+      "dev_macro_f1": 0.8751703397254881,
+      "step": 530
+    }
+  ],
+  "chosen": {
+    "run": "lr1e-4-none-s0",
+    "lr": 0.0001,
+    "weighting": "none",
+    "dev_macro_f1": 0.885886314795854,
+    "step": 528
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ]
+}

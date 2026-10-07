@@ -1,0 +1,88 @@
+{
+  "config": {
+    "name": "lr1e-4-balanced-s0",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "seed": 0,
+    "lr": 0.0001,
+    "weighting": "balanced",
+    "epochs": 2.0,
+    "batch_size": 8,
+    "grad_accum": 4,
+    "evals_per_epoch": 2,
+    "warmup_ratio": 0.05,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "max_grad_norm": 1.0,
+    "eval_batch_size": 16,
+    "device": "cuda"
+  },
+  "class_weights": [
+    2.206833600997925,
+    1.6435508728027344,
+    0.515883207321167
+  ],
+  "total_steps": 530,
+  "evals": [
+    {
+      "step": 132,
+      "epoch": 0.498,
+      "train_loss": 0.7896988722777953,
+      "dev_macro_f1": 0.8296980106970487,
+      "dev_accuracy": 0.8629117959617428,
+      "elapsed_s": 313.4
+    },
+    {
+      "step": 264,
+      "epoch": 0.996,
+      "train_loss": 0.34452752068384807,
+      "dev_macro_f1": 0.8367801786228752,
+      "dev_accuracy": 0.8554729011689692,
+      "elapsed_s": 626.1
+    },
+    {
+      "step": 396,
+      "epoch": 1.494,
+      "train_loss": 0.22798944903385363,
+      "dev_macro_f1": 0.8718810459060796,
+      "dev_accuracy": 0.8937300743889479,
+      "elapsed_s": 938.4
+    },
+    {
+      "step": 528,
+      "epoch": 1.992,
+      "train_loss": 0.2240466004076359,
+      "dev_macro_f1": 0.8748059430411015,
+      "dev_accuracy": 0.8969181721572795,
+      "elapsed_s": 1250.0
+    },
+    {
+      "step": 530,
+      "epoch": 2.0,
+      "train_loss": 0.3801334413389365,
+      "dev_macro_f1": 0.8741658027767462,
+      "dev_accuracy": 0.8969181721572795,
+      "elapsed_s": 1309.4
+    }
+  ],
+  "best": {
+    "step": 528,
+    "epoch": 1.992,
+    "train_loss": 0.2240466004076359,
+    "dev_macro_f1": 0.8748059430411015,
+    "dev_accuracy": 0.8969181721572795,
+    "elapsed_s": 1250.0
+  },
+  "done": true,
+  "seconds": 1309.4,
+  "peak_vram_gib": 3.957
+}

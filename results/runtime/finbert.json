@@ -1,0 +1,20 @@
+{
+  "val": {
+    "items": 941,
+    "seconds": 1.849,
+    "ms_per_item": 1.965,
+    "batch_size": 64,
+    "model_id": "ProsusAI/finbert",
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 0.586
+  },
+  "test": {
+    "items": 2388,
+    "seconds": 3.447,
+    "ms_per_item": 1.443,
+    "batch_size": 64,
+    "model_id": "ProsusAI/finbert",
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 0.586
+  }
+}

@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bbg"
+version = "0.1.0"
+description = "Bulls, bears and gamblers: market sentiment and investor-suitability benchmarks for small LLMs"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Antoine David" }]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

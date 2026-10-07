@@ -1,0 +1,2 @@
+# LF everywhere, so shell scripts run in WSL even when the repo sits on the Windows drive
+* text=auto eol=lf

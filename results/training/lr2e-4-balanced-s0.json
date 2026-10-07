@@ -1,0 +1,88 @@
+{
+  "config": {
+    "name": "lr2e-4-balanced-s0",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "seed": 0,
+    "lr": 0.0002,
+    "weighting": "balanced",
+    "epochs": 2.0,
+    "batch_size": 8,
+    "grad_accum": 4,
+    "evals_per_epoch": 2,
+    "warmup_ratio": 0.05,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "max_grad_norm": 1.0,
+    "eval_batch_size": 16,
+    "device": "cuda"
+  },
+  "class_weights": [
+    2.206833600997925,
+    1.6435508728027344,
+    0.515883207321167
+  ],
+  "total_steps": 530,
+  "evals": [
+    {
+      "step": 132,
+      "epoch": 0.498,
+      "train_loss": 0.7407951807253994,
+      "dev_macro_f1": 0.8575242855027305,
+      "dev_accuracy": 0.8852284803400637,
+      "elapsed_s": 314.5
+    },
+    {
+      "step": 264,
+      "epoch": 0.996,
+      "train_loss": 0.33901092938895366,
+      "dev_macro_f1": 0.8194814442407156,
+      "dev_accuracy": 0.8384697130712009,
+      "elapsed_s": 631.5
+    },
+    {
+      "step": 396,
+      "epoch": 1.494,
+      "train_loss": 0.1969141936386243,
+      "dev_macro_f1": 0.8695489662388637,
+      "dev_accuracy": 0.8926673751328374,
+      "elapsed_s": 945.9
+    },
+    {
+      "step": 528,
+      "epoch": 1.992,
+      "train_loss": 0.17451079528820462,
+      "dev_macro_f1": 0.8741277090364976,
+      "dev_accuracy": 0.8969181721572795,
+      "elapsed_s": 1260.3
+    },
+    {
+      "step": 530,
+      "epoch": 2.0,
+      "train_loss": 0.25089365406893194,
+      "dev_macro_f1": 0.8751703397254881,
+      "dev_accuracy": 0.89798087141339,
+      "elapsed_s": 1319.6
+    }
+  ],
+  "best": {
+    "step": 530,
+    "epoch": 2.0,
+    "train_loss": 0.25089365406893194,
+    "dev_macro_f1": 0.8751703397254881,
+    "dev_accuracy": 0.89798087141339,
+    "elapsed_s": 1319.6
+  },
+  "done": true,
+  "seconds": 1320.4,
+  "peak_vram_gib": 3.957
+}

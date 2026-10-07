@@ -1,0 +1,20 @@
+{
+  "val": {
+    "items": 941,
+    "seconds": 55.679,
+    "ms_per_item": 59.17,
+    "batch_size": 16,
+    "training_run": "lr1e-4-none-s2",
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 3.777
+  },
+  "test": {
+    "items": 2388,
+    "seconds": 137.872,
+    "ms_per_item": 57.735,
+    "batch_size": 16,
+    "training_run": "lr1e-4-none-s2",
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 3.785
+  }
+}

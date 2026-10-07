@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Secrets
+.env
+.env.*
+
+# Heavy artifacts: model weights and training checkpoints never go to git
+*.gguf
+*.safetensors
+*.bin
+checkpoints/
+outputs/
+models/
+wandb/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

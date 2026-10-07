@@ -1,0 +1,57 @@
+{
+  "source": {
+    "hub": "zeroshot/twitter-financial-news-sentiment",
+    "hub_splits": {
+      "train": "train",
+      "test": "validation"
+    },
+    "revision": "ccbe24de388e287beb92dd393a335c376b350ac3"
+  },
+  "seed": 42,
+  "val_fraction": 0.1,
+  "labels": {
+    "0": "bearish",
+    "1": "bullish",
+    "2": "neutral"
+  },
+  "files": {
+    "train": {
+      "file": "train.parquet",
+      "sha256": "a11626e76e21f342a92316479e982851e0beeb45e82ce10f2338e90bc8c267bf"
+    },
+    "val": {
+      "file": "val.parquet",
+      "sha256": "f1517950b4299c9c58c650adf65c4131c87071049fefc44f307dcbf701bcaa07"
+    },
+    "test": {
+      "file": "test.parquet",
+      "sha256": "82458516868b2252bcbd60833327ca78a34b25e0cc09eb4894c9950ef4b14193"
+    }
+  },
+  "report": {
+    "removed_train_test_overlap": 69,
+    "removed_train_duplicates": 72,
+    "conflicting_label_groups_in_train": 2,
+    "duplicate_texts_inside_test": 11,
+    "counts": {
+      "train": {
+        "bearish": 1278,
+        "bullish": 1716,
+        "neutral": 5467,
+        "total": 8461
+      },
+      "val": {
+        "bearish": 142,
+        "bullish": 191,
+        "neutral": 608,
+        "total": 941
+      },
+      "test": {
+        "bearish": 347,
+        "bullish": 475,
+        "neutral": 1566,
+        "total": 2388
+      }
+    }
+  }
+}

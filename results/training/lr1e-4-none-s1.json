@@ -1,0 +1,88 @@
+{
+  "config": {
+    "name": "lr1e-4-none-s1",
+    "model_id": "Qwen/Qwen3-1.7B",
+    "seed": 1,
+    "lr": 0.0001,
+    "weighting": "none",
+    "epochs": 2.0,
+    "batch_size": 8,
+    "grad_accum": 4,
+    "evals_per_epoch": 2,
+    "warmup_ratio": 0.05,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "max_grad_norm": 1.0,
+    "eval_batch_size": 16,
+    "device": "cuda"
+  },
+  "class_weights": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "total_steps": 530,
+  "evals": [
+    {
+      "step": 132,
+      "epoch": 0.498,
+      "train_loss": 0.6089350955523487,
+      "dev_macro_f1": 0.8024913191317196,
+      "dev_accuracy": 0.824654622741764,
+      "elapsed_s": 311.7
+    },
+    {
+      "step": 264,
+      "epoch": 0.996,
+      "train_loss": 0.3268344953998387,
+      "dev_macro_f1": 0.8706128189865526,
+      "dev_accuracy": 0.89798087141339,
+      "elapsed_s": 626.5
+    },
+    {
+      "step": 396,
+      "epoch": 1.494,
+      "train_loss": 0.20298460680168537,
+      "dev_macro_f1": 0.8777195422924066,
+      "dev_accuracy": 0.8990435706695006,
+      "elapsed_s": 939.1
+    },
+    {
+      "step": 528,
+      "epoch": 1.992,
+      "train_loss": 0.19285985063558628,
+      "dev_macro_f1": 0.8797916078171623,
+      "dev_accuracy": 0.9054197662061636,
+      "elapsed_s": 1252.1
+    },
+    {
+      "step": 530,
+      "epoch": 2.0,
+      "train_loss": 0.1879147719591856,
+      "dev_macro_f1": 0.8792555106388024,
+      "dev_accuracy": 0.9054197662061636,
+      "elapsed_s": 1312.1
+    }
+  ],
+  "best": {
+    "step": 528,
+    "epoch": 1.992,
+    "train_loss": 0.19285985063558628,
+    "dev_macro_f1": 0.8797916078171623,
+    "dev_accuracy": 0.9054197662061636,
+    "elapsed_s": 1252.1
+  },
+  "done": true,
+  "seconds": 1312.1,
+  "peak_vram_gib": 3.956
+}
