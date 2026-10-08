@@ -44,8 +44,8 @@ PROFILES = [("cautious", "Cautious"), ("neutral", "Neutral"), ("gambler", "Gambl
             ("chasing", "Chasing losses")]
 
 
-def style(ax, t, grid_axis):
-    ax.set_facecolor(t["card"])
+def style(ax, t, grid_axis, face="bg"):
+    ax.set_facecolor(t[face])
     for side in ("top", "right", "left"):
         ax.spines[side].set_visible(False)
     ax.spines["bottom"].set_color(t["grid"])
@@ -73,6 +73,7 @@ def part1(test: dict, t: dict, out: Path) -> None:
     models = test["models"]
     order = sorted(PART1_NAMES, key=lambda k: models[k]["macro_f1"])
     y = range(len(order))
+    h = 0.62
     fig = plt.figure(figsize=(10.4, 4.8), facecolor=t["bg"])
     header(fig, f"Market sentiment on {test['n']:,} held-out tweets",
            "Blue: fine-tuned on the laptop GPU (three seeds). Grey: baselines.", t)
@@ -84,36 +85,34 @@ def part1(test: dict, t: dict, out: Path) -> None:
         m = models[k]
         c = t["ours"] if "lora" in k else t["baseline"]
         lo, hi = m["macro_f1_ci95"]
-        a1.plot([lo, hi], [i, i], color=c, linewidth=2, solid_capstyle="round")
-        a1.scatter([m["macro_f1"]], [i], s=60, color=c, edgecolors=t["card"], linewidths=2, zorder=3)
-        a1.text(hi + 0.012, i, f"{m['macro_f1']:.3f}", va="center", fontsize=9, color=t["ink"])
-        a2.barh(i, m["direction_errors"], height=0.5, color=c)
+        a1.barh(i, m["macro_f1"], height=h, color=c)
+        a1.plot([lo, hi], [i, i], color=t["ink"], linewidth=1.5, solid_capstyle="butt", zorder=3)
+        for x in (lo, hi):
+            a1.plot([x, x], [i - 0.12, i + 0.12], color=t["ink"], linewidth=1.5, zorder=3)
+        a1.text(hi + 0.015, i, f"{m['macro_f1']:.3f}", va="center", fontsize=9, color=t["ink"])
+        a2.barh(i, m["direction_errors"], height=h, color=c)
         a2.text(m["direction_errors"] + 2, i, str(m["direction_errors"]), va="center", fontsize=9,
                 color=t["ink"])
     a1.set_yticks(list(y), [PART1_NAMES[k] for k in order], color=t["ink"], fontsize=9.5)
     a1.set_ylim(-0.6, len(order) - 0.4)
-    a1.set_xlim(0.2, 1.0)
-    a1.set_xlabel("with 95% bootstrap interval", color=t["ink2"], fontsize=9)
+    a1.set_xlim(0, 1.04)
+    a1.set_xticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
+    a1.set_xlabel("error bars: 95% bootstrap interval", color=t["ink2"], fontsize=9)
     a2.tick_params(axis="y", left=False, labelleft=False)
     a2.set_xlim(0, 85)
     a2.set_xlabel("bullish read as bearish, or the reverse", color=t["ink2"], fontsize=9)
-    style(a1, t, "x")
-    style(a2, t, "x")
+    style(a1, t, "x", face="card")
+    style(a2, t, "x", face="card")
     fig.savefig(out, facecolor=t["bg"])
     plt.close(fig)
 
 
 def part2(ans: pd.DataFrame, t: dict, out: Path) -> None:
     means = ans.groupby(["request", "model", "profile"])["risky_allocation_pct"].mean()
-    fig = plt.figure(figsize=(9.6, 4.6), facecolor=t["bg"])
-    header(fig, "Advice to a client with €20,000 of savings",
-           "Each bar: mean of 30 answers (2 situations x 3 phrasings x 5 seeds).", t)
-    card(fig, 0.008, 0.512, "Open question", t)
-    card(fig, 0.532, 0.992, "Client pushes for confirmation", t)
-    a_open = fig.add_axes((0.095, 0.115, 0.4, 0.58))
-    a_push = fig.add_axes((0.572, 0.115, 0.4, 0.58), sharey=a_open)
+    fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.0), sharey=True, facecolor=t["bg"])
+    titles = {"open": "Open question", "push": "Client pushes for confirmation"}
     w = 0.36
-    for ax, req in ((a_open, "open"), (a_push, "push")):
+    for ax, req in zip(axes, ("open", "push")):
         for j, (model, color, label) in enumerate((("base", t["base"], "Base model"),
                                                    ("abliterated", t["abl"], "Abliterated model"))):
             xs = [p + (j - 0.5) * (w + 0.02) for p in range(len(PROFILES))]
@@ -122,13 +121,18 @@ def part2(ans: pd.DataFrame, t: dict, out: Path) -> None:
             for x, v in zip(xs, vals):
                 ax.text(x, v + 1.5, f"{v:.0f}", ha="center", fontsize=8.5, color=t["ink"])
         ax.set_xticks(range(len(PROFILES)), [n for _, n in PROFILES], color=t["ink"], fontsize=9.5)
+        ax.set_title(titles[req], color=t["ink"], fontsize=10.5, loc="left")
         ax.set_ylim(0, 100)
         style(ax, t, "y")
-    a_open.set_ylabel("Mean share of savings in high-risk products (%)", color=t["ink2"], fontsize=9)
-    a_push.tick_params(axis="y", labelleft=True)
-    leg = a_push.legend(frameon=False, fontsize=9, loc="upper left")
+    axes[0].set_ylabel("Mean share of savings in high-risk products (%)", color=t["ink2"], fontsize=9)
+    leg = axes[1].legend(frameon=False, fontsize=9, loc="upper left")
     for txt in leg.get_texts():
         txt.set_color(t["ink"])
+    fig.text(0.01, 0.955, "Advice to a client with €20,000 of savings", color=t["ink"],
+             fontsize=12.5, fontweight="semibold")
+    fig.text(0.01, 0.895, "Each bar: mean of 30 answers (2 situations x 3 phrasings x 5 seeds).",
+             color=t["ink2"], fontsize=9.5)
+    fig.subplots_adjust(left=0.075, right=0.99, top=0.78, bottom=0.09, wspace=0.05)
     fig.savefig(out, facecolor=t["bg"])
     plt.close(fig)
 
