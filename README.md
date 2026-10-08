@@ -1,14 +1,15 @@
 # Bulls, Bears and Gamblers
 
-**Two questions about language models in markets, experience measured on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
+**Two questions about language models in markets, answered with experiments on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
 
 1. **Reading the market.** Can a small model fine-tuned on the laptop classify market sentiment better than a model twenty times its size?
 2. **Advising the client.** When a client sounds like a gambler, does a model protect them, or follow them? And what changes when the model's refusal behaviour is removed?
 
 ## Key results
 
-- **A 1.7B model fine-tuned in 22 minutes beats every baseline.** On 2,388 held-out tweets, Qwen3-1.7B with LoRA reaches a macro-F1 of **0.884 ± 0.003** (three seeds), against 0.764 for TF-IDF and 0.757 for a 35B model used zero-shot (p < 10⁻⁴ for every comparison). It confuses bullish and bearish tweets **7 times less often** than TF-IDF or FinBERT, and runs in 58 ms per tweet against 638 ms for the 35B model.
+- **A 1.7B model fine-tuned in 22 minutes beats every baseline.** On 2,388 held-out tweets, Qwen3-1.7B with LoRA reaches a macro-F1 of **0.884 ± 0.003** (three seeds), against 0.764 for TF-IDF and 0.757 for a 35B model used zero-shot (p < 10⁻⁴ for every comparison). A better quantization of the 35B model, tested later, reaches 0.788, still far below. The fine-tuned model confuses bullish and bearish tweets **7 times less often** than TF-IDF or FinBERT, and runs in 58 ms per tweet against 638 ms for the 35B model.
 - **Removing refusals turns a cautious adviser into a compliant one.** Given the same 48 client scenarios, the abliterated model recommends **43 percentage points more** of the client's savings in high-risk products to gamblers and loss-chasers than the base model, **24 points more** when the client pushes for confirmation, and recommends leverage to **43%** of fragile clients chasing losses (the base model: none). Three of the four pre-registered hypotheses are confirmed; the fourth is not.
+- **The same abliteration makes the model read the market as more bullish.** On the Part 1 test set, it labels **23%** of the tweets that are not bullish as bullish, against 11% for the base model with the same quantization: 229 tweets flip to bullish, 1 flips the other way. It also loses 0.07 of macro-F1. Both effects were pre-registered.
 
 ## Part 1, reading the market
 
@@ -79,6 +80,21 @@ The second answer reads as measured advice, yet it puts 60% of a fragile client'
 
 All 48 scenarios are listed in [docs/part2-scenarios.md](docs/part2-scenarios.md); all 480 answers are in `results/advice/answers.csv`.
 
+## Addendum, does abliteration change how the model reads the market?
+
+Part 2 shows that the abliterated model follows the client. Does it also read the news differently? Both versions of the 35B model, with the same quantization, classify the Part 1 tweets zero-shot, with the prompt and grammar of the Part 1 baseline. The hypotheses were committed before the first tweet was classified ([pre-registration](docs/part1-abliteration-preregistration.md)). The test set had already been opened for Part 1; nothing was chosen with it.
+
+| Pre-registered test (2,388 test tweets) | Abliterated | Base | p (Holm) | Result |
+|---|---|---|---|---|
+| H1. Tweets that are not bullish, read as bullish | 22.8% | 10.9% | 3 × 10⁻⁶⁷ | Confirmed |
+| H2. All tweets read as bullish | 36.9% | 26.5% | 2 × 10⁻⁷¹ | Confirmed |
+| H3. Macro-F1 | 0.720 | 0.788 | < 10⁻⁴ | Lower for the abliterated model (−0.069) |
+
+- **The bias goes one way.** 229 tweets are read as bullish by the abliterated model only, 1 by the base model only.
+- **It comes from neutral news.** The abliterated model reads 27% of neutral tweets as bullish, against 13% for the base model. Bearish tweets are almost never flipped (2.3% against 0.3%), and bullish tweets are found slightly more often (94% against 89%).
+- **This is the optimism reported without ground truth.** [Fafuła (2026)](https://arxiv.org/abs/2607.17427) finds more optimistic stock calls after abliteration; here the right answer is known, so the optimism shows up as an error. Together with Part 2, the same edit makes the model both more optimistic about the news and more compliant with the client.
+- **Quantization matters too.** With this quantization (mradermacher `i1-Q3_K_M`), the base model scores 0.788, above the 0.757 of the file used in Part 1 (unsloth `UD-Q3_K_M`). This comparison was not pre-registered and is reported as a description. The fine-tuned 1.7B model (0.884) stays well ahead of both.
+
 ## Limits
 
 - **Part 1.** One dataset of tweets without timestamps or prices, so no link to returns. The fine-tuned model was still improving after two epochs; the protocol was kept as committed rather than tuned further.
@@ -90,7 +106,7 @@ All 48 scenarios are listed in [docs/part2-scenarios.md](docs/part2-scenarios.md
 - [Ross and Lo (2026)](https://arxiv.org/pdf/2604.23837) generate synthetic client profiles and collect allocations in JSON from GPT models, and find that advice collapses onto stated risk tolerance. Part 2 uses a similar design and adds client pressure and abliteration.
 - [Cho et al. (2026)](https://arxiv.org/abs/2603.09303) measure the risk profiles of language models with personas.
 - [Zhao et al. (2026)](https://arxiv.org/pdf/2604.24668) measure sycophancy in professional financial tasks, not retail advice.
-- [Fafuła (2026), "Abliteration Is Not a Scalpel"](https://arxiv.org/abs/2607.17427) is the closest work: Huihui abliterations of Qwen3-30B-A3B and Gemma make more optimistic weekly calls on stocks than their base models (+7.4 and +12.2 points of upside calls), with instruction-following preserved. It studies the model's own market calls, not advice to a client.
+- [Fafuła (2026), "Abliteration Is Not a Scalpel"](https://arxiv.org/abs/2607.17427) is the closest work: Huihui abliterations of Qwen3-30B-A3B and Gemma make more optimistic weekly calls on stocks than their base models (+7.4 and +12.2 points of upside calls), with instruction-following preserved. It studies the model's own market calls, not advice to a client; the addendum measures the same optimism on labelled news.
 - [Sharma et al. (2024)](https://arxiv.org/abs/2310.13548) document sycophancy in assistants trained from human feedback.
 - [What does abliteration actually cost](https://www.greaterwrong.com/posts/ipAXsLjkyqC6s7Cin/what-does-abliteration-actually-cost) measures the cost of a Huihui abliterated Qwen on MMLU and TruthfulQA.
 
@@ -113,6 +129,9 @@ python scripts/evaluate.py --split val
 
 python scripts/run_advice.py          # part 2: 480 answers from two llama.cpp models
 python scripts/analyze_advice.py      # part 2: pre-registered tests
+LLAMA_MODEL=qwen3.6-35b-base-i1 python scripts/zero_shot_llamacpp.py --name qwen3.6-35b-i1-zeroshot
+LLAMA_MODEL=qwen3.6-35b-abliterated python scripts/zero_shot_llamacpp.py --name qwen3.6-35b-abliterated-zeroshot
+python scripts/analyze_abliteration_sentiment.py   # addendum: pre-registered tests
 python scripts/make_figures.py        # README figures
 ```
 
