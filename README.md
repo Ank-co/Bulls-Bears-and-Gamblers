@@ -32,7 +32,7 @@ Classify financial news tweets as **bullish**, **bearish** or **neutral** ([Twit
 
 - **Every seed beats every baseline.** Macro-F1 gap of +0.119 to +0.124 over TF-IDF and +0.125 to +0.130 over the 35B model, p (Holm) < 10⁻⁴, paired bootstrap and exact McNemar tests on the same tweets.
 - **No sign of overfitting the model selection.** Dev 0.883, test 0.884.
-- **The 35B model is only 3B active parameters per token** (mixture of experts). It is 20 times larger in memory and stored knowledge, not in computation.
+- **The 35B model is only 3B active parameters per token** (MoE). It is 20 times larger in memory and stored knowledge, not in computation.
 - **The baselines fail in opposite ways.** The small zero-shot model hides in "neutral" (it finds 23% of bullish tweets), while the 35B model and FinBERT see sentiment where there is none (they label 30% and 24% of neutral tweets as bullish or bearish).
 
 **Protocol**
