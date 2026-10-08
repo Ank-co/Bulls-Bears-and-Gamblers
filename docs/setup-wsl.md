@@ -36,6 +36,16 @@ export LLAMA_API_KEY="..."        # the key given to llama-server, never committ
 curl -s -H "Authorization: Bearer $LLAMA_API_KEY" "${LLAMA_URL%/chat/completions}/models"
 ```
 
+`0.0.0.0` means the server also listens on the Wi-Fi and Ethernet adapters, so other devices on
+the same network can reach it. The API key protects it, but it is safer to close the port to the
+network (PowerShell as administrator). WSL goes through a virtual adapter, which this rule does not
+touch:
+
+```powershell
+$phys = (Get-NetAdapter -Physical).Name
+New-NetFirewallRule -DisplayName "Block llama-server from network" -Direction Inbound -Protocol TCP -LocalPort 8080 -Action Block -InterfaceAlias $phys
+```
+
 If the request times out (Windows firewall), use mirrored networking instead: create
 `%UserProfile%\.wslconfig` with
 
