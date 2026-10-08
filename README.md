@@ -42,6 +42,8 @@ Classify financial news tweets as **bullish**, **bearish** or **neutral** ([Twit
 - **Fine-tuning.** LoRA (r = 16) on all linear layers, trained by minimizing minus the log-probability of the gold answer, computed by the same function that scores answers at evaluation. Learning rate and class weighting are chosen on the dev set by code (four runs), then the chosen configuration is trained with three seeds, which also control the adapter initialization.
 - **The test set was opened once, after the protocol was committed** (see the git history: `Protocol frozen before test evaluation`, then `Test set evaluated once`).
 
+  
+
 ## Part 2, advising the client
 
 <picture>
