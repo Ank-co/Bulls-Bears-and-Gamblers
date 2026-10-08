@@ -3,8 +3,6 @@ aiohttp==3.14.4
 aiosignal==1.4.0
 anyio==4.15.1
 attrs==26.1.0
-# Editable install with no version control (bbg==0.1.0)
--e /mnt/c/Users/David/Documents/bulls-bears-and-gamblers
 click==8.5.0
 cloudpickle==3.1.2
 cuda-bindings==12.9.7

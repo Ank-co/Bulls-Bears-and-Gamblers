@@ -1,0 +1,578 @@
+{
+  "news": {
+    "columns": [
+      "Date",
+      "Article_title",
+      "Stock_symbol",
+      "Url",
+      "Publisher",
+      "Author",
+      "Article",
+      "Lsa_summary",
+      "Luhn_summary",
+      "Textrank_summary",
+      "Lexrank_summary"
+    ],
+    "used_columns": [
+      "Date",
+      "Article_title",
+      "Stock_symbol",
+      "Publisher",
+      "Url"
+    ],
+    "examples": [
+      {
+        "Date": "2020-06-05 06:30:54 UTC",
+        "Article_title": "Stocks That Hit 52-Week Highs On Friday",
+        "Stock_symbol": "A",
+        "Publisher": "Benzinga Insights",
+        "Url": "https://www.benzinga.com/news/20/06/16190091/stocks-that-hit-52-week-highs-on-friday"
+      },
+      {
+        "Date": "2020-06-03 06:45:20 UTC",
+        "Article_title": "Stocks That Hit 52-Week Highs On Wednesday",
+        "Stock_symbol": "A",
+        "Publisher": "Benzinga Insights",
+        "Url": "https://www.benzinga.com/news/20/06/16170189/stocks-that-hit-52-week-highs-on-wednesday"
+      },
+      {
+        "Date": "2020-05-26 00:30:07 UTC",
+        "Article_title": "71 Biggest Movers From Friday",
+        "Stock_symbol": "A",
+        "Publisher": "Lisa Levin",
+        "Url": "https://www.benzinga.com/news/20/05/16103463/71-biggest-movers-from-friday"
+      },
+      {
+        "Date": "2020-05-22 08:45:06 UTC",
+        "Article_title": "46 Stocks Moving In Friday's Mid-Day Session",
+        "Stock_symbol": "A",
+        "Publisher": "Lisa Levin",
+        "Url": "https://www.benzinga.com/news/20/05/16095921/46-stocks-moving-in-fridays-mid-day-session"
+      },
+      {
+        "Date": "2020-05-22 07:38:59 UTC",
+        "Article_title": "B of A Securities Maintains Neutral on Agilent Technologies, Raises Price Target to $88",
+        "Stock_symbol": "A",
+        "Publisher": "Vick Meyer",
+        "Url": "https://www.benzinga.com/news/20/05/16095304/b-of-a-securities-maintains-neutral-on-agilent-technologies-raises-price-target-to-88"
+      }
+    ],
+    "rows": 13057514,
+    "unparsed_dates": 0,
+    "missing_titles": 1,
+    "rows_per_year": {
+      "1969": 1,
+      "2009": 11489,
+      "2010": 94198,
+      "2011": 177982,
+      "2012": 234050,
+      "2013": 212044,
+      "2014": 245022,
+      "2015": 417215,
+      "2016": 374937,
+      "2017": 285913,
+      "2018": 479525,
+      "2019": 518954,
+      "2020": 201557
+    },
+    "top_publishers": [
+      [
+        "Seeking Alpha",
+        897219
+      ],
+      [
+        "Zacks",
+        457497
+      ],
+      [
+        "Paul Quintaro",
+        228373
+      ],
+      [
+        "GuruFocus",
+        212433
+      ],
+      [
+        "Lisa Levin",
+        186979
+      ],
+      [
+        "Benzinga Newsdesk",
+        150484
+      ],
+      [
+        "Investor's Business Daily",
+        135194
+      ],
+      [
+        "Charles Gross",
+        96732
+      ],
+      [
+        "Monica Gerson",
+        82380
+      ],
+      [
+        "webmaster",
+        79982
+      ],
+      [
+        "Eddie Staley",
+        57254
+      ],
+      [
+        "Hal Lindon",
+        49047
+      ],
+      [
+        "ETF Professor",
+        28489
+      ],
+      [
+        "Juan Lopez",
+        28438
+      ],
+      [
+        "Benzinga Staff",
+        28114
+      ]
+    ],
+    "since_2015": {
+      "rows": 2278101,
+      "hour_et_histogram": {
+        "0": 5634,
+        "1": 5506,
+        "2": 8741,
+        "3": 4610,
+        "4": 4895,
+        "5": 1864,
+        "6": 1739,
+        "7": 1092,
+        "8": 4488,
+        "9": 1664,
+        "10": 244,
+        "11": 98,
+        "12": 69,
+        "13": 30,
+        "14": 11,
+        "15": 42,
+        "16": 23,
+        "17": 5,
+        "18": 9,
+        "19": 825138,
+        "20": 1403326,
+        "21": 1603,
+        "22": 2445,
+        "23": 4825
+      },
+      "timestamps_exactly_midnight_utc": {
+        "other": 51611,
+        "00:00:00 UTC": 2226490
+      },
+      "distinct_tickers": 6576,
+      "headline_days": 1170361,
+      "headline_days_with_one_ticker": 871516,
+      "duplicate_rows_same_title_day_ticker": 13757
+    }
+  },
+  "prices": {
+    "files": 15386,
+    "example_names": [
+      "full_history/RIV.csv",
+      "__MACOSX/full_history/._RIV.csv",
+      "full_history/ANTE.csv",
+      "__MACOSX/full_history/._ANTE.csv",
+      "full_history/CSCO.csv"
+    ],
+    "probes": {
+      "AAPL": {
+        "columns": [
+          "date",
+          "open",
+          "high",
+          "low",
+          "close",
+          "adj close",
+          "volume"
+        ],
+        "rows": 10852,
+        "head": [
+          {
+            "date": "2023-12-28",
+            "open": "194.13999938964844",
+            "high": "194.6600036621093",
+            "low": "193.1699981689453",
+            "close": "193.5800018310547",
+            "adj close": "193.5800018310547",
+            "volume": "34014500"
+          },
+          {
+            "date": "2023-12-27",
+            "open": "192.4900054931641",
+            "high": "193.5",
+            "low": "191.08999633789065",
+            "close": "193.1499938964844",
+            "adj close": "193.1499938964844",
+            "volume": "48087700"
+          },
+          {
+            "date": "2023-12-26",
+            "open": "193.6100006103516",
+            "high": "193.88999938964844",
+            "low": "192.8300018310547",
+            "close": "193.0500030517578",
+            "adj close": "193.0500030517578",
+            "volume": "28919300"
+          }
+        ],
+        "first": "1980-12-12",
+        "last": "2023-12-28",
+        "adj_close_over_close": {
+          "min": 0.7738231294315551,
+          "max": 1.0,
+          "distinct_rounded": 82
+        }
+      },
+      "MSFT": {
+        "columns": [
+          "date",
+          "volume",
+          "open",
+          "high",
+          "low",
+          "close",
+          "adj close"
+        ],
+        "rows": 9526,
+        "head": [
+          {
+            "date": "2023-12-28",
+            "volume": "14298000",
+            "open": "375.3699951171875",
+            "high": "376.4599914550781",
+            "low": "374.1600036621094",
+            "close": "375.2799987792969",
+            "adj close": "375.2799987792969"
+          },
+          {
+            "date": "2023-12-27",
+            "volume": "14905400",
+            "open": "373.6900024414063",
+            "high": "375.05999755859375",
+            "low": "372.80999755859375",
+            "close": "374.0700073242188",
+            "adj close": "374.0700073242188"
+          },
+          {
+            "date": "2023-12-26",
+            "volume": "12673100",
+            "open": "375.0",
+            "high": "376.9400024414063",
+            "low": "373.5",
+            "close": "374.6600036621094",
+            "adj close": "374.6600036621094"
+          }
+        ],
+        "first": "1986-03-13",
+        "last": "2023-12-28",
+        "adj_close_over_close": {
+          "min": 0.6398227096828315,
+          "max": 1.0,
+          "distinct_rounded": 81
+        }
+      },
+      "JPM": {
+        "columns": [
+          "date",
+          "volume",
+          "open",
+          "high",
+          "low",
+          "close",
+          "adj close"
+        ],
+        "rows": 11040,
+        "head": [
+          {
+            "date": "2023-12-28",
+            "volume": "6309900",
+            "open": "169.35000610351562",
+            "high": "170.66000366210938",
+            "low": "169.0",
+            "close": "170.3000030517578",
+            "adj close": "170.3000030517578"
+          },
+          {
+            "date": "2023-12-27",
+            "volume": "6428600",
+            "open": "167.83999633789062",
+            "high": "169.47000122070312",
+            "low": "167.5800018310547",
+            "close": "169.39999389648438",
+            "adj close": "169.39999389648438"
+          },
+          {
+            "date": "2023-12-26",
+            "volume": "4683600",
+            "open": "167.4600067138672",
+            "high": "168.77000427246094",
+            "low": "167.17999267578125",
+            "close": "168.38999938964844",
+            "adj close": "168.38999938964844"
+          }
+        ],
+        "first": "1980-03-17",
+        "last": "2023-12-28",
+        "adj_close_over_close": {
+          "min": 0.05713174300038535,
+          "max": 1.0,
+          "distinct_rounded": 165
+        }
+      },
+      "TSLA": {
+        "columns": [
+          "date",
+          "volume",
+          "open",
+          "high",
+          "low",
+          "close",
+          "adj close"
+        ],
+        "rows": 3399,
+        "head": [
+          {
+            "date": "2023-12-28",
+            "volume": "113157100",
+            "open": "263.6600036621094",
+            "high": "265.1300048828125",
+            "low": "252.7100067138672",
+            "close": "253.17999267578125",
+            "adj close": "253.17999267578125"
+          },
+          {
+            "date": "2023-12-27",
+            "volume": "106494400",
+            "open": "258.3500061035156",
+            "high": "263.3399963378906",
+            "low": "257.5199890136719",
+            "close": "261.44000244140625",
+            "adj close": "261.44000244140625"
+          },
+          {
+            "date": "2023-12-26",
+            "volume": "86892400",
+            "open": "254.4900054931641",
+            "high": "257.9700012207031",
+            "low": "252.9100036621093",
+            "close": "256.6099853515625",
+            "adj close": "256.6099853515625"
+          }
+        ],
+        "first": "2010-06-29",
+        "last": "2023-12-28",
+        "adj_close_over_close": {
+          "min": 1.0,
+          "max": 1.0,
+          "distinct_rounded": 1
+        }
+      },
+      "SPY": {
+        "columns": [
+          "date",
+          "volume",
+          "open",
+          "high",
+          "low",
+          "close",
+          "adj close"
+        ],
+        "rows": 7785,
+        "head": [
+          {
+            "date": "2023-12-28",
+            "volume": "77106300",
+            "open": "476.8800048828125",
+            "high": "477.5499877929688",
+            "low": "476.260009765625",
+            "close": "476.6900024414063",
+            "adj close": "476.6900024414063"
+          },
+          {
+            "date": "2023-12-27",
+            "volume": "68000300",
+            "open": "475.4400024414063",
+            "high": "476.6600036621094",
+            "low": "474.8900146484375",
+            "close": "476.510009765625",
+            "adj close": "476.510009765625"
+          },
+          {
+            "date": "2023-12-26",
+            "volume": "55387000",
+            "open": "474.0700073242188",
+            "high": "476.5799865722656",
+            "low": "473.989990234375",
+            "close": "475.6499938964844",
+            "adj close": "475.6499938964844"
+          }
+        ],
+        "first": "1993-01-29",
+        "last": "2023-12-28",
+        "adj_close_over_close": {
+          "min": 0.5653637379386458,
+          "max": 1.0,
+          "distinct_rounded": 126
+        }
+      },
+      "IVV": {
+        "columns": [
+          "date",
+          "volume",
+          "open",
+          "high",
+          "low",
+          "close",
+          "adj close"
+        ],
+        "rows": 5062,
+        "head": [
+          {
+            "date": "2020-07-02",
+            "volume": "3488500",
+            "open": "315.489990234375",
+            "high": "316.9100036621094",
+            "low": "312.7200012207031",
+            "close": "313.45001220703125",
+            "adj close": "313.45001220703125"
+          },
+          {
+            "date": "2020-07-01",
+            "volume": "4022800",
+            "open": "310.739990234375",
+            "high": "313.0899963378906",
+            "low": "310.25",
+            "close": "311.8099975585937",
+            "adj close": "311.8099975585937"
+          },
+          {
+            "date": "2020-06-30",
+            "volume": "5475500",
+            "open": "305.17999267578125",
+            "high": "311.4100036621094",
+            "low": "305.04998779296875",
+            "close": "309.69000244140625",
+            "adj close": "309.69000244140625"
+          }
+        ],
+        "first": "2000-05-19",
+        "last": "2020-07-02",
+        "adj_close_over_close": {
+          "min": 0.680298816854563,
+          "max": 1.0,
+          "distinct_rounded": 85
+        }
+      },
+      "VOO": {
+        "columns": [
+          "date",
+          "volume",
+          "open",
+          "high",
+          "low",
+          "close",
+          "adj close"
+        ],
+        "rows": 3349,
+        "head": [
+          {
+            "date": "2023-12-28",
+            "volume": "4694400",
+            "open": "438.25",
+            "high": "438.8399963378906",
+            "low": "437.6600036621094",
+            "close": "437.9700012207031",
+            "adj close": "437.9700012207031"
+          },
+          {
+            "date": "2023-12-27",
+            "volume": "4271000",
+            "open": "436.8999938964844",
+            "high": "438.0199890136719",
+            "low": "436.4200134277344",
+            "close": "437.8999938964844",
+            "adj close": "437.8999938964844"
+          },
+          {
+            "date": "2023-12-26",
+            "volume": "3835800",
+            "open": "435.6700134277344",
+            "high": "437.9200134277344",
+            "low": "435.5799865722656",
+            "close": "437.1000061035156",
+            "adj close": "437.1000061035156"
+          }
+        ],
+        "first": "2010-09-09",
+        "last": "2023-12-28",
+        "adj_close_over_close": {
+          "min": 0.7771747383818887,
+          "max": 1.0,
+          "distinct_rounded": 55
+        }
+      },
+      "QQQ": {
+        "columns": [
+          "date",
+          "volume",
+          "open",
+          "high",
+          "low",
+          "close",
+          "adj close"
+        ],
+        "rows": 6243,
+        "head": [
+          {
+            "date": "2023-12-28",
+            "volume": "26956300",
+            "open": "412.6700134277344",
+            "high": "412.9200134277344",
+            "low": "410.9400024414063",
+            "close": "411.2999877929688",
+            "adj close": "411.2999877929688"
+          },
+          {
+            "date": "2023-12-27",
+            "volume": "31980500",
+            "open": "410.9500122070313",
+            "high": "411.7900085449219",
+            "low": "410.0799865722656",
+            "close": "411.5",
+            "adj close": "411.5"
+          },
+          {
+            "date": "2023-12-26",
+            "volume": "22722500",
+            "open": "409.25",
+            "high": "411.55999755859375",
+            "low": "409.1499938964844",
+            "close": "410.8800048828125",
+            "adj close": "410.66400146484375"
+          }
+        ],
+        "first": "1999-03-10",
+        "last": "2023-12-28",
+        "adj_close_over_close": {
+          "min": 0.8539526228583739,
+          "max": 1.0,
+          "distinct_rounded": 81
+        }
+      },
+      "^GSPC": null,
+      "GSPC": null
+    },
+    "news_tickers_with_prices": 4167,
+    "news_tickers": 6576
+  }
+}

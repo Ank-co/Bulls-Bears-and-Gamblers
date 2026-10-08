@@ -1,0 +1,16 @@
+{
+  "val": {
+    "items": 941,
+    "seconds": 633.018,
+    "ms_per_item": 672.707,
+    "server_model": "qwen3.6-35b-base-i1",
+    "note": "sequential requests, one tweet at a time"
+  },
+  "test": {
+    "items": 2388,
+    "seconds": 1605.431,
+    "ms_per_item": 672.291,
+    "server_model": "qwen3.6-35b-base-i1",
+    "note": "sequential requests, one tweet at a time"
+  }
+}

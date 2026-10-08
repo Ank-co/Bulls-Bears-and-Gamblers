@@ -31,7 +31,7 @@ pip install -q torch --index-url https://download.pytorch.org/whl/cu128
 echo "== Project dependencies"
 pip install -q -r requirements.txt
 pip install -q -e .
-pip freeze > requirements.lock.txt
+pip freeze --exclude-editable > requirements.lock.txt
 
 echo "== Unit tests"
 python -m pytest -q tests

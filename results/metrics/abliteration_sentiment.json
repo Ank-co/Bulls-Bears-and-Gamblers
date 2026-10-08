@@ -1,0 +1,143 @@
+{
+  "split": "test",
+  "n": 2388,
+  "base": "qwen3.6-35b-i1-zeroshot",
+  "abliterated": "qwen3.6-35b-abliterated-zeroshot",
+  "tests": {
+    "H1_false_optimism": {
+      "n": 1913,
+      "rate_a": 0.2284370099320439,
+      "rate_b": 0.10925248301097752,
+      "diff": 0.11918452692106639,
+      "a_only": 229,
+      "b_only": 1,
+      "p": 2.6775831900274823e-67,
+      "p_holm": 2.6775831900274823e-67,
+      "confirmed": true
+    },
+    "H2_bullish_share": {
+      "n": 2388,
+      "rate_a": 0.3693467336683417,
+      "rate_b": 0.26549413735343386,
+      "diff": 0.10385259631490784,
+      "a_only": 250,
+      "b_only": 2,
+      "p": 8.809997355771386e-72,
+      "p_holm": 1.7619994711542771e-71,
+      "confirmed": true
+    },
+    "H3_macro_f1": {
+      "diff": -0.0688372431816896,
+      "ci": [
+        -0.08099428912677246,
+        -0.05673701961291988
+      ],
+      "p": 0.0,
+      "p_holm": 0.0,
+      "confirmed": true
+    }
+  },
+  "models": {
+    "qwen3.6-35b-abliterated-zeroshot": {
+      "macro_f1": 0.7196131089887059,
+      "macro_f1_ci95": [
+        0.7008144608384348,
+        0.7385924932380655
+      ],
+      "predicted_share": {
+        "bearish": 0.21482412060301506,
+        "bullish": 0.3693467336683417,
+        "neutral": 0.4158291457286432
+      },
+      "predicted_share_by_gold": {
+        "bearish": {
+          "bearish": 0.9365994236311239,
+          "bullish": 0.023054755043227664,
+          "neutral": 0.040345821325648415
+        },
+        "bullish": {
+          "bearish": 0.014736842105263158,
+          "bullish": 0.9368421052631579,
+          "neutral": 0.04842105263157895
+        },
+        "neutral": {
+          "bearish": 0.11558109833971902,
+          "bullish": 0.2739463601532567,
+          "neutral": 0.6104725415070242
+        }
+      },
+      "bearish_read_as_bullish": 8,
+      "bullish_read_as_bearish": 7
+    },
+    "qwen3.6-35b-i1-zeroshot": {
+      "macro_f1": 0.7884503521703955,
+      "macro_f1_ci95": [
+        0.7705228794814843,
+        0.806140743782386
+      ],
+      "predicted_share": {
+        "bearish": 0.21482412060301506,
+        "bullish": 0.26549413735343386,
+        "neutral": 0.5196817420435511
+      },
+      "predicted_share_by_gold": {
+        "bearish": {
+          "bearish": 0.9394812680115274,
+          "bullish": 0.002881844380403458,
+          "neutral": 0.05763688760806916
+        },
+        "bullish": {
+          "bearish": 0.018947368421052633,
+          "bullish": 0.8947368421052632,
+          "neutral": 0.0863157894736842
+        },
+        "neutral": {
+          "bearish": 0.1136653895274585,
+          "bullish": 0.13282247765006386,
+          "neutral": 0.7535121328224776
+        }
+      },
+      "bearish_read_as_bullish": 1,
+      "bullish_read_as_bearish": 9
+    },
+    "qwen3.6-35b-a3b-zeroshot": {
+      "macro_f1": 0.7572787079188639,
+      "macro_f1_ci95": [
+        0.7384715371368994,
+        0.7757226175256771
+      ],
+      "predicted_share": {
+        "bearish": 0.22529313232830822,
+        "bullish": 0.29396984924623115,
+        "neutral": 0.4807370184254606
+      },
+      "predicted_share_by_gold": {
+        "bearish": {
+          "bearish": 0.9365994236311239,
+          "bullish": 0.011527377521613832,
+          "neutral": 0.05187319884726225
+        },
+        "bullish": {
+          "bearish": 0.02736842105263158,
+          "bullish": 0.9031578947368422,
+          "neutral": 0.06947368421052631
+        },
+        "neutral": {
+          "bearish": 0.1277139208173691,
+          "bullish": 0.17177522349936142,
+          "neutral": 0.7005108556832694
+        }
+      },
+      "bearish_read_as_bullish": 4,
+      "bullish_read_as_bearish": 13
+    }
+  },
+  "quantization": {
+    "diff": 0.031171644251531627,
+    "ci": [
+      0.020938900074212317,
+      0.04150472048943905
+    ],
+    "p": 0.0
+  }
+}
