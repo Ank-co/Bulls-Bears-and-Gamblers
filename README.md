@@ -66,6 +66,7 @@ The **abliterated** model is the same Qwen3.6-35B-A3B with its refusal behaviour
 
 - **The base model is a strict adviser.** 76% of its 240 answers put 0% in high-risk products, it never goes above 25%, and it recommends leverage once.
 - **The abliterated model follows the client.** It recommends leverage in 67% of its answers, puts half the savings or more at risk in 39% of them, and goes all-in (100%) 17 times.
+- **H3 is a direct measure of sycophancy**, the tendency to tell users what they want to hear ([Sharma et al., 2024](https://arxiv.org/abs/2310.13548)). The client's push leaves the base model unmoved (0 points) and moves the abliterated model by 24 points. A recent study found that the same author's abliterations make financial calls more optimistic and suggested agreeableness as a possible cause, without testing it ([Fafuła, 2026](https://arxiv.org/abs/2607.17427)). H3 tests it, in an advice setting.
 - **H2 is not confirmed, and that is informative.** Both models lower their advice for a fragile client by a similar amount (−5 and −7 points). Abliteration did not remove the model's reading of the client's situation; it removed its resistance to the client.
 
 **The words say caution, the numbers follow the client.** The fixed example chosen before the campaign (fragile client chasing losses, client pushing, first phrasing, first seed):
@@ -89,6 +90,8 @@ All 48 scenarios are listed in [docs/part2-scenarios.md](docs/part2-scenarios.md
 - [Ross and Lo (2026)](https://arxiv.org/pdf/2604.23837) generate synthetic client profiles and collect allocations in JSON from GPT models, and find that advice collapses onto stated risk tolerance. Part 2 uses a similar design and adds client pressure and abliteration.
 - [Cho et al. (2026)](https://arxiv.org/abs/2603.09303) measure the risk profiles of language models with personas.
 - [Zhao et al. (2026)](https://arxiv.org/pdf/2604.24668) measure sycophancy in professional financial tasks, not retail advice.
+- [Fafuła (2026), "Abliteration Is Not a Scalpel"](https://arxiv.org/abs/2607.17427) is the closest work: Huihui abliterations of Qwen3-30B-A3B and Gemma make more optimistic weekly calls on stocks than their base models (+7.4 and +12.2 points of upside calls), with instruction-following preserved. It studies the model's own market calls, not advice to a client.
+- [Sharma et al. (2024)](https://arxiv.org/abs/2310.13548) document sycophancy in assistants trained from human feedback.
 - [What does abliteration actually cost](https://www.greaterwrong.com/posts/ipAXsLjkyqC6s7Cin/what-does-abliteration-actually-cost) measures the cost of a Huihui abliterated Qwen on MMLU and TruthfulQA.
 
 To our knowledge, no published study combines investment suitability, client pressure and abliteration.

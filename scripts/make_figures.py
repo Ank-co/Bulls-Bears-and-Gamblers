@@ -57,8 +57,8 @@ def part1(test: dict, t: dict, out: Path) -> None:
     models = test["models"]
     order = sorted(PART1_NAMES, key=lambda k: models[k]["macro_f1"])
     y = range(len(order))
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.6, 4.0), sharey=True,
-                                 gridspec_kw={"width_ratios": [3, 1.3]}, facecolor=t["bg"])
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10.4, 4.4), sharey=True,
+                                 gridspec_kw={"width_ratios": [3, 1.45]}, facecolor=t["bg"])
     for i, k in zip(y, order):
         m = models[k]
         c = t["ours"] if "lora" in k else t["baseline"]
@@ -72,17 +72,19 @@ def part1(test: dict, t: dict, out: Path) -> None:
     a1.set_yticks(list(y), [PART1_NAMES[k] for k in order], color=t["ink"], fontsize=9.5)
     a1.set_ylim(-0.6, len(order) - 0.4)
     a1.set_xlim(0.2, 1.0)
-    a1.set_xlabel("Macro-F1 with 95% bootstrap interval", color=t["ink2"], fontsize=9)
+    a1.set_title("Macro-F1, higher is better", color=t["ink"], fontsize=10.5, loc="left", pad=10)
+    a1.set_xlabel("with 95% bootstrap interval", color=t["ink2"], fontsize=9)
     a2.tick_params(axis="y", left=False, labelleft=False)
     a2.set_xlim(0, 85)
-    a2.set_xlabel("Direction errors (bullish ↔ bearish)", color=t["ink2"], fontsize=9)
+    a2.set_title("Direction errors, lower is better", color=t["ink"], fontsize=10.5, loc="left", pad=10)
+    a2.set_xlabel("bullish read as bearish, or the reverse", color=t["ink2"], fontsize=9)
     style(a1, t, "x")
     style(a2, t, "x")
     fig.text(0.01, 0.955, f"Market sentiment on {test['n']:,} held-out tweets", color=t["ink"],
              fontsize=12.5, fontweight="semibold")
-    fig.text(0.01, 0.895, "Blue: fine-tuned on the laptop GPU (three seeds). Grey: baselines.",
+    fig.text(0.01, 0.9, "Blue: fine-tuned on the laptop GPU (three seeds). Grey: baselines.",
              color=t["ink2"], fontsize=9.5)
-    fig.subplots_adjust(left=0.25, right=0.985, top=0.84, bottom=0.13, wspace=0.06)
+    fig.subplots_adjust(left=0.23, right=0.985, top=0.78, bottom=0.12, wspace=0.16)
     fig.savefig(out, facecolor=t["bg"])
     plt.close(fig)
 
