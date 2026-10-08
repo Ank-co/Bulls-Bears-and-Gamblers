@@ -1,6 +1,6 @@
 # Bulls, Bears and Gamblers
 
-**Two questions about language models in markets, measured on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
+**Two questions about language models in markets, experience measured on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
 
 1. **Reading the market.** Can a small model fine-tuned on the laptop classify market sentiment better than a model twenty times its size?
 2. **Advising the client.** When a client sounds like a gambler, does a model protect them, or follow them? And what changes when the model's refusal behaviour is removed?
