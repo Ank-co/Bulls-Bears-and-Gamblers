@@ -3,7 +3,7 @@ import pytest
 from sklearn.metrics import accuracy_score, f1_score
 
 from bbg.metrics import (accuracy, bootstrap_ci, holm, macro_f1, mcnemar_exact,
-                         paired_bootstrap_diff, _macro_f1_rows)
+                         paired_bootstrap_diff, paired_rate_test, _macro_f1_rows)
 
 
 @pytest.fixture
@@ -58,3 +58,15 @@ def test_holm_known_values():
     assert adj["a"] == pytest.approx(0.03)
     assert adj["c"] == pytest.approx(0.06)
     assert adj["b"] == pytest.approx(0.06)   # monotone: never below the previous step
+
+
+def test_paired_rate_test_counts_discordant_pairs():
+    a = np.array([1, 1, 1, 1, 1, 1, 0, 0, 1, 0], dtype=bool)
+    b = np.array([0, 0, 0, 0, 0, 1, 0, 0, 1, 1], dtype=bool)
+    r = paired_rate_test(a, b)
+    assert (r["a_only"], r["b_only"], r["n"]) == (5, 1, 10)
+    assert r["diff"] == pytest.approx(0.7 - 0.3)
+    assert r["p"] == pytest.approx(0.21875)          # binomial(5 of 6, 0.5), two-sided
+    assert paired_rate_test(a, a)["p"] == 1.0
+    with pytest.raises(ValueError):
+        paired_rate_test(a, b[:5])

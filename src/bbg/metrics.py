@@ -116,6 +116,21 @@ def mcnemar_exact(y_true, pred_a, pred_b) -> dict:
     return {"a_only": a_only, "b_only": b_only, "p": p}
 
 
+def paired_rate_test(flag_a, flag_b) -> dict:
+    """Exact McNemar test on a paired yes/no property (for example "predicted bullish").
+
+    a_only: items where only A has the property; b_only: the reverse. diff = rate(A) - rate(B).
+    """
+    fa, fb = np.asarray(flag_a, dtype=bool), np.asarray(flag_b, dtype=bool)
+    if fa.shape != fb.shape or fa.size == 0:
+        raise ValueError("flags must be non-empty and paired")
+    a_only, b_only = int(np.sum(fa & ~fb)), int(np.sum(~fa & fb))
+    n = a_only + b_only
+    p = 1.0 if n == 0 else float(binomtest(a_only, n, 0.5).pvalue)
+    return {"n": int(fa.size), "rate_a": float(fa.mean()), "rate_b": float(fb.mean()),
+            "diff": float(fa.mean() - fb.mean()), "a_only": a_only, "b_only": b_only, "p": p}
+
+
 def holm(pvalues: dict[str, float]) -> dict[str, float]:
     """Holm-Bonferroni adjusted p-values (monotone, capped at 1)."""
     items = sorted(pvalues.items(), key=lambda kv: kv[1])

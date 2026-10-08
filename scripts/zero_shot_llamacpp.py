@@ -16,6 +16,7 @@ import sys
 import requests
 
 from bbg import config
+from bbg.advice import warm_up
 from bbg.data import load_split
 from bbg.llamacpp import Client, run_split
 from bbg.predictions import write_predictions
@@ -33,6 +34,8 @@ def main() -> int:
     client = Client(url, model, os.environ.get("LLAMA_API_KEY"))
 
     try:
+        print(f"loading {model} on the server (can take several minutes)...", flush=True)
+        print(f"ready after {warm_up(url, client.headers, model):.0f}s", flush=True)
         client.classify("Apple shares rise after record iPhone sales.")
     except (requests.ConnectionError, requests.Timeout):
         print(f"Cannot reach {url}.\n"
