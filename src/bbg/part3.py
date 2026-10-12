@@ -58,6 +58,74 @@ def read_labels(path: Path, expected_ids) -> pd.DataFrame:
     return df[df["id"].isin(set(expected_ids))]
 
 
+# --- control C1: does the base model remember these returns? ---------------------------------
+PROBE_ANSWERS = ["higher", "lower"]
+
+
+def probe_question(ticker: str, t0: pd.Timestamp, t1: pd.Timestamp) -> str:
+    """Ticker and dates only, no headline: a model can only answer from memory."""
+    return (f"Stock ticker: {ticker}.\n"
+            f"Did this stock close higher or lower on {t1:%A %d %B %Y} than on {t0:%A %d %B %Y}?\n"
+            "Answer with one word: higher or lower.")
+
+
+def probe_messages(text: str) -> list[dict]:
+    return [{"role": "user", "content": text}]
+
+
+def probe_sample(ret: pd.DataFrame, size: int, seed: int) -> pd.DataFrame:
+    s = ret[["ticker", "date", "t0", "t1"]].sort_values(["date", "ticker"], ignore_index=True)
+    if len(s) > size:
+        s = s.iloc[np.sort(np.random.default_rng(seed).choice(len(s), size=size, replace=False))]
+    return s.reset_index(drop=True)
+
+
+def probe_path(period: str) -> Path:
+    return results_dir(period) / "probe_scores.csv"
+
+
+def probe_ic(ret: pd.DataFrame, scores: pd.DataFrame) -> dict:
+    """Daily IC between the probe score (log-prob of "higher" minus "lower") and the returns."""
+    lo, hi = config.PART3_WINSOR
+    df = ret.merge(scores[["ticker", "date", "score"]], on=["ticker", "date"], how="inner")
+    out = {"n_ticker_dates": int(len(df))}
+    for w in ("reaction", "drift"):
+        df[f"w_{w}"] = winsorize(df[f"ab_{w}"], lo, hi)
+        out[w] = _test(nw_mean(daily_ic(df, f"w_{w}", DAY_OF[w])))
+    out["share_answering_higher"] = float((scores["score"] > 0).mean())
+    return out
+
+
+# --- control C2: are the ticker-dates without prices different? --------------------------------
+_SHARE = {"bearish": 0, "bullish": 1, "neutral": 2}
+
+
+def symbol_kind(ticker: str) -> str:
+    if "." in ticker or "-" in ticker:
+        return "class share or suffix (contains . or -)"
+    if len(ticker) == 5 and ticker[-1] in "FY":
+        return "five letters ending in F or Y (foreign, over the counter)"
+    return "other"
+
+
+def coverage(inc: pd.DataFrame, inc_labels: pd.DataFrame, exc: pd.DataFrame, exc_labels: pd.DataFrame) -> dict:
+    """Compares the headlines kept (sample, with prices) with those dropped for lack of prices.
+    Labels come from the same TF-IDF model. Descriptive only: the dropped ones have no returns."""
+    def describe(h: pd.DataFrame, lab: pd.DataFrame) -> dict:
+        y = h[["id"]].merge(lab, on="id", how="left")["y_pred"]
+        if y.isna().any():
+            raise ValueError("headlines without a TF-IDF label")
+        td = h.groupby(["ticker", "date"]).size()
+        kinds = pd.Series(h["ticker"].unique()).map(symbol_kind).value_counts(normalize=True)
+        return {"headlines": int(len(h)), "ticker_dates": int(len(td)), "tickers": int(h["ticker"].nunique()),
+                "headlines_per_ticker_date": float(td.mean()),
+                "tfidf_label_share": {k: float((y == v).mean()) for k, v in _SHARE.items()},
+                "top_publishers_share": {str(k): float(v) for k, v in
+                                         h["publisher"].value_counts(normalize=True).head(5).items()},
+                "symbol_kind_share": {str(k): float(v) for k, v in kinds.items()}}
+    return {"kept_sample": describe(inc, inc_labels), "dropped_no_prices": describe(exc, exc_labels)}
+
+
 # --- analysis ----------------------------------------------------------------------------------
 def _bps(x: float) -> float:
     return float(1e4 * x)
@@ -67,8 +135,9 @@ def _test(r: dict, scale=float) -> dict:
     return {"mean": scale(r["mean"]), "se": scale(r["se"]), "t": r["t"], "p": r["p"], "n_days": r["n_days"]}
 
 
-def analyze(ret: pd.DataFrame, heads: pd.DataFrame, labels: dict[str, pd.DataFrame]) -> dict:
-    """Pre-registered tests H1 to H3 (on the daily IC) and the descriptive results (spreads)."""
+def analyze(ret: pd.DataFrame, heads: pd.DataFrame, labels: dict[str, pd.DataFrame],
+            probe_scores: pd.DataFrame, coverage_result: dict) -> dict:
+    """Pre-registered tests H1 to H3 (on the daily IC), controls C1 and C2, descriptive results."""
     ret = ret.copy()
     lo, hi = config.PART3_WINSOR
     for w in WINDOWS:
@@ -117,6 +186,7 @@ def analyze(ret: pd.DataFrame, heads: pd.DataFrame, labels: dict[str, pd.DataFra
         "n_tickers": int(ret["ticker"].nunique()),
         "first_day": str(ret["t1"].min().date()), "last_day": str(ret["t1"].max().date()),
         "tests": tests, "models": models, "main_ic_by_year": years,
+        "controls": {"C1_memory_probe": probe_ic(ret, probe_scores), "C2_coverage": coverage_result},
         "break_even_round_trip_cost_bps": drift_bps / 2,   # each leg pays one round trip per day
     }
 
@@ -148,7 +218,20 @@ def render(res: dict, period: str) -> str:
                      f"| {r['ic']['mean']:+.3f} | {r['spread_bps']['mean']:+.1f} | {r['long_bps']['mean']:+.1f} "
                      f"| {r['short_bps']['mean']:+.1f} | {dr['ic']['mean']:+.3f} | {dr['spread_bps']['mean']:+.1f} "
                      f"| {d['next']['ic']['mean']:+.3f} |")
-    lines += ["", "Abnormal returns: stock minus SPY, winsorized at 0.5% and 99.5%. IC: Spearman correlation "
+    c1 = res["controls"]["C1_memory_probe"]
+    lines += ["", f"**C1, memory probe** (base Qwen3-1.7B, ticker and dates only, {c1['n_ticker_dates']:,} "
+                  f"ticker-dates): IC with the reaction {c1['reaction']['mean']:+.3f} (t {c1['reaction']['t']:.2f}, "
+                  f"p {c1['reaction']['p']:.3g}), with the drift {c1['drift']['mean']:+.3f} "
+                  f"(t {c1['drift']['t']:.2f}, p {c1['drift']['p']:.3g}); answers \"higher\" "
+                  f"{c1['share_answering_higher']:.0%} of the time."]
+    kept, drop = res["controls"]["C2_coverage"]["kept_sample"], res["controls"]["C2_coverage"]["dropped_no_prices"]
+    lines += ["", "**C2, ticker-dates kept vs dropped for lack of prices** (TF-IDF labels, descriptive)", "",
+              "| | Headlines | Headlines per ticker-date | Bullish | Neutral | Bearish |", "|---|---|---|---|---|---|"]
+    for name, d in (("Kept (sample)", kept), ("Dropped, no prices", drop)):
+        sh = d["tfidf_label_share"]
+        lines.append(f"| {name} | {d['headlines']:,} | {d['headlines_per_ticker_date']:.2f} | {sh['bullish']:.0%} "
+                     f"| {sh['neutral']:.0%} | {sh['bearish']:.0%} |")
+    lines += ["", "Market-adjusted returns: stock minus SPY, winsorized at 0.5% and 99.5%. IC: Spearman correlation "
                   "between the score and the return over all ticker-dates of a day, averaged over days. "
                   "Spread: bullish mean minus bearish mean, averaged over days.",
               f"Break-even round-trip cost of the drift spread: {res['break_even_round_trip_cost_bps']:.1f} bps per leg."]

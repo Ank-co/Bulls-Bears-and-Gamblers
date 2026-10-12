@@ -24,18 +24,19 @@ import torch
 from .prompts import ANSWERS, messages
 
 
-def chat_prompt(tokenizer, text: str) -> str:
-    """Chat-formatted prompt, thinking disabled when the template supports it (Qwen3)."""
+def chat_prompt(tokenizer, text: str, build=messages) -> str:
+    """Chat-formatted prompt, thinking disabled when the template supports it (Qwen3).
+    `build` turns the text into chat messages (default: the Part 1 classification prompt)."""
     kwargs = dict(tokenize=False, add_generation_prompt=True)
     try:
-        return tokenizer.apply_chat_template(messages(text), enable_thinking=False, **kwargs)
+        return tokenizer.apply_chat_template(build(text), enable_thinking=False, **kwargs)
     except TypeError:
-        return tokenizer.apply_chat_template(messages(text), **kwargs)
+        return tokenizer.apply_chat_template(build(text), **kwargs)
 
 
-def encode_pair(tokenizer, text: str, answer: str) -> tuple[list[int], int]:
+def encode_pair(tokenizer, text: str, answer: str, build=messages) -> tuple[list[int], int]:
     """Token ids of prompt + answer, and the number of answer tokens."""
-    prompt = chat_prompt(tokenizer, text)
+    prompt = chat_prompt(tokenizer, text, build)
     p_ids = tokenizer(prompt, add_special_tokens=False)["input_ids"]
     full = tokenizer(prompt + answer, add_special_tokens=False)["input_ids"]
     if full[:len(p_ids)] != p_ids or len(full) <= len(p_ids):
@@ -49,9 +50,9 @@ class Encoded:
     cand_lengths: list[int]
 
 
-def encode(tokenizer, texts: list[str], answers: list[str]) -> Encoded:
+def encode(tokenizer, texts: list[str], answers: list[str], build=messages) -> Encoded:
     """Every text paired with every answer (scoring)."""
-    pairs = [encode_pair(tokenizer, t, a) for t in texts for a in answers]
+    pairs = [encode_pair(tokenizer, t, a, build) for t in texts for a in answers]
     return Encoded([p[0] for p in pairs], [p[1] for p in pairs])
 
 
@@ -89,10 +90,11 @@ def sequence_logprobs(model, input_ids: torch.Tensor, mask: torch.Tensor,
 
 
 @torch.no_grad()
-def score_batch(model, tokenizer, texts: list[str], answers: list[str] | None = None) -> torch.Tensor:
+def score_batch(model, tokenizer, texts: list[str], answers: list[str] | None = None,
+                build=messages) -> torch.Tensor:
     """Returns a (len(texts), len(answers)) tensor of total log-probabilities."""
     answers = answers or list(ANSWERS.values())
-    enc = encode(tokenizer, texts, answers)
+    enc = encode(tokenizer, texts, answers, build)
     input_ids, mask = pad_left(enc.sequences, pad_id_of(tokenizer))
     totals = sequence_logprobs(model, input_ids, mask, enc.cand_lengths)
     return totals.view(len(texts), len(answers)).float().cpu()

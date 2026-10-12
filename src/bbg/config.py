@@ -28,5 +28,6 @@ PART3_SEED = 31
 PART3_MARKET = "SPY"
 PART3_WINSOR = (0.005, 0.995)
 PART3_NW_LAGS = 5
+PART3_PROBE_SIZE = 20_000  # ticker-dates asked to the memory probe (control C1)
 PART3_MIN_PER_DAY = 10   # ticker-dates needed on a day to compute its rank correlation
 PART3_DIR = RESULTS_DIR / "part3"

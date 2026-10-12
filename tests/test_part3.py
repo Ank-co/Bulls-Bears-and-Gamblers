@@ -214,3 +214,44 @@ def test_daily_ic_skips_thin_or_constant_days():
                        "ret": list(range(5)) + list(range(12)) + list(range(12))})
     ic = event_stats.daily_ic(df, "ret", "t1")
     assert list(ic.index) == ["c"] and ic["c"] == pytest.approx(1.0)
+
+
+# --- controls ----------------------------------------------------------------------------------
+from bbg import part3  # noqa: E402
+
+
+def test_probe_question_contains_no_headline_and_both_dates():
+    q = part3.probe_question("AAPL", pd.Timestamp("2018-03-02"), pd.Timestamp("2018-03-05"))
+    assert "AAPL" in q and "Friday 02 March 2018" in q and "Monday 05 March 2018" in q
+    assert q.endswith("higher or lower.") and part3.PROBE_ANSWERS == ["higher", "lower"]
+
+
+def test_probe_ic_finds_memory_when_there_is_some():
+    rng = np.random.default_rng(11)
+    days = pd.bdate_range("2018-01-02", periods=150)
+    ret = pd.DataFrame({"ticker": [f"T{i}" for i in range(150 * 40)],
+                        "date": np.repeat(days - pd.Timedelta(days=1), 40), "t1": np.repeat(days, 40),
+                        "ab_reaction": rng.normal(0, 0.02, 6000), "ab_drift": rng.normal(0, 0.01, 6000)})
+    ret["t0"] = ret["date"] - pd.Timedelta(days=1)
+    remembers = ret[["ticker", "date"]].assign(score=np.sign(ret["ab_drift"]) + rng.normal(0, 1, 6000))
+    forgets = ret[["ticker", "date"]].assign(score=rng.normal(size=6000))
+    assert part3.probe_ic(ret, remembers)["drift"]["p"] < 1e-6
+    r = part3.probe_ic(ret, forgets)
+    assert r["drift"]["p"] > 0.01 and r["n_ticker_dates"] == 6000
+    assert len(part3.probe_sample(ret, 1000, seed=1)) == 1000
+
+
+def test_coverage_compares_kept_and_dropped():
+    inc = pd.DataFrame({"id": ["a", "b", "c"], "ticker": ["AAA", "AAA", "BBB"],
+                        "date": pd.to_datetime(["2018-01-02"] * 3), "publisher": ["p", "p", "q"]})
+    exc = pd.DataFrame({"id": ["x", "y"], "ticker": ["BRK.B", "TOYOF"],
+                        "date": pd.to_datetime(["2018-01-02"] * 2), "publisher": ["p", "p"]})
+    res = part3.coverage(inc, pd.DataFrame({"id": ["a", "b", "c"], "y_pred": [1, 0, 2]}),
+                         exc, pd.DataFrame({"id": ["x", "y"], "y_pred": [0, 0]}))
+    assert res["kept_sample"]["headlines_per_ticker_date"] == pytest.approx(1.5)
+    assert res["dropped_no_prices"]["tfidf_label_share"]["bearish"] == 1.0
+    assert set(res["dropped_no_prices"]["symbol_kind_share"]) == {
+        "class share or suffix (contains . or -)", "five letters ending in F or Y (foreign, over the counter)"}
+    with pytest.raises(ValueError):
+        part3.coverage(inc, pd.DataFrame({"id": ["a"], "y_pred": [1]}), exc,
+                       pd.DataFrame({"id": ["x", "y"], "y_pred": [0, 0]}))

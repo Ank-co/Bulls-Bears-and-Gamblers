@@ -1,8 +1,7 @@
 # Part 3 design draft: does the sentiment a model reads move with returns?
 
-**Status: draft, not frozen.** Updated after the reconnaissance of the data files
-(`scripts/recon_fnspid.py`, summary below). Once reviewed, it becomes
-`docs/part3-preregistration.md`, committed before any return is computed on the test period.
+**Status: superseded.** This is the design written before the dev run. The frozen version,
+with the changes made after the dev run and their reasons, is `docs/part3-preregistration.md`.
 
 ## Question
 

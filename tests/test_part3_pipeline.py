@@ -119,7 +119,24 @@ def test_pipeline_end_to_end(sandbox, monkeypatch):
     again = pd.read_csv(path)
     assert len(again) == len(heads) and again["id"].is_unique
 
-    assert run(load("part3_analyze"), ["--period", "dev"], monkeypatch) == 0
+    analyze = load("part3_analyze")
+    assert run(analyze, ["--period", "dev"], monkeypatch) == 1      # controls missing: refused
+
+    probe = load("part3_probe")
+    rng = np.random.default_rng(3)
+    monkeypatch.setattr(probe, "make_probe_scorer", lambda device, bs: lambda texts: list(rng.normal(size=len(texts))))
+    monkeypatch.setattr(probe, "write_runtime", lambda *a, **k: None)
+    assert run(probe, ["--period", "dev"], monkeypatch) == 0
+    assert run(probe, ["--period", "dev"], monkeypatch) == 0         # resume: nothing left to do
+    scores = pd.read_csv(part3.probe_path("dev"))
+    assert len(scores) == min(config.PART3_PROBE_SIZE, report["sample_ticker_dates"])
+    assert "AAPL" not in scores["ticker"].values and scores[["ticker", "date"]].duplicated().sum() == 0
+
+    cov = load("part3_coverage")
+    monkeypatch.setattr(cov, "make_tfidf", lambda: stub("tfidf-logreg"))
+    assert run(cov, ["--period", "dev"], monkeypatch) == 0
+
+    assert run(analyze, ["--period", "dev"], monkeypatch) == 0
     res = json.loads((sandbox / "results/part3/dev/analysis.json").read_text())
     t = res["tests"]
     assert t["H1_reaction"]["confirmed"] and t["H1_reaction"]["mean"] > 0.3
@@ -128,7 +145,11 @@ def test_pipeline_end_to_end(sandbox, monkeypatch):
     assert t["H2_vs_tfidf-logreg"]["confirmed"]          # random labels carry no information
     assert not t["H2_vs_qwen3-1.7b-zeroshot"]["confirmed"]   # identical labels: no difference
     assert not t["H3_drift"]["confirmed"]                # no drift was planted
-    assert "Dev period" in (sandbox / "results/part3/dev/analysis.md").read_text()
+    c1 = res["controls"]["C1_memory_probe"]
+    assert c1["reaction"]["p"] > 0.01 and c1["drift"]["p"] > 0.01   # random probe: no memory
+    assert res["controls"]["C2_coverage"]["kept_sample"]["headlines"] == len(heads)
+    md = (sandbox / "results/part3/dev/analysis.md").read_text()
+    assert "Dev period" in md and "C1, memory probe" in md and "C2, ticker-dates kept" in md
     assert not (sandbox / "results/metrics/test_access.log").exists()
 
 

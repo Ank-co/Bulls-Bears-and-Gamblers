@@ -6,6 +6,7 @@
 Applies the rules of docs/part3-design.md in a fixed order, computes abnormal returns for every
 remaining ticker-date, then draws the fixed random sample among those with returns. Writes:
     data/part3/<period>/headlines.parquet, returns.parquet      (git-ignored, FNSPID-derived)
+    data/part3/<period>/excluded_headlines.parquet              (no prices: for control C2)
     data/part3/<period>/filter_examples.csv                     (git-ignored, for the dev review)
     results/part3/<period>/sample_report.json                   (counts only)
 """
@@ -48,6 +49,10 @@ def main() -> int:
     ret, rcounts = returns.abnormal_returns(td, px, config.PART3_MARKET)
     report.update(rcounts)
 
+    usable = ret[["ticker", "date"]].assign(_ok=True)
+    excluded = kept.merge(usable, on=["ticker", "date"], how="left")
+    excluded = excluded[excluded["_ok"].isna()].drop(columns="_ok")
+
     size = config.PART3_SAMPLE_SIZE[args.period]
     chosen = news.sample(ret[["ticker", "date"]], size, config.PART3_SEED)
     ret = ret.merge(chosen, on=["ticker", "date"], how="inner")
@@ -64,6 +69,8 @@ def main() -> int:
     work.mkdir(parents=True, exist_ok=True)
     heads[["id", "ticker", "date", "title", "publisher"]].to_parquet(work / "headlines.parquet", index=False)
     ret.to_parquet(work / "returns.parquet", index=False)
+    excluded[["id", "ticker", "date", "title", "publisher"]].to_parquet(work / "excluded_headlines.parquet", index=False)
+    report["excluded_headlines_no_prices"] = int(len(excluded))
     ex = pd.concat([raw[moves].sample(min(100, int(moves.sum())), random_state=0).assign(dropped=True),
                     heads.sample(min(100, len(heads)), random_state=0).assign(dropped=False)])
     ex[["dropped", "ticker", "date", "title"]].to_csv(work / "filter_examples.csv", index=False)

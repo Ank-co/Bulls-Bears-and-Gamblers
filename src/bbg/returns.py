@@ -6,7 +6,8 @@ The publication hour is unknown for most headlines, so the windows only use the 
     drift     that open            ->  its close               (the news is public for sure)
     next      that close           ->  the next close
 
-Abnormal return = stock return minus market return (SPY) over the same window. Open and close are
+Market-adjusted return = stock return minus market return (SPY) over the same window
+(columns ab_*). It is not an abnormal return from a factor model: no beta is estimated. Open and close are
 scaled by adjusted close / close, so that a dividend does not show up as a price gap.
 """
 from __future__ import annotations

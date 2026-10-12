@@ -1,0 +1,39 @@
+{
+  "rows_read": 13057514,
+  "no_ticker": 9804627,
+  "no_title": 0,
+  "no_valid_date": 0,
+  "rows_in_period": 660850,
+  "dropped_several_tickers": 397893,
+  "dropped_duplicates": 617,
+  "dropped_price_moves": 10025,
+  "headlines_kept": 252315,
+  "ticker_dates_candidates": 163380,
+  "ticker_dates": 163380,
+  "dropped_no_price_file": 43400,
+  "dropped_missing_prices_around_date": 1237,
+  "ticker_dates_with_returns": 118743,
+  "next_day_missing": 27,
+  "sample_seed": 31,
+  "sample_size_target": 30000,
+  "sample_ticker_dates": 30000,
+  "sample_headlines": 45941,
+  "sample_tickers": 3048,
+  "sample_per_year": {
+    "2016": 16403,
+    "2017": 13597
+  },
+  "sample_top_publishers": {
+    "Paul Quintaro": 14512,
+    "Seeking Alpha": 14255,
+    "Charles Gross": 3280,
+    "GuruFocus": 2492,
+    "Hal Lindon": 2488,
+    "Eddie Staley": 1933,
+    "Vetr": 1369,
+    "Zacks": 1054,
+    "Investor's Business Daily": 834,
+    "Jayson Derrick": 457
+  },
+  "excluded_headlines_no_prices": 70699
+}

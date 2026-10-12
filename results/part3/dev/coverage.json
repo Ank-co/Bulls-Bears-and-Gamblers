@@ -1,0 +1,47 @@
+{
+  "kept_sample": {
+    "headlines": 45941,
+    "ticker_dates": 30000,
+    "tickers": 3048,
+    "headlines_per_ticker_date": 1.5313666666666668,
+    "tfidf_label_share": {
+      "bearish": 0.14827713806839207,
+      "bullish": 0.25193182560240307,
+      "neutral": 0.5997910363292048
+    },
+    "top_publishers_share": {
+      "Paul Quintaro": 0.31588341568533557,
+      "Seeking Alpha": 0.31028928408175704,
+      "Charles Gross": 0.07139592085500969,
+      "GuruFocus": 0.05424348621057443,
+      "Hal Lindon": 0.054156418014409784
+    },
+    "symbol_kind_share": {
+      "other": 0.9986876640419947,
+      "five letters ending in F or Y (foreign, over the counter)": 0.0013123359580052493
+    }
+  },
+  "dropped_no_prices": {
+    "headlines": 70699,
+    "ticker_dates": 44637,
+    "tickers": 1701,
+    "headlines_per_ticker_date": 1.583865403140892,
+    "tfidf_label_share": {
+      "bearish": 0.14807847352862133,
+      "bullish": 0.22205406017058232,
+      "neutral": 0.6298674663007964
+    },
+    "top_publishers_share": {
+      "Seeking Alpha": 0.33798214967679885,
+      "Paul Quintaro": 0.30420515141656884,
+      "Charles Gross": 0.07845938414970509,
+      "GuruFocus": 0.060043282083197785,
+      "Hal Lindon": 0.0574972771892106
+    },
+    "symbol_kind_share": {
+      "other": 0.9905937683715461,
+      "class share or suffix (contains . or -)": 0.008818342151675485,
+      "five letters ending in F or Y (foreign, over the counter)": 0.0005878894767783657
+    }
+  }
+}

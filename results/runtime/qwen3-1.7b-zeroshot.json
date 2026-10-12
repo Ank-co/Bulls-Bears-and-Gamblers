@@ -18,12 +18,12 @@
     "peak_vram_gib": 4.361
   },
   "part3-dev": {
-    "items": 46156,
-    "seconds": 1821.412,
-    "ms_per_item": 39.462,
+    "items": 45941,
+    "seconds": 1816.917,
+    "ms_per_item": 39.549,
     "batch_size": 32,
     "part1_agreement": 0.9989373007438895,
     "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
-    "peak_vram_gib": 4.477
+    "peak_vram_gib": 4.483
   }
 }
