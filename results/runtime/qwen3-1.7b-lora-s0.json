@@ -16,5 +16,14 @@
     "training_run": "lr1e-4-none-s0",
     "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
     "peak_vram_gib": 3.785
+  },
+  "part3-dev": {
+    "items": 46156,
+    "seconds": 2733.083,
+    "ms_per_item": 59.214,
+    "batch_size": 32,
+    "part1_agreement": 1.0,
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 4.477
   }
 }

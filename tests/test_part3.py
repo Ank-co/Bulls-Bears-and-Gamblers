@@ -23,6 +23,18 @@ from bbg import event_stats, news, returns
     ("B of A Securities Maintains Neutral on Agilent, Raises Price Target to $88", False),
     ("Demand is higher than expected, says CEO", False),
     ("FDA approves Pfizer drug", False),
+    # cases found on dev
+    ("Deere Sees FY 2017 Sales up 11% YoY", False),
+    ("Online Spend Up 18.4% YoY, According to Adobe Analytics Data", False),
+    ("Movers And Shakers In Diabetes Management", False),
+    ("Benzinga's Volume Movers", True),
+    ("40 Biggest Movers From Yesterday", True),
+    ("Cyclacel Pharmaceuticals (CYCC) Tumbles on Failed Tests", True),
+    ("Revenue Rises On Strong Demand", False),
+    ("Stocks With Rising Relative Strength: Capital One Financial", True),
+    ("Ares Capital cruises past estimates", False),
+    ("Comerica Increases Prime Lending Rate From 3.75% To 4%", False),
+    ("Seagate Technology Plunges 10% Following Q3 Guidance", True),
 ])
 def test_price_move_filter(title, expected):
     assert news.is_price_move(title) is expected
@@ -66,7 +78,7 @@ def test_read_period_keeps_only_the_period(tmp_path):
                   "Article_title": ["a", "b", "c"], "Stock_symbol": ["aaa", "bbb", "ccc"],
                   "Url": "u", "Publisher": "p", "Article": None}).to_csv(path, index=False)
     df, counts = news.read_period(path, "2018-01-01", "2018-12-31", chunksize=2)
-    assert list(df["ticker"]) == ["BBB"] and counts["unparsed_or_empty"] == 1 and counts["rows_read"] == 3
+    assert list(df["ticker"]) == ["BBB"] and counts["no_valid_date"] == 1 and counts["rows_read"] == 3
 
 
 # --- windows and returns -----------------------------------------------------------------------
@@ -178,3 +190,27 @@ def test_newey_west_matches_the_textbook_formula():
     n = len(e)
     s = e @ e / n + 2 * sum((1 - k / 6) * (e[k:] @ e[:-k]) / n for k in range(1, 6))
     assert r["se"] == pytest.approx(np.sqrt(s / n), rel=1e-6)
+
+
+def test_daily_ic_rewards_being_right_often_not_being_selective():
+    rng = np.random.default_rng(7)
+    rows = []
+    for d in pd.bdate_range("2018-01-01", periods=120):
+        r = rng.normal(0, 0.02, 60)
+        often = np.sign(r + rng.normal(0, 0.02, 60))            # right two times out of three
+        rare = np.where(np.abs(r) > 0.04, np.sign(r), 0)          # only the extreme moves
+        rows.append(pd.DataFrame({"t1": d, "ret": r, "often": often, "rare": rare}))
+    df = pd.concat(rows, ignore_index=True)
+    ic = {k: event_stats.daily_ic(df.assign(score=df[k], signal=df[k]), "ret", "t1") for k in ("often", "rare")}
+    sp = {k: event_stats.daily_spreads(df.assign(signal=df[k]), "ret", "t1")["spread"].mean() for k in ("often", "rare")}
+    assert sp["rare"] > sp["often"]                  # the spread prefers the selective model
+    assert ic["often"].mean() > ic["rare"].mean()    # the IC prefers the one that is right more often
+    assert event_stats.paired_diff(ic["often"], ic["rare"])["p"] < 0.01
+
+
+def test_daily_ic_skips_thin_or_constant_days():
+    df = pd.DataFrame({"t1": ["a"] * 5 + ["b"] * 12 + ["c"] * 12,
+                       "score": [1, -1, 0, 1, -1] + [0] * 12 + list(np.linspace(-1, 1, 12)),
+                       "ret": list(range(5)) + list(range(12)) + list(range(12))})
+    ic = event_stats.daily_ic(df, "ret", "t1")
+    assert list(ic.index) == ["c"] and ic["c"] == pytest.approx(1.0)

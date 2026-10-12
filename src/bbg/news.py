@@ -28,29 +28,38 @@ _VERBS = ("jump|jumps|jumped|jumping|soar|soars|soared|soaring|surge|surges|surg
           "rocketed|shed|sheds|tank|tanks|tanked|crater|craters|cratered|slip|slips|slipped|"
           "plummet|plummets|plummeted|rally|rallies|rallied|rallying|pop|pops|popped")
 _ROUNDUP = re.compile(
-    r"\bmovers?\b|\b(?:gainers|losers)\b|\b52[- ]week\s+(?:highs?|lows?)\b"
+    r"\b(?:biggest|top|notable|volume|pre-?market|after-?hours|mid-?day|midday)\s+(?:\w+\s+)?movers\b"
+    r"|\bmovers\s+(?:from|in|for|on)\b|\b(?:gainers|losers)\b|\b52[- ]week\s+(?:highs?|lows?)\b"
     r"|\bstocks?\s+(?:moving|that\s+hit|hitting)\b"
-    r"|\b(?:pre-?market|after-?hours|mid-?day)\b.{0,30}\b(?:session|movers|trading|update)\b",
+    r"|\b(?:pre-?market|after-?hours|mid-?day)\b.{0,30}\b(?:session|movers|trading|update)\b"
+    r"|\brelative\s+strength\b|\brs\s+rating\b",
     re.IGNORECASE)
+# These phrasings always describe the share price.
 _DIRECTION = re.compile(
     r"\b(?:trading|moving|trades|traded)\s+(?:sharply\s+|slightly\s+)?(?:higher|lower)\b"
-    r"|\b(?:shares|stocks?)\b(?:\s+\S+){0,4}?\s+(?:are|is|were|was)\s+(?:sharply\s+|slightly\s+)?(?:higher|lower|up|down)\b"
-    r"|\b(?:up|down)\s+\d+(?:\.\d+)?\s?%",
+    r"|\b(?:shares|stocks?)\b(?:\s+\S+){0,4}?\s+(?:are|is|were|was)\s+(?:sharply\s+|slightly\s+)?(?:higher|lower|up|down)\b",
     re.IGNORECASE)
+# These can also describe the company's figures ("Sales up 11% YoY", "Revenue rises on demand").
+_UP_DOWN_PCT = re.compile(r"\b(?:up|down)\s+\d+(?:\.\d+)?\s?%", re.IGNORECASE)
 _VERB_PCT = re.compile(r"\b(?:" + _VERBS + r")\b.{0,40}?\d+(?:\.\d+)?\s?%", re.IGNORECASE)
+_VERB_CAUSE = re.compile(r"\b(?:" + _VERBS + r")\s+(?:on|after|following|as|amid|post)\b", re.IGNORECASE)
 _FUNDAMENTAL = re.compile(
     r"\b(?:revenue|revenues|sales|earnings|eps|profit|profits|income|margin|margins|dividend|"
     r"deliveries|production|subscribers|users|traffic|bookings|orders|shipments|guidance)\b",
     re.IGNORECASE)
+_PERIOD = re.compile(r"\b(?:yoy|y/y|year[- ]over[- ]year|q/q|qoq|sequentially)\b", re.IGNORECASE)
 
 
 def is_price_move(title: str) -> bool:
     """True when the headline reports a price move rather than news."""
     if _ROUNDUP.search(title) or _DIRECTION.search(title):
         return True
-    m = _VERB_PCT.search(title)
-    # "Revenue rises 12%" is news about the company, not about its share price.
-    return bool(m) and not _FUNDAMENTAL.search(title[:m.start()])
+    for pattern in (_UP_DOWN_PCT, _VERB_PCT, _VERB_CAUSE):
+        m = pattern.search(title)
+        # a company figure ("Revenue rises 12%", "Sales up 11% YoY") is news, not a price move
+        if m and not _FUNDAMENTAL.search(title[:m.start()]) and not _PERIOD.search(title):
+            return True
+    return False
 
 
 # --- dates -----------------------------------------------------------------------------------
@@ -91,12 +100,16 @@ def headline_ids(ticker: pd.Series, day: pd.Series, title_norm: pd.Series) -> pd
 def read_period(path: Path, start: str, end: str, chunksize: int = 500_000) -> tuple[pd.DataFrame, dict]:
     """Rows whose date D falls in [start, end], with ticker, D, title and publisher."""
     lo, hi = pd.Timestamp(start), pd.Timestamp(end)
-    frames, counts = [], {"rows_read": 0, "unparsed_or_empty": 0}
+    frames = []
+    counts = {"rows_read": 0, "no_ticker": 0, "no_title": 0, "no_valid_date": 0}
     for chunk in pd.read_csv(path, usecols=lambda c: c in COLUMNS, chunksize=chunksize, dtype=str):
         counts["rows_read"] += len(chunk)
         stamp = parse_stamp(chunk["Date"])
-        ok = stamp.notna() & chunk["Article_title"].notna() & chunk["Stock_symbol"].notna()
-        counts["unparsed_or_empty"] += int((~ok).sum())
+        has_ticker, has_title = chunk["Stock_symbol"].notna(), chunk["Article_title"].notna()
+        counts["no_ticker"] += int((~has_ticker).sum())
+        counts["no_title"] += int((has_ticker & ~has_title).sum())
+        counts["no_valid_date"] += int((has_ticker & has_title & stamp.isna()).sum())
+        ok = stamp.notna() & has_title & has_ticker
         chunk, stamp = chunk[ok], stamp[ok]
         day = event_date(stamp)
         keep = (day >= lo) & (day <= hi)

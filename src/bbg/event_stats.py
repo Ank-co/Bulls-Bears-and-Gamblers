@@ -1,9 +1,16 @@
-"""Part 3 statistics: from headline labels to daily long-short spreads, tested with Newey-West.
+"""Part 3 statistics: from headline labels to daily measures, tested with Newey-West.
 
-A model's labels are turned into one signal per ticker-date (mean of +1 bullish, 0 neutral,
--1 bearish; its sign). Each trading day, the spread is the mean abnormal return of the ticker-dates
-read as bullish minus the mean of those read as bearish. The test is on the series of daily
-spreads, so that stocks reacting to the same market day are not counted as independent.
+A model's labels are turned into one score per ticker-date (mean of +1 bullish, 0 neutral,
+-1 bearish) and a signal (its sign). Two daily measures:
+
+- information coefficient (IC): rank correlation between the score and the abnormal return over
+  all the ticker-dates of the day, neutral ones included. It rewards a model that is right often,
+  not one that only labels a few obvious headlines. The tests use it.
+- long-short spread: mean abnormal return of the ticker-dates read as bullish minus the mean of
+  those read as bearish. It gives the size of the effect in basis points.
+
+Each test is on the series of daily values, so that stocks reacting to the same market day are
+not counted as independent.
 """
 from __future__ import annotations
 
@@ -34,6 +41,22 @@ def daily_spreads(df: pd.DataFrame, ret: str, day: str) -> pd.DataFrame:
     return pd.DataFrame({"long": g[("mean", 1)], "short": g[("mean", -1)],
                          "spread": g[("mean", 1)] - g[("mean", -1)],
                          "n_long": g[("size", 1)].astype(int), "n_short": g[("size", -1)].astype(int)})
+
+
+def daily_ic(df: pd.DataFrame, ret: str, day: str, min_n: int = config.PART3_MIN_PER_DAY) -> pd.Series:
+    """Per day: Spearman correlation between score and return, over all ticker-dates of the day.
+    Days with fewer than min_n ticker-dates, or without variation in the score, are skipped."""
+    def ic(g: pd.DataFrame) -> float:
+        if len(g) < min_n or g["score"].nunique() < 2 or g[ret].nunique() < 2:
+            return np.nan
+        return float(g["score"].rank().corr(g[ret].rank()))
+    return df.groupby(day)[["score", ret]].apply(ic).dropna().rename("ic")
+
+
+def paired_diff(a: pd.Series, b: pd.Series, lags: int = config.PART3_NW_LAGS) -> dict:
+    """Mean daily difference a - b on the days where both are defined."""
+    both = pd.concat([a.rename("a"), b.rename("b")], axis=1, join="inner").dropna()
+    return nw_mean(both["a"] - both["b"], lags)
 
 
 def nw_mean(series: pd.Series, lags: int = config.PART3_NW_LAGS) -> dict:

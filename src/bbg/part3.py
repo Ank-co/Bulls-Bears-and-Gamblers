@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 
 from . import config
-from .event_stats import daily_spreads, nw_mean, paired_spread_diff, ticker_date_signal
+from .event_stats import daily_ic, daily_spreads, nw_mean, paired_diff, ticker_date_signal
 from .metrics import holm
 from .returns import WINDOWS, winsorize
 
@@ -63,37 +63,35 @@ def _bps(x: float) -> float:
     return float(1e4 * x)
 
 
-def _test(r: dict) -> dict:
-    return {"mean_bps": _bps(r["mean"]), "se_bps": _bps(r["se"]), "t": r["t"], "p": r["p"],
-            "n_days": r["n_days"]}
+def _test(r: dict, scale=float) -> dict:
+    return {"mean": scale(r["mean"]), "se": scale(r["se"]), "t": r["t"], "p": r["p"], "n_days": r["n_days"]}
 
 
 def analyze(ret: pd.DataFrame, heads: pd.DataFrame, labels: dict[str, pd.DataFrame]) -> dict:
-    """Pre-registered tests H1 to H3 and the descriptive results, from returns and labels."""
+    """Pre-registered tests H1 to H3 (on the daily IC) and the descriptive results (spreads)."""
     ret = ret.copy()
     lo, hi = config.PART3_WINSOR
     for w in WINDOWS:
         ret[f"w_{w}"] = winsorize(ret[f"ab_{w}"], lo, hi)
 
-    spreads, raw, signals = {}, {}, {}
+    ics, spreads, raw, signals = {}, {}, {}, {}
     for m in MODELS:
         sig = ticker_date_signal(labels[m], heads)
         df = ret.merge(sig, on=["ticker", "date"], how="inner")
         if len(df) != len(ret):
             raise ValueError(f"{m}: {len(ret) - len(df)} ticker-dates without a signal")
         signals[m] = df["signal"].value_counts(normalize=True).reindex([1, 0, -1], fill_value=0)
+        ics[m] = {w: daily_ic(df, f"w_{w}", DAY_OF[w]) for w in WINDOWS}
         spreads[m] = {w: daily_spreads(df, f"w_{w}", DAY_OF[w]) for w in WINDOWS}
         raw[m] = {w: daily_spreads(df, f"ab_{w}", DAY_OF[w]) for w in WINDOWS}
-        if m == MAIN:
-            main_df = df
 
-    tests = {"H1_reaction": _test(nw_mean(spreads[MAIN]["reaction"]["spread"]))}
+    tests = {"H1_reaction": _test(nw_mean(ics[MAIN]["reaction"]))}
     for m in OTHERS:
-        tests[f"H2_vs_{m}"] = _test(paired_spread_diff(spreads[MAIN]["reaction"], spreads[m]["reaction"]))
-    tests["H3_drift"] = _test(nw_mean(spreads[MAIN]["drift"]["spread"]))
+        tests[f"H2_vs_{m}"] = _test(paired_diff(ics[MAIN]["reaction"], ics[m]["reaction"]))
+    tests["H3_drift"] = _test(nw_mean(ics[MAIN]["drift"]))
     for k, p in holm({k: v["p"] for k, v in tests.items()}).items():
         tests[k]["p_holm"] = p
-        tests[k]["confirmed"] = bool(p < 0.05 and tests[k]["mean_bps"] > 0)
+        tests[k]["confirmed"] = bool(p < 0.05 and tests[k]["mean"] > 0)
 
     models = {}
     for m in MODELS:
@@ -101,54 +99,57 @@ def analyze(ret: pd.DataFrame, heads: pd.DataFrame, labels: dict[str, pd.DataFra
                               "bearish": float(signals[m][-1])}}
         for w in WINDOWS:
             s = spreads[m][w]
-            d[w] = {"spread": _test(nw_mean(s["spread"])), "long": _test(nw_mean(s["long"])),
-                    "short": _test(nw_mean(s["short"])),
+            d[w] = {"ic": _test(nw_mean(ics[m][w])),
+                    "spread_bps": _test(nw_mean(s["spread"]), _bps),
+                    "long_bps": _test(nw_mean(s["long"]), _bps), "short_bps": _test(nw_mean(s["short"]), _bps),
                     "spread_unwinsorized_bps": _bps(raw[m][w]["spread"].mean())}
         models[m] = d
 
     years = {}
     for w in ("reaction", "drift"):
-        s = spreads[MAIN][w]["spread"]
-        years[w] = {str(y): _bps(v) for y, v in s.groupby(s.index.year).mean().items()}
+        s = ics[MAIN][w]
+        g = s.groupby(s.index.year)
+        years[w] = {str(y): float(v) for y, v in g.mean()[g.size() >= 20].items()}   # full years only
 
-    drift = tests["H3_drift"]["mean_bps"]
+    drift_bps = models[MAIN]["drift"]["spread_bps"]["mean"]
     return {
         "n_ticker_dates": int(len(ret)), "n_headlines": int(len(heads)),
         "n_tickers": int(ret["ticker"].nunique()),
         "first_day": str(ret["t1"].min().date()), "last_day": str(ret["t1"].max().date()),
-        "tests": tests, "models": models, "main_by_year_bps": years,
-        "break_even_round_trip_cost_bps": drift / 2,   # each leg pays one round trip per day
-        "main_signal_counts": {int(k): int(v) for k, v in main_df["signal"].value_counts().items()},
+        "tests": tests, "models": models, "main_ic_by_year": years,
+        "break_even_round_trip_cost_bps": drift_bps / 2,   # each leg pays one round trip per day
     }
 
 
 def render(res: dict, period: str) -> str:
     t = res["tests"]
-    names = {"H1_reaction": "H1 reaction spread, fine-tuned model",
-             "H2_vs_finbert": "H2 reaction spread, fine-tuned minus FinBERT",
-             "H2_vs_tfidf-logreg": "H2 reaction spread, fine-tuned minus TF-IDF",
-             "H2_vs_qwen3-1.7b-zeroshot": "H2 reaction spread, fine-tuned minus zero-shot",
-             "H3_drift": "H3 drift spread (open to close), fine-tuned model"}
-    head = ("Pre-registered tests (docs/part3-preregistration.md), Holm-corrected."
+    names = {"H1_reaction": "H1 reaction, fine-tuned model",
+             "H2_vs_finbert": "H2 reaction, fine-tuned minus FinBERT",
+             "H2_vs_tfidf-logreg": "H2 reaction, fine-tuned minus TF-IDF",
+             "H2_vs_qwen3-1.7b-zeroshot": "H2 reaction, fine-tuned minus zero-shot",
+             "H3_drift": "H3 drift (open to close), fine-tuned model"}
+    head = ("Pre-registered tests (docs/part3-preregistration.md) on the daily rank correlation (IC) "
+            "between the model's score and the abnormal return, Holm-corrected."
             if period == "test" else "Dev period: pipeline check only, not a test of the hypotheses.")
     lines = [f"## Part 3, {period} ({res['first_day']} to {res['last_day']}): "
              f"{res['n_ticker_dates']:,} ticker-dates, {res['n_headlines']:,} headlines, "
              f"{res['n_tickers']:,} tickers", "", head, "",
-             "| Test | Mean (bps) | t (Newey-West) | Days | p (Holm) | Result |", "|---|---|---|---|---|---|"]
+             "| Test | Mean daily IC | t (Newey-West) | Days | p (Holm) | Result |", "|---|---|---|---|---|---|"]
     for k, label in names.items():
         r = t[k]
         p = "< 1e-16" if r["p_holm"] < 1e-16 else f"{r['p_holm']:.3g}"
-        lines.append(f"| {label} | {r['mean_bps']:+.1f} | {r['t']:.2f} | {r['n_days']} | {p} "
+        lines.append(f"| {label} | {r['mean']:+.3f} | {r['t']:.2f} | {r['n_days']} | {p} "
                      f"| {'Confirmed' if r['confirmed'] else 'Not confirmed'} |")
-    lines += ["", "| Model | Bullish / neutral / bearish | Reaction spread | Long | Short "
-                  "| Drift spread | Next-day spread |", "|---|---|---|---|---|---|---|"]
+    lines += ["", "| Model | Bullish / neutral / bearish | Reaction IC | Reaction spread (bps) | Long | Short "
+                  "| Drift IC | Drift spread (bps) | Next-day IC |", "|---|---|---|---|---|---|---|---|---|"]
     for m, d in res["models"].items():
-        sh = d["signal_share"]
+        sh, r, dr = d["signal_share"], d["reaction"], d["drift"]
         lines.append(f"| {m} | {sh['bullish']:.0%} / {sh['neutral']:.0%} / {sh['bearish']:.0%} "
-                     f"| {d['reaction']['spread']['mean_bps']:+.1f} | {d['reaction']['long']['mean_bps']:+.1f} "
-                     f"| {d['reaction']['short']['mean_bps']:+.1f} | {d['drift']['spread']['mean_bps']:+.1f} "
-                     f"| {d['next']['spread']['mean_bps']:+.1f} |")
-    lines += ["", "Abnormal returns in basis points, stock minus SPY, winsorized at 0.5% and 99.5%. "
-                  "Spread = mean over days of (bullish mean minus bearish mean).",
+                     f"| {r['ic']['mean']:+.3f} | {r['spread_bps']['mean']:+.1f} | {r['long_bps']['mean']:+.1f} "
+                     f"| {r['short_bps']['mean']:+.1f} | {dr['ic']['mean']:+.3f} | {dr['spread_bps']['mean']:+.1f} "
+                     f"| {d['next']['ic']['mean']:+.3f} |")
+    lines += ["", "Abnormal returns: stock minus SPY, winsorized at 0.5% and 99.5%. IC: Spearman correlation "
+                  "between the score and the return over all ticker-dates of a day, averaged over days. "
+                  "Spread: bullish mean minus bearish mean, averaged over days.",
               f"Break-even round-trip cost of the drift spread: {res['break_even_round_trip_cost_bps']:.1f} bps per leg."]
     return "\n".join(lines) + "\n"

@@ -1,0 +1,11 @@
+{
+  "part3-dev": {
+    "items": 46156,
+    "seconds": 4.078,
+    "ms_per_item": 0.088,
+    "batch_size": 32,
+    "part1_agreement": 1.0,
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 4.477
+  }
+}

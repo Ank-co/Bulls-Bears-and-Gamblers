@@ -31,7 +31,7 @@ def synthetic_fnspid(tmp: Path, seed=0):
     tickers = [f"T{i:02d}" for i in range(40)]
     rows, gaps = [], {t: np.zeros(len(cal)) for t in tickers}
     words = {1: "wins a large contract", -1: "faces a lawsuit", 0: "holds annual meeting"}
-    for _ in range(6000):
+    for _ in range(12000):
         t = tickers[rng.integers(len(tickers))]
         d = pd.Timestamp("2016-01-01") + pd.Timedelta(days=int(rng.integers(0, 730)))
         s = int(rng.choice([1, -1, 0]))
@@ -99,7 +99,7 @@ def test_pipeline_end_to_end(sandbox, monkeypatch):
                                        "--prices", str(zpath), "--chunksize", "1000"], monkeypatch) == 0
     report = json.loads((sandbox / "results/part3/dev/sample_report.json").read_text())
     assert report["dropped_price_moves"] == 1 and report["dropped_several_tickers"] == 2
-    assert report["dropped_no_price_file"] == 0 and report["sample_ticker_dates"] > 3000
+    assert report["dropped_no_price_file"] == 0 and report["sample_ticker_dates"] > 8000
     heads = pd.read_parquet(sandbox / "data/part3/dev/headlines.parquet")
     assert heads["date"].min() >= pd.Timestamp("2016-01-01") and heads["date"].max() <= pd.Timestamp("2017-12-31")
 
@@ -122,7 +122,9 @@ def test_pipeline_end_to_end(sandbox, monkeypatch):
     assert run(load("part3_analyze"), ["--period", "dev"], monkeypatch) == 0
     res = json.loads((sandbox / "results/part3/dev/analysis.json").read_text())
     t = res["tests"]
-    assert t["H1_reaction"]["confirmed"] and t["H1_reaction"]["mean_bps"] > 300
+    assert t["H1_reaction"]["confirmed"] and t["H1_reaction"]["mean"] > 0.3
+    spread = res["models"]["qwen3-1.7b-lora-s0"]["reaction"]["spread_bps"]["mean"]
+    assert spread == pytest.approx(400, abs=60)          # planted: +2% bullish, -2% bearish
     assert t["H2_vs_tfidf-logreg"]["confirmed"]          # random labels carry no information
     assert not t["H2_vs_qwen3-1.7b-zeroshot"]["confirmed"]   # identical labels: no difference
     assert not t["H3_drift"]["confirmed"]                # no drift was planted

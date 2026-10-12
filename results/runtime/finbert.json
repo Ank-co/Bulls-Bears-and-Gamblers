@@ -16,5 +16,14 @@
     "model_id": "ProsusAI/finbert",
     "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
     "peak_vram_gib": 0.586
+  },
+  "part3-dev": {
+    "items": 46156,
+    "seconds": 51.407,
+    "ms_per_item": 1.114,
+    "batch_size": 32,
+    "part1_agreement": 1.0,
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 4.477
   }
 }
