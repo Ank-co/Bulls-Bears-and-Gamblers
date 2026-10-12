@@ -19,6 +19,9 @@ outputs/
 models/
 wandb/
 
+# Part 3 data derived from FNSPID (CC BY-NC 4.0): never committed
+data/part3/
+
 # OS / editors
 .DS_Store
 Thumbs.db

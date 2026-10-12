@@ -98,6 +98,11 @@ Each headline is classified by four models of Part 1, unchanged:
 
 The 35B model is left out: 150,000 headlines at 0.64 s each would take 27 hours.
 
+The models are the Part 1 files and settings, with the same prompt (which still calls the text
+a tweet: the Part 1 tweets are themselves news headlines). Before labelling any headline, each
+model re-labels the Part 1 dev tweets and must agree with its stored Part 1 predictions on at
+least 99% of them, otherwise the run stops.
+
 ## Hypotheses (draft)
 
 - **H1, reaction.** For the fine-tuned model, ticker-dates read as bullish have a higher
@@ -128,6 +133,24 @@ There is no period after their training in these data. Two controls instead: Fin
 were trained on text that predates the test period or contains no prices, and the zero-shot and
 fine-tuned Qwen models share the same pretraining, so the difference between them is not
 look-ahead. This limit is stated in the README.
+
+## Pipeline
+
+| Step | Script | Writes |
+|---|---|---|
+| 1. Sample and returns | `scripts/part3_prepare.py --period dev` | `data/part3/dev/` (git-ignored), `results/part3/dev/sample_report.json` |
+| 2. Labels | `scripts/part3_classify.py --period dev --model all` | `results/part3/predictions/dev/<model>.csv` |
+| 3. Analysis | `scripts/part3_analyze.py --period dev` | `results/part3/dev/analysis.{json,md}` |
+
+Headline text, prices and returns derived from FNSPID stay in `data/part3/`, never committed.
+The repository only receives hashed headline ids, labels, counts and test results. The rules
+live in `src/bbg/news.py` (sample, price-move filter), `src/bbg/returns.py` (windows, abnormal
+returns) and `src/bbg/event_stats.py` (spreads, Newey-West), with unit tests and an end-to-end
+test on synthetic data where the planted effect must be found and the absent one must not.
+
+The whole pipeline runs on dev first. The price-move filter is checked there on a random sample
+of dropped and kept headlines (`data/part3/dev/filter_examples.csv`). Then the pre-registration
+is committed, and only then is the test period sampled, labelled and analysed, once.
 
 ## Compute
 
