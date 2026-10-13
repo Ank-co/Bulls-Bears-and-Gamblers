@@ -1,0 +1,300 @@
+{"id": "dev-00000", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 403, "completion_tokens": 12, "seconds": 1.322}
+{"id": "dev-00001", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 339, "completion_tokens": 13, "seconds": 1.187}
+{"id": "dev-00002", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 356, "completion_tokens": 12, "seconds": 1.218}
+{"id": "dev-00003", "value": 12, "error": null, "raw": "{\n  \"probability_up\": 12\n}", "prompt_tokens": 372, "completion_tokens": 13, "seconds": 1.262}
+{"id": "dev-00004", "value": 91, "error": null, "raw": "{\n\"probability_up\": 91\n}", "prompt_tokens": 284, "completion_tokens": 12, "seconds": 1.13}
+{"id": "dev-00005", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 422, "completion_tokens": 12, "seconds": 1.151}
+{"id": "dev-00006", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 228, "completion_tokens": 12, "seconds": 1.059}
+{"id": "dev-00007", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 418, "completion_tokens": 12, "seconds": 1.298}
+{"id": "dev-00008", "value": 35, "error": null, "raw": "{\n  \"probability_up\": 35\n}", "prompt_tokens": 335, "completion_tokens": 13, "seconds": 1.205}
+{"id": "dev-00009", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 329, "completion_tokens": 12, "seconds": 1.126}
+{"id": "dev-00010", "value": 12, "error": null, "raw": "{\n  \"probability_up\": 12\n}", "prompt_tokens": 342, "completion_tokens": 13, "seconds": 1.221}
+{"id": "dev-00011", "value": 70, "error": null, "raw": "{\n  \"probability_up\": 70\n}", "prompt_tokens": 419, "completion_tokens": 13, "seconds": 1.341}
+{"id": "dev-00012", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 451, "completion_tokens": 12, "seconds": 1.229}
+{"id": "dev-00013", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 462, "completion_tokens": 12, "seconds": 1.217}
+{"id": "dev-00014", "value": 70, "error": null, "raw": "{\n  \"probability_up\": 70\n}", "prompt_tokens": 330, "completion_tokens": 13, "seconds": 1.189}
+{"id": "dev-00015", "value": 68, "error": null, "raw": "{\n\"probability_up\": 68\n}", "prompt_tokens": 422, "completion_tokens": 12, "seconds": 1.265}
+{"id": "dev-00016", "value": 78, "error": null, "raw": "{\n\"probability_up\": 78\n}", "prompt_tokens": 340, "completion_tokens": 12, "seconds": 1.141}
+{"id": "dev-00017", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 230, "completion_tokens": 12, "seconds": 1.116}
+{"id": "dev-00018", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 282, "completion_tokens": 12, "seconds": 1.106}
+{"id": "dev-00019", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 337, "completion_tokens": 12, "seconds": 1.181}
+{"id": "dev-00020", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 347, "completion_tokens": 13, "seconds": 1.185}
+{"id": "dev-00021", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 220, "completion_tokens": 12, "seconds": 1.062}
+{"id": "dev-00022", "value": 58, "error": null, "raw": "{\n\"probability_up\": 58\n}", "prompt_tokens": 339, "completion_tokens": 12, "seconds": 1.13}
+{"id": "dev-00023", "value": 18, "error": null, "raw": "{\n\"probability_up\": 18\n}", "prompt_tokens": 216, "completion_tokens": 12, "seconds": 1.121}
+{"id": "dev-00024", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 238, "completion_tokens": 12, "seconds": 1.114}
+{"id": "dev-00025", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 354, "completion_tokens": 12, "seconds": 1.183}
+{"id": "dev-00026", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 276, "completion_tokens": 12, "seconds": 1.092}
+{"id": "dev-00027", "value": 12, "error": null, "raw": "{\n\"probability_up\": 12\n}", "prompt_tokens": 437, "completion_tokens": 12, "seconds": 1.2}
+{"id": "dev-00028", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 387, "completion_tokens": 12, "seconds": 1.179}
+{"id": "dev-00029", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 437, "completion_tokens": 12, "seconds": 1.161}
+{"id": "dev-00030", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 454, "completion_tokens": 13, "seconds": 1.248}
+{"id": "dev-00031", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 219, "completion_tokens": 12, "seconds": 1.094}
+{"id": "dev-00032", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 297, "completion_tokens": 12, "seconds": 1.142}
+{"id": "dev-00033", "value": 100, "error": null, "raw": "{\n  \"probability_up\": 100\n}", "prompt_tokens": 441, "completion_tokens": 14, "seconds": 1.268}
+{"id": "dev-00034", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 276, "completion_tokens": 12, "seconds": 1.088}
+{"id": "dev-00035", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 350, "completion_tokens": 12, "seconds": 1.177}
+{"id": "dev-00036", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 463, "completion_tokens": 12, "seconds": 1.201}
+{"id": "dev-00037", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 396, "completion_tokens": 13, "seconds": 1.208}
+{"id": "dev-00038", "value": 73, "error": null, "raw": "{\n\"probability_up\": 73\n}", "prompt_tokens": 282, "completion_tokens": 12, "seconds": 1.083}
+{"id": "dev-00039", "value": 35, "error": null, "raw": "{\n  \"probability_up\": 35\n}", "prompt_tokens": 354, "completion_tokens": 13, "seconds": 1.198}
+{"id": "dev-00040", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 344, "completion_tokens": 12, "seconds": 1.171}
+{"id": "dev-00041", "value": 1, "error": null, "raw": "{\n\"probability_up\": 1\n}", "prompt_tokens": 337, "completion_tokens": 11, "seconds": 1.123}
+{"id": "dev-00042", "value": 70, "error": null, "raw": "{\n  \"probability_up\": 70\n}", "prompt_tokens": 351, "completion_tokens": 13, "seconds": 1.168}
+{"id": "dev-00043", "value": 63, "error": null, "raw": "{\n\"probability_up\": 63\n}", "prompt_tokens": 344, "completion_tokens": 12, "seconds": 1.169}
+{"id": "dev-00044", "value": 30, "error": null, "raw": "{\n  \"probability_up\": 30\n}", "prompt_tokens": 367, "completion_tokens": 13, "seconds": 1.195}
+{"id": "dev-00045", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 321, "completion_tokens": 12, "seconds": 1.174}
+{"id": "dev-00046", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 421, "completion_tokens": 12, "seconds": 1.243}
+{"id": "dev-00047", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 275, "completion_tokens": 12, "seconds": 1.111}
+{"id": "dev-00048", "value": 88, "error": null, "raw": "{\n\"probability_up\": 88\n}", "prompt_tokens": 316, "completion_tokens": 12, "seconds": 1.144}
+{"id": "dev-00049", "value": 10, "error": null, "raw": "{\n\"probability_up\": 10\n}", "prompt_tokens": 231, "completion_tokens": 12, "seconds": 1.082}
+{"id": "dev-00050", "value": 84, "error": null, "raw": "{\n\"probability_up\": 84\n}", "prompt_tokens": 345, "completion_tokens": 12, "seconds": 1.161}
+{"id": "dev-00051", "value": 68, "error": null, "raw": "{\n\"probability_up\": 68\n}", "prompt_tokens": 331, "completion_tokens": 12, "seconds": 1.155}
+{"id": "dev-00052", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 322, "completion_tokens": 12, "seconds": 1.138}
+{"id": "dev-00053", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 353, "completion_tokens": 12, "seconds": 1.169}
+{"id": "dev-00054", "value": 81, "error": null, "raw": "{\n\"probability_up\": 81\n}", "prompt_tokens": 261, "completion_tokens": 12, "seconds": 1.118}
+{"id": "dev-00055", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 270, "completion_tokens": 12, "seconds": 1.074}
+{"id": "dev-00056", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 405, "completion_tokens": 12, "seconds": 1.174}
+{"id": "dev-00057", "value": 10, "error": null, "raw": "{\n\"probability_up\": 10\n}", "prompt_tokens": 356, "completion_tokens": 12, "seconds": 1.129}
+{"id": "dev-00058", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 279, "completion_tokens": 12, "seconds": 1.065}
+{"id": "dev-00059", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 390, "completion_tokens": 12, "seconds": 1.156}
+{"id": "dev-00060", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 287, "completion_tokens": 12, "seconds": 1.084}
+{"id": "dev-00061", "value": 84, "error": null, "raw": "{\n\"probability_up\": 84\n}", "prompt_tokens": 283, "completion_tokens": 12, "seconds": 1.136}
+{"id": "dev-00062", "value": 15, "error": null, "raw": "{\n  \"probability_up\": 15\n}", "prompt_tokens": 395, "completion_tokens": 13, "seconds": 1.161}
+{"id": "dev-00063", "value": 84, "error": null, "raw": "{\n\"probability_up\": 84\n}", "prompt_tokens": 229, "completion_tokens": 12, "seconds": 1.066}
+{"id": "dev-00064", "value": 42, "error": null, "raw": "{\n\"probability_up\": 42\n}", "prompt_tokens": 275, "completion_tokens": 12, "seconds": 1.065}
+{"id": "dev-00065", "value": 84, "error": null, "raw": "{\n\"probability_up\": 84\n}", "prompt_tokens": 272, "completion_tokens": 12, "seconds": 1.063}
+{"id": "dev-00066", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 264, "completion_tokens": 12, "seconds": 1.103}
+{"id": "dev-00067", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 319, "completion_tokens": 12, "seconds": 1.13}
+{"id": "dev-00068", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 339, "completion_tokens": 12, "seconds": 1.133}
+{"id": "dev-00069", "value": 52, "error": null, "raw": "{\n  \"probability_up\": 52\n}", "prompt_tokens": 402, "completion_tokens": 13, "seconds": 1.203}
+{"id": "dev-00070", "value": 12, "error": null, "raw": "{\n\"probability_up\": 12\n}", "prompt_tokens": 456, "completion_tokens": 12, "seconds": 1.188}
+{"id": "dev-00071", "value": 10, "error": null, "raw": "{\n  \"probability_up\": 10\n}", "prompt_tokens": 391, "completion_tokens": 13, "seconds": 1.257}
+{"id": "dev-00072", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 289, "completion_tokens": 12, "seconds": 1.124}
+{"id": "dev-00073", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 410, "completion_tokens": 12, "seconds": 1.186}
+{"id": "dev-00074", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 294, "completion_tokens": 12, "seconds": 1.08}
+{"id": "dev-00075", "value": 75, "error": null, "raw": "{\n  \"probability_up\": 75\n}", "prompt_tokens": 392, "completion_tokens": 13, "seconds": 1.206}
+{"id": "dev-00076", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 340, "completion_tokens": 12, "seconds": 1.153}
+{"id": "dev-00077", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 395, "completion_tokens": 12, "seconds": 1.187}
+{"id": "dev-00078", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 357, "completion_tokens": 12, "seconds": 1.171}
+{"id": "dev-00079", "value": 85, "error": null, "raw": "{\n  \"probability_up\": 85\n}", "prompt_tokens": 323, "completion_tokens": 13, "seconds": 1.13}
+{"id": "dev-00080", "value": 35, "error": null, "raw": "{\n\"probability_up\": 35\n}", "prompt_tokens": 269, "completion_tokens": 12, "seconds": 1.132}
+{"id": "dev-00081", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 359, "completion_tokens": 12, "seconds": 1.148}
+{"id": "dev-00082", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 383, "completion_tokens": 12, "seconds": 1.178}
+{"id": "dev-00083", "value": 93, "error": null, "raw": "{\n\"probability_up\": 93\n}", "prompt_tokens": 219, "completion_tokens": 12, "seconds": 1.044}
+{"id": "dev-00084", "value": 30, "error": null, "raw": "{\n  \"probability_up\": 30\n}", "prompt_tokens": 477, "completion_tokens": 13, "seconds": 1.219}
+{"id": "dev-00085", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 262, "completion_tokens": 12, "seconds": 1.07}
+{"id": "dev-00086", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 342, "completion_tokens": 12, "seconds": 1.115}
+{"id": "dev-00087", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 312, "completion_tokens": 12, "seconds": 1.099}
+{"id": "dev-00088", "value": 84, "error": null, "raw": "{\n\"probability_up\": 84\n}", "prompt_tokens": 370, "completion_tokens": 12, "seconds": 1.163}
+{"id": "dev-00089", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 270, "completion_tokens": 12, "seconds": 1.087}
+{"id": "dev-00090", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 254, "completion_tokens": 12, "seconds": 1.093}
+{"id": "dev-00091", "value": 62, "error": null, "raw": "{\n\"probability_up\": 62\n}", "prompt_tokens": 387, "completion_tokens": 12, "seconds": 1.192}
+{"id": "dev-00092", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 233, "completion_tokens": 12, "seconds": 1.039}
+{"id": "dev-00093", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 279, "completion_tokens": 12, "seconds": 1.099}
+{"id": "dev-00094", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 272, "completion_tokens": 12, "seconds": 1.065}
+{"id": "dev-00095", "value": 93, "error": null, "raw": "{\n\"probability_up\": 93\n}", "prompt_tokens": 379, "completion_tokens": 12, "seconds": 1.137}
+{"id": "dev-00096", "value": 85, "error": null, "raw": "{\n  \"probability_up\": 85\n}", "prompt_tokens": 324, "completion_tokens": 13, "seconds": 1.127}
+{"id": "dev-00097", "value": 42, "error": null, "raw": "{\n\"probability_up\": 42\n}", "prompt_tokens": 402, "completion_tokens": 12, "seconds": 1.16}
+{"id": "dev-00098", "value": 70, "error": null, "raw": "{\n  \"probability_up\": 70\n}", "prompt_tokens": 345, "completion_tokens": 13, "seconds": 1.162}
+{"id": "dev-00099", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 382, "completion_tokens": 12, "seconds": 1.189}
+{"id": "dev-00100", "value": 12, "error": null, "raw": "{\n\"probability_up\": 12\n}", "prompt_tokens": 446, "completion_tokens": 12, "seconds": 1.17}
+{"id": "dev-00101", "value": 57, "error": null, "raw": "{\n\"probability_up\": 57\n}", "prompt_tokens": 270, "completion_tokens": 12, "seconds": 1.077}
+{"id": "dev-00102", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 480, "completion_tokens": 12, "seconds": 1.196}
+{"id": "dev-00103", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 336, "completion_tokens": 12, "seconds": 1.114}
+{"id": "dev-00104", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 472, "completion_tokens": 12, "seconds": 1.21}
+{"id": "dev-00105", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 378, "completion_tokens": 12, "seconds": 1.153}
+{"id": "dev-00106", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 368, "completion_tokens": 12, "seconds": 1.151}
+{"id": "dev-00107", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 332, "completion_tokens": 12, "seconds": 1.164}
+{"id": "dev-00108", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 346, "completion_tokens": 12, "seconds": 1.18}
+{"id": "dev-00109", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 473, "completion_tokens": 12, "seconds": 1.23}
+{"id": "dev-00110", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 365, "completion_tokens": 12, "seconds": 1.141}
+{"id": "dev-00111", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 349, "completion_tokens": 12, "seconds": 1.143}
+{"id": "dev-00112", "value": 93, "error": null, "raw": "{\n\"probability_up\": 93\n}", "prompt_tokens": 227, "completion_tokens": 12, "seconds": 1.073}
+{"id": "dev-00113", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 325, "completion_tokens": 12, "seconds": 1.119}
+{"id": "dev-00114", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 214, "completion_tokens": 12, "seconds": 1.099}
+{"id": "dev-00115", "value": 87, "error": null, "raw": "{\n\"probability_up\": 87\n}", "prompt_tokens": 217, "completion_tokens": 12, "seconds": 1.051}
+{"id": "dev-00116", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 328, "completion_tokens": 13, "seconds": 1.129}
+{"id": "dev-00117", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 390, "completion_tokens": 12, "seconds": 1.169}
+{"id": "dev-00118", "value": 52, "error": null, "raw": "{\n\"probability_up\": 52\n}", "prompt_tokens": 267, "completion_tokens": 12, "seconds": 1.121}
+{"id": "dev-00119", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 347, "completion_tokens": 12, "seconds": 1.173}
+{"id": "dev-00120", "value": 55, "error": null, "raw": "{\n\"probability_up\": 55\n}", "prompt_tokens": 295, "completion_tokens": 12, "seconds": 1.098}
+{"id": "dev-00121", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 399, "completion_tokens": 12, "seconds": 1.144}
+{"id": "dev-00122", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 341, "completion_tokens": 12, "seconds": 1.08}
+{"id": "dev-00123", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 417, "completion_tokens": 13, "seconds": 1.186}
+{"id": "dev-00124", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 326, "completion_tokens": 12, "seconds": 1.146}
+{"id": "dev-00125", "value": 30, "error": null, "raw": "{\n  \"probability_up\": 30\n}", "prompt_tokens": 444, "completion_tokens": 13, "seconds": 1.218}
+{"id": "dev-00126", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 333, "completion_tokens": 12, "seconds": 1.162}
+{"id": "dev-00127", "value": 10, "error": null, "raw": "{\n\"probability_up\": 10\n}", "prompt_tokens": 332, "completion_tokens": 12, "seconds": 1.191}
+{"id": "dev-00128", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 344, "completion_tokens": 12, "seconds": 1.125}
+{"id": "dev-00129", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 380, "completion_tokens": 12, "seconds": 1.174}
+{"id": "dev-00130", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 442, "completion_tokens": 12, "seconds": 1.144}
+{"id": "dev-00131", "value": 70, "error": null, "raw": "{\n  \"probability_up\": 70\n}", "prompt_tokens": 351, "completion_tokens": 13, "seconds": 1.06}
+{"id": "dev-00132", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 272, "completion_tokens": 12, "seconds": 0.965}
+{"id": "dev-00133", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 370, "completion_tokens": 12, "seconds": 1.055}
+{"id": "dev-00134", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 300, "completion_tokens": 12, "seconds": 1.001}
+{"id": "dev-00135", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 233, "completion_tokens": 12, "seconds": 1.094}
+{"id": "dev-00136", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 413, "completion_tokens": 12, "seconds": 1.164}
+{"id": "dev-00137", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 285, "completion_tokens": 12, "seconds": 1.125}
+{"id": "dev-00138", "value": 84, "error": null, "raw": "{\n\"probability_up\": 84\n}", "prompt_tokens": 279, "completion_tokens": 12, "seconds": 1.107}
+{"id": "dev-00139", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 433, "completion_tokens": 13, "seconds": 1.18}
+{"id": "dev-00140", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 453, "completion_tokens": 12, "seconds": 1.14}
+{"id": "dev-00141", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 331, "completion_tokens": 12, "seconds": 1.091}
+{"id": "dev-00142", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 338, "completion_tokens": 12, "seconds": 1.125}
+{"id": "dev-00143", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 410, "completion_tokens": 12, "seconds": 1.238}
+{"id": "dev-00144", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 332, "completion_tokens": 12, "seconds": 1.147}
+{"id": "dev-00145", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 346, "completion_tokens": 12, "seconds": 1.129}
+{"id": "dev-00146", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 196, "completion_tokens": 12, "seconds": 1.069}
+{"id": "dev-00147", "value": 84, "error": null, "raw": "{\n\"probability_up\": 84\n}", "prompt_tokens": 258, "completion_tokens": 12, "seconds": 1.122}
+{"id": "dev-00148", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 353, "completion_tokens": 12, "seconds": 1.173}
+{"id": "dev-00149", "value": 95, "error": null, "raw": "{\n\"probability_up\": 95\n}", "prompt_tokens": 332, "completion_tokens": 12, "seconds": 1.152}
+{"id": "dev-00150", "value": 30, "error": null, "raw": "{\n  \"probability_up\": 30\n}", "prompt_tokens": 341, "completion_tokens": 13, "seconds": 1.185}
+{"id": "dev-00151", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 340, "completion_tokens": 12, "seconds": 1.163}
+{"id": "dev-00152", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 226, "completion_tokens": 12, "seconds": 1.063}
+{"id": "dev-00153", "value": 45, "error": null, "raw": "{\n  \"probability_up\": 45\n}", "prompt_tokens": 323, "completion_tokens": 13, "seconds": 1.179}
+{"id": "dev-00154", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 260, "completion_tokens": 12, "seconds": 1.085}
+{"id": "dev-00155", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 343, "completion_tokens": 12, "seconds": 1.138}
+{"id": "dev-00156", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 336, "completion_tokens": 12, "seconds": 1.148}
+{"id": "dev-00157", "value": 98, "error": null, "raw": "{\n\"probability_up\": 98\n}", "prompt_tokens": 266, "completion_tokens": 12, "seconds": 1.086}
+{"id": "dev-00158", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 346, "completion_tokens": 12, "seconds": 1.105}
+{"id": "dev-00159", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 355, "completion_tokens": 12, "seconds": 1.145}
+{"id": "dev-00160", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 392, "completion_tokens": 12, "seconds": 1.175}
+{"id": "dev-00161", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 232, "completion_tokens": 12, "seconds": 1.087}
+{"id": "dev-00162", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 430, "completion_tokens": 12, "seconds": 1.177}
+{"id": "dev-00163", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 320, "completion_tokens": 12, "seconds": 1.137}
+{"id": "dev-00164", "value": 12, "error": null, "raw": "{\n\"probability_up\": 12\n}", "prompt_tokens": 282, "completion_tokens": 12, "seconds": 1.119}
+{"id": "dev-00165", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 364, "completion_tokens": 12, "seconds": 1.154}
+{"id": "dev-00166", "value": 10, "error": null, "raw": "{\n\"probability_up\": 10\n}", "prompt_tokens": 351, "completion_tokens": 12, "seconds": 1.188}
+{"id": "dev-00167", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 295, "completion_tokens": 12, "seconds": 1.081}
+{"id": "dev-00168", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 414, "completion_tokens": 12, "seconds": 1.195}
+{"id": "dev-00169", "value": 99, "error": null, "raw": "{\n  \"probability_up\": 99\n}", "prompt_tokens": 391, "completion_tokens": 13, "seconds": 1.268}
+{"id": "dev-00170", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 317, "completion_tokens": 12, "seconds": 1.148}
+{"id": "dev-00171", "value": 35, "error": null, "raw": "{\n\"probability_up\": 35\n}", "prompt_tokens": 292, "completion_tokens": 12, "seconds": 1.133}
+{"id": "dev-00172", "value": 72, "error": null, "raw": "{\n\"probability_up\": 72\n}", "prompt_tokens": 483, "completion_tokens": 12, "seconds": 1.313}
+{"id": "dev-00173", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 319, "completion_tokens": 12, "seconds": 1.142}
+{"id": "dev-00174", "value": 30, "error": null, "raw": "{\n  \"probability_up\": 30\n}", "prompt_tokens": 377, "completion_tokens": 13, "seconds": 1.219}
+{"id": "dev-00175", "value": 45, "error": null, "raw": "{\n  \"probability_up\": 45\n}", "prompt_tokens": 353, "completion_tokens": 13, "seconds": 1.23}
+{"id": "dev-00176", "value": 60, "error": null, "raw": "{\n\"probability_up\": 60\n}", "prompt_tokens": 485, "completion_tokens": 12, "seconds": 1.299}
+{"id": "dev-00177", "value": 100, "error": null, "raw": "{\n\"probability_up\": 100\n}", "prompt_tokens": 208, "completion_tokens": 13, "seconds": 1.131}
+{"id": "dev-00178", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 465, "completion_tokens": 12, "seconds": 1.198}
+{"id": "dev-00179", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 308, "completion_tokens": 12, "seconds": 1.095}
+{"id": "dev-00180", "value": 30, "error": null, "raw": "{\n  \"probability_up\": 30\n}", "prompt_tokens": 362, "completion_tokens": 13, "seconds": 1.18}
+{"id": "dev-00181", "value": 37, "error": null, "raw": "{\n\"probability_up\": 37\n}", "prompt_tokens": 300, "completion_tokens": 12, "seconds": 1.082}
+{"id": "dev-00182", "value": 35, "error": null, "raw": "{\n\"probability_up\": 35\n}", "prompt_tokens": 386, "completion_tokens": 12, "seconds": 1.146}
+{"id": "dev-00183", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 379, "completion_tokens": 12, "seconds": 1.255}
+{"id": "dev-00184", "value": 42, "error": null, "raw": "{\n\"probability_up\": 42\n}", "prompt_tokens": 310, "completion_tokens": 12, "seconds": 1.163}
+{"id": "dev-00185", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 363, "completion_tokens": 12, "seconds": 1.166}
+{"id": "dev-00186", "value": 20, "error": null, "raw": "{\n\"probability_up\": 20\n}", "prompt_tokens": 230, "completion_tokens": 12, "seconds": 1.053}
+{"id": "dev-00187", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 230, "completion_tokens": 12, "seconds": 1.082}
+{"id": "dev-00188", "value": 42, "error": null, "raw": "{\n  \"probability_up\": 42\n}", "prompt_tokens": 446, "completion_tokens": 13, "seconds": 1.209}
+{"id": "dev-00189", "value": 35, "error": null, "raw": "{\n\"probability_up\": 35\n}", "prompt_tokens": 207, "completion_tokens": 12, "seconds": 1.036}
+{"id": "dev-00190", "value": 28, "error": null, "raw": "{\n\"probability_up\": 28\n}", "prompt_tokens": 214, "completion_tokens": 12, "seconds": 1.043}
+{"id": "dev-00191", "value": 23, "error": null, "raw": "{\n\"probability_up\": 23\n}", "prompt_tokens": 203, "completion_tokens": 12, "seconds": 1.058}
+{"id": "dev-00192", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 420, "completion_tokens": 12, "seconds": 1.29}
+{"id": "dev-00193", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 331, "completion_tokens": 12, "seconds": 1.149}
+{"id": "dev-00194", "value": 60, "error": null, "raw": "{\n  \"probability_up\": 60\n}", "prompt_tokens": 356, "completion_tokens": 13, "seconds": 1.195}
+{"id": "dev-00195", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 338, "completion_tokens": 12, "seconds": 1.111}
+{"id": "dev-00196", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 429, "completion_tokens": 12, "seconds": 1.141}
+{"id": "dev-00197", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 429, "completion_tokens": 12, "seconds": 1.203}
+{"id": "dev-00198", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 483, "completion_tokens": 13, "seconds": 1.258}
+{"id": "dev-00199", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 491, "completion_tokens": 13, "seconds": 1.269}
+{"id": "dev-00200", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 314, "completion_tokens": 12, "seconds": 1.123}
+{"id": "dev-00201", "value": 15, "error": null, "raw": "{\n  \"probability_up\": 15\n}", "prompt_tokens": 405, "completion_tokens": 13, "seconds": 1.209}
+{"id": "dev-00202", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 289, "completion_tokens": 12, "seconds": 1.111}
+{"id": "dev-00203", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 271, "completion_tokens": 12, "seconds": 1.148}
+{"id": "dev-00204", "value": 12, "error": null, "raw": "{\n\"probability_up\": 12\n}", "prompt_tokens": 259, "completion_tokens": 12, "seconds": 1.155}
+{"id": "dev-00205", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 503, "completion_tokens": 12, "seconds": 1.226}
+{"id": "dev-00206", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 208, "completion_tokens": 12, "seconds": 1.049}
+{"id": "dev-00207", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 252, "completion_tokens": 12, "seconds": 1.154}
+{"id": "dev-00208", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 324, "completion_tokens": 12, "seconds": 1.111}
+{"id": "dev-00209", "value": 65, "error": null, "raw": "{\n  \"probability_up\": 65\n}", "prompt_tokens": 392, "completion_tokens": 13, "seconds": 1.244}
+{"id": "dev-00210", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 216, "completion_tokens": 12, "seconds": 1.086}
+{"id": "dev-00211", "value": 99, "error": null, "raw": "{\n  \"probability_up\": 99\n}", "prompt_tokens": 325, "completion_tokens": 13, "seconds": 1.204}
+{"id": "dev-00212", "value": 70, "error": null, "raw": "{\n  \"probability_up\": 70\n}", "prompt_tokens": 389, "completion_tokens": 13, "seconds": 1.184}
+{"id": "dev-00213", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 348, "completion_tokens": 13, "seconds": 1.161}
+{"id": "dev-00214", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 286, "completion_tokens": 12, "seconds": 1.061}
+{"id": "dev-00215", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 272, "completion_tokens": 12, "seconds": 1.135}
+{"id": "dev-00216", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 233, "completion_tokens": 12, "seconds": 1.109}
+{"id": "dev-00217", "value": 88, "error": null, "raw": "{\n\"probability_up\": 88\n}", "prompt_tokens": 266, "completion_tokens": 12, "seconds": 1.077}
+{"id": "dev-00218", "value": 70, "error": null, "raw": "{\n  \"probability_up\": 70\n}", "prompt_tokens": 496, "completion_tokens": 13, "seconds": 1.229}
+{"id": "dev-00219", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 455, "completion_tokens": 13, "seconds": 1.206}
+{"id": "dev-00220", "value": 75, "error": null, "raw": "{\n  \"probability_up\": 75\n}", "prompt_tokens": 460, "completion_tokens": 13, "seconds": 1.242}
+{"id": "dev-00221", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 347, "completion_tokens": 12, "seconds": 1.144}
+{"id": "dev-00222", "value": 15, "error": null, "raw": "{\n  \"probability_up\": 15\n}", "prompt_tokens": 467, "completion_tokens": 13, "seconds": 1.204}
+{"id": "dev-00223", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 267, "completion_tokens": 12, "seconds": 1.129}
+{"id": "dev-00224", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 445, "completion_tokens": 12, "seconds": 1.191}
+{"id": "dev-00225", "value": 95, "error": null, "raw": "{\n\"probability_up\": 95\n}", "prompt_tokens": 331, "completion_tokens": 12, "seconds": 1.127}
+{"id": "dev-00226", "value": 75, "error": null, "raw": "{\n  \"probability_up\": 75\n}", "prompt_tokens": 407, "completion_tokens": 13, "seconds": 1.22}
+{"id": "dev-00227", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 386, "completion_tokens": 12, "seconds": 1.182}
+{"id": "dev-00228", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 329, "completion_tokens": 12, "seconds": 1.133}
+{"id": "dev-00229", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 390, "completion_tokens": 13, "seconds": 1.188}
+{"id": "dev-00230", "value": 60, "error": null, "raw": "{\n\"probability_up\": 60\n}", "prompt_tokens": 253, "completion_tokens": 12, "seconds": 1.123}
+{"id": "dev-00231", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 352, "completion_tokens": 12, "seconds": 1.184}
+{"id": "dev-00232", "value": 35, "error": null, "raw": "{\n\"probability_up\": 35\n}", "prompt_tokens": 199, "completion_tokens": 12, "seconds": 1.051}
+{"id": "dev-00233", "value": 42, "error": null, "raw": "{\n\"probability_up\": 42\n}", "prompt_tokens": 294, "completion_tokens": 12, "seconds": 1.106}
+{"id": "dev-00234", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 292, "completion_tokens": 12, "seconds": 1.103}
+{"id": "dev-00235", "value": 50, "error": null, "raw": "{\n  \"probability_up\": 50\n}", "prompt_tokens": 334, "completion_tokens": 13, "seconds": 1.164}
+{"id": "dev-00236", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 376, "completion_tokens": 12, "seconds": 1.209}
+{"id": "dev-00237", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 274, "completion_tokens": 12, "seconds": 1.099}
+{"id": "dev-00238", "value": 88, "error": null, "raw": "{\n\"probability_up\": 88\n}", "prompt_tokens": 309, "completion_tokens": 12, "seconds": 1.171}
+{"id": "dev-00239", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 336, "completion_tokens": 12, "seconds": 1.124}
+{"id": "dev-00240", "value": 54, "error": null, "raw": "{\n\"probability_up\": 54\n}", "prompt_tokens": 215, "completion_tokens": 12, "seconds": 1.198}
+{"id": "dev-00241", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 239, "completion_tokens": 12, "seconds": 1.176}
+{"id": "dev-00242", "value": 60, "error": null, "raw": "{\n\"probability_up\": 60\n}", "prompt_tokens": 487, "completion_tokens": 12, "seconds": 1.238}
+{"id": "dev-00243", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 283, "completion_tokens": 12, "seconds": 1.106}
+{"id": "dev-00244", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 415, "completion_tokens": 12, "seconds": 1.192}
+{"id": "dev-00245", "value": 33, "error": null, "raw": "{\n\"probability_up\": 33\n}", "prompt_tokens": 263, "completion_tokens": 12, "seconds": 1.119}
+{"id": "dev-00246", "value": 88, "error": null, "raw": "{\n\"probability_up\": 88\n}", "prompt_tokens": 263, "completion_tokens": 12, "seconds": 1.124}
+{"id": "dev-00247", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 285, "completion_tokens": 12, "seconds": 1.127}
+{"id": "dev-00248", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 219, "completion_tokens": 12, "seconds": 1.062}
+{"id": "dev-00249", "value": 25, "error": null, "raw": "{\n\"probability_up\": 25\n}", "prompt_tokens": 273, "completion_tokens": 12, "seconds": 1.084}
+{"id": "dev-00250", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 409, "completion_tokens": 12, "seconds": 1.184}
+{"id": "dev-00251", "value": 70, "error": null, "raw": "{\n  \"probability_up\": 70\n}", "prompt_tokens": 408, "completion_tokens": 13, "seconds": 1.185}
+{"id": "dev-00252", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 220, "completion_tokens": 12, "seconds": 1.061}
+{"id": "dev-00253", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 374, "completion_tokens": 12, "seconds": 1.184}
+{"id": "dev-00254", "value": 30, "error": null, "raw": "{\n  \"probability_up\": 30\n}", "prompt_tokens": 414, "completion_tokens": 13, "seconds": 1.223}
+{"id": "dev-00255", "value": 60, "error": null, "raw": "{\n\"probability_up\": 60\n}", "prompt_tokens": 434, "completion_tokens": 12, "seconds": 1.204}
+{"id": "dev-00256", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 267, "completion_tokens": 12, "seconds": 1.108}
+{"id": "dev-00257", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 318, "completion_tokens": 12, "seconds": 1.089}
+{"id": "dev-00258", "value": 85, "error": null, "raw": "{\n  \"probability_up\": 85\n}", "prompt_tokens": 319, "completion_tokens": 13, "seconds": 1.129}
+{"id": "dev-00259", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 214, "completion_tokens": 12, "seconds": 1.086}
+{"id": "dev-00260", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 228, "completion_tokens": 12, "seconds": 1.155}
+{"id": "dev-00261", "value": 35, "error": null, "raw": "{\n\"probability_up\": 35\n}", "prompt_tokens": 300, "completion_tokens": 12, "seconds": 1.097}
+{"id": "dev-00262", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 298, "completion_tokens": 12, "seconds": 1.08}
+{"id": "dev-00263", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 343, "completion_tokens": 12, "seconds": 1.116}
+{"id": "dev-00264", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 398, "completion_tokens": 12, "seconds": 1.159}
+{"id": "dev-00265", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 285, "completion_tokens": 12, "seconds": 1.075}
+{"id": "dev-00266", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 330, "completion_tokens": 12, "seconds": 1.097}
+{"id": "dev-00267", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 293, "completion_tokens": 12, "seconds": 1.11}
+{"id": "dev-00268", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 273, "completion_tokens": 12, "seconds": 1.049}
+{"id": "dev-00269", "value": 65, "error": null, "raw": "{\n\"probability_up\": 65\n}", "prompt_tokens": 214, "completion_tokens": 12, "seconds": 1.054}
+{"id": "dev-00270", "value": 70, "error": null, "raw": "{\n  \"probability_up\": 70\n}", "prompt_tokens": 326, "completion_tokens": 13, "seconds": 1.198}
+{"id": "dev-00271", "value": 60, "error": null, "raw": "{\n  \"probability_up\": 60\n}", "prompt_tokens": 378, "completion_tokens": 13, "seconds": 1.22}
+{"id": "dev-00272", "value": 55, "error": null, "raw": "{\n\"probability_up\": 55\n}", "prompt_tokens": 332, "completion_tokens": 12, "seconds": 1.121}
+{"id": "dev-00273", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 274, "completion_tokens": 12, "seconds": 1.102}
+{"id": "dev-00274", "value": 84, "error": null, "raw": "{\n  \"probability_up\": 84\n}", "prompt_tokens": 338, "completion_tokens": 13, "seconds": 1.194}
+{"id": "dev-00275", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 209, "completion_tokens": 12, "seconds": 1.041}
+{"id": "dev-00276", "value": 42, "error": null, "raw": "{\n\"probability_up\": 42\n}", "prompt_tokens": 214, "completion_tokens": 12, "seconds": 1.083}
+{"id": "dev-00277", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 274, "completion_tokens": 12, "seconds": 1.131}
+{"id": "dev-00278", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 383, "completion_tokens": 12, "seconds": 1.143}
+{"id": "dev-00279", "value": 60, "error": null, "raw": "{\n\"probability_up\": 60\n}", "prompt_tokens": 296, "completion_tokens": 12, "seconds": 1.064}
+{"id": "dev-00280", "value": 12, "error": null, "raw": "{\n\"probability_up\": 12\n}", "prompt_tokens": 229, "completion_tokens": 12, "seconds": 1.025}
+{"id": "dev-00281", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 411, "completion_tokens": 12, "seconds": 1.153}
+{"id": "dev-00282", "value": 62, "error": null, "raw": "{\n\"probability_up\": 62\n}", "prompt_tokens": 392, "completion_tokens": 12, "seconds": 1.165}
+{"id": "dev-00283", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 461, "completion_tokens": 12, "seconds": 1.17}
+{"id": "dev-00284", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 282, "completion_tokens": 12, "seconds": 1.044}
+{"id": "dev-00285", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 364, "completion_tokens": 12, "seconds": 1.152}
+{"id": "dev-00286", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 264, "completion_tokens": 12, "seconds": 1.112}
+{"id": "dev-00287", "value": 63, "error": null, "raw": "{\n  \"probability_up\": 63\n}", "prompt_tokens": 382, "completion_tokens": 13, "seconds": 1.198}
+{"id": "dev-00288", "value": 50, "error": null, "raw": "{\n\"probability_up\": 50\n}", "prompt_tokens": 470, "completion_tokens": 12, "seconds": 1.38}
+{"id": "dev-00289", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 365, "completion_tokens": 12, "seconds": 1.189}
+{"id": "dev-00290", "value": 45, "error": null, "raw": "{\n\"probability_up\": 45\n}", "prompt_tokens": 271, "completion_tokens": 12, "seconds": 1.142}
+{"id": "dev-00291", "value": 30, "error": null, "raw": "{\n\"probability_up\": 30\n}", "prompt_tokens": 417, "completion_tokens": 12, "seconds": 1.274}
+{"id": "dev-00292", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 234, "completion_tokens": 12, "seconds": 1.072}
+{"id": "dev-00293", "value": 75, "error": null, "raw": "{\n\"probability_up\": 75\n}", "prompt_tokens": 280, "completion_tokens": 12, "seconds": 1.11}
+{"id": "dev-00294", "value": 45, "error": null, "raw": "{\n  \"probability_up\": 45\n}", "prompt_tokens": 338, "completion_tokens": 13, "seconds": 1.185}
+{"id": "dev-00295", "value": 15, "error": null, "raw": "{\n\"probability_up\": 15\n}", "prompt_tokens": 252, "completion_tokens": 12, "seconds": 1.121}
+{"id": "dev-00296", "value": 70, "error": null, "raw": "{\n\"probability_up\": 70\n}", "prompt_tokens": 411, "completion_tokens": 12, "seconds": 1.191}
+{"id": "dev-00297", "value": 99, "error": null, "raw": "{\n\"probability_up\": 99\n}", "prompt_tokens": 497, "completion_tokens": 12, "seconds": 1.252}
+{"id": "dev-00298", "value": 85, "error": null, "raw": "{\n\"probability_up\": 85\n}", "prompt_tokens": 284, "completion_tokens": 12, "seconds": 1.164}
+{"id": "dev-00299", "value": 12, "error": null, "raw": "{\n  \"probability_up\": 12\n}", "prompt_tokens": 405, "completion_tokens": 13, "seconds": 1.186}

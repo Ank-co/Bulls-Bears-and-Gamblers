@@ -1,0 +1,21 @@
+{
+  "dramatic": {
+    "items": 454,
+    "mean_abs_polarity": 0.7942526509681724,
+    "share_not_neutral": 0.9625550660792952,
+    "share_reading_as_conventional": 0.7819383259911894
+  },
+  "neutral": {
+    "items": 433,
+    "mean_abs_polarity": 0.7322224445348524,
+    "share_not_neutral": 0.9076212471131639,
+    "share_reading_as_conventional": 0.5173210161662818
+  },
+  "dramatic_more_polarized": true,
+  "mapping": {
+    "intercept": 0.1160548235532942,
+    "slope": 0.2337147634249795,
+    "fitted_on": "dev",
+    "scenarios": 300
+  }
+}

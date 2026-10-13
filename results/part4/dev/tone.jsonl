@@ -1,0 +1,300 @@
+{"id": "dev-00000", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00001", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0, 1, -1]}
+{"id": "dev-00002", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, -1, 1]}
+{"id": "dev-00003", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, -1, 1]}
+{"id": "dev-00004", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00005", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, 1, -1, -1, -1]}
+{"id": "dev-00006", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00007", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [1, 0, -1, -1, -1]}
+{"id": "dev-00008", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00009", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00010", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00011", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, 1, -1]}
+{"id": "dev-00012", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 1, -1, 1, -1]}
+{"id": "dev-00013", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [0, -1, -1, -1, -1]}
+{"id": "dev-00014", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00015", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00016", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 1, -1]}
+{"id": "dev-00017", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1]}
+{"id": "dev-00018", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0, 0]}
+{"id": "dev-00019", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00020", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00021", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00022", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [0, 1, 1]}
+{"id": "dev-00023", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00024", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00025", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00026", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [0, -1]}
+{"id": "dev-00027", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1, 1, -1]}
+{"id": "dev-00028", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, 1, -1, -1]}
+{"id": "dev-00029", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, 1, -1, -1]}
+{"id": "dev-00030", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, -1, 1, 1, 1]}
+{"id": "dev-00031", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00032", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00033", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [0, -1, -1, -1, -1]}
+{"id": "dev-00034", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00035", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, 0, -1]}
+{"id": "dev-00036", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, 0, -1, -1]}
+{"id": "dev-00037", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00038", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00039", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00040", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1]}
+{"id": "dev-00041", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00042", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00043", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00044", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00045", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00046", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, 1, -1]}
+{"id": "dev-00047", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00048", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 0, 0]}
+{"id": "dev-00049", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00050", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, 0, -1]}
+{"id": "dev-00051", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 1, -1]}
+{"id": "dev-00052", "tone_sum": 3, "p_tone": 0.6936414664721378, "item_tones": [1, 1, 1]}
+{"id": "dev-00053", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00054", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00055", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00056", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1, 0]}
+{"id": "dev-00057", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, 1, -1, -1]}
+{"id": "dev-00058", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 0]}
+{"id": "dev-00059", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, -1, 1, 1]}
+{"id": "dev-00060", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00061", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00062", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, 1, -1]}
+{"id": "dev-00063", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1]}
+{"id": "dev-00064", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [0, -1]}
+{"id": "dev-00065", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00066", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00067", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00068", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [0, -1, -1]}
+{"id": "dev-00069", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [-1, 1, 1, 1]}
+{"id": "dev-00070", "tone_sum": -5, "p_tone": 0.2587416783673324, "item_tones": [-1, -1, -1, -1, -1]}
+{"id": "dev-00071", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1, 1, -1]}
+{"id": "dev-00072", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00073", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, -1, 1]}
+{"id": "dev-00074", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00075", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [-1, 1, 1, 1]}
+{"id": "dev-00076", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 1, -1]}
+{"id": "dev-00077", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, -1, 1, 1]}
+{"id": "dev-00078", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, 1, 0]}
+{"id": "dev-00079", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00080", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00081", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00082", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [0, -1, 1, 1]}
+{"id": "dev-00083", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1]}
+{"id": "dev-00084", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1, -1, 1]}
+{"id": "dev-00085", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00086", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00087", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00088", "tone_sum": 3, "p_tone": 0.6936414664721378, "item_tones": [1, 1, 1]}
+{"id": "dev-00089", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00090", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00091", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00092", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00093", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00094", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00095", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00096", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00097", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1, -1, 1]}
+{"id": "dev-00098", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1, -1, 1]}
+{"id": "dev-00099", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00100", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, 1, -1, -1, -1]}
+{"id": "dev-00101", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00102", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1, -1, 1]}
+{"id": "dev-00103", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00104", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1, -1, 1]}
+{"id": "dev-00105", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00106", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [0, -1, -1, 1]}
+{"id": "dev-00107", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1]}
+{"id": "dev-00108", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00109", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, 1, -1, -1]}
+{"id": "dev-00110", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 1, 0, -1]}
+{"id": "dev-00111", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00112", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1]}
+{"id": "dev-00113", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00114", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00115", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1]}
+{"id": "dev-00116", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, 0, -1]}
+{"id": "dev-00117", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, -1, 1]}
+{"id": "dev-00118", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00119", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 0, 1]}
+{"id": "dev-00120", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00121", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1, -1, 1]}
+{"id": "dev-00122", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00123", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1, -1, 1]}
+{"id": "dev-00124", "tone_sum": 3, "p_tone": 0.6936414664721378, "item_tones": [1, 1, 1]}
+{"id": "dev-00125", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 1, 1, -1, -1]}
+{"id": "dev-00126", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00127", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00128", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00129", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, -1, 1]}
+{"id": "dev-00130", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [1, -1, -1, -1]}
+{"id": "dev-00131", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1]}
+{"id": "dev-00132", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00133", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0, -1, 1]}
+{"id": "dev-00134", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00135", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00136", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, 0, -1, -1]}
+{"id": "dev-00137", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00138", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 0]}
+{"id": "dev-00139", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, 0, -1, -1]}
+{"id": "dev-00140", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, -1, 1, 1]}
+{"id": "dev-00141", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00142", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 1, -1]}
+{"id": "dev-00143", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 0, 1]}
+{"id": "dev-00144", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00145", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00146", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0]}
+{"id": "dev-00147", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 0]}
+{"id": "dev-00148", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1]}
+{"id": "dev-00149", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1]}
+{"id": "dev-00150", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0, 1, -1]}
+{"id": "dev-00151", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00152", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1]}
+{"id": "dev-00153", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00154", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00155", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0, -1, 1]}
+{"id": "dev-00156", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1]}
+{"id": "dev-00157", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00158", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00159", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00160", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, 0, -1]}
+{"id": "dev-00161", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00162", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [1, -1, -1, -1]}
+{"id": "dev-00163", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, 0, -1]}
+{"id": "dev-00164", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00165", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, 1, -1, -1]}
+{"id": "dev-00166", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1]}
+{"id": "dev-00167", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00168", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, 1, -1, -1]}
+{"id": "dev-00169", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, 1, -1, -1]}
+{"id": "dev-00170", "tone_sum": 3, "p_tone": 0.6936414664721378, "item_tones": [1, 1, 1]}
+{"id": "dev-00171", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00172", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [0, 1, -1, -1, -1]}
+{"id": "dev-00173", "tone_sum": 3, "p_tone": 0.6936414664721378, "item_tones": [1, 1, 1]}
+{"id": "dev-00174", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, 1, -1, 1]}
+{"id": "dev-00175", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 1, -1]}
+{"id": "dev-00176", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1, -1, 0, 1]}
+{"id": "dev-00177", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0]}
+{"id": "dev-00178", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, -1, 1, 1]}
+{"id": "dev-00179", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 1, -1]}
+{"id": "dev-00180", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 1, -1]}
+{"id": "dev-00181", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00182", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00183", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00184", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00185", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1, 1, -1]}
+{"id": "dev-00186", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00187", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00188", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0, -1, 1, -1, 1]}
+{"id": "dev-00189", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0]}
+{"id": "dev-00190", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00191", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00192", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00193", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00194", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00195", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [-1, 1, 1]}
+{"id": "dev-00196", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [1, -1, -1, -1]}
+{"id": "dev-00197", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 0, 1]}
+{"id": "dev-00198", "tone_sum": 3, "p_tone": 0.6936414664721378, "item_tones": [1, 1, 1, 1, -1]}
+{"id": "dev-00199", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1, 1, -1]}
+{"id": "dev-00200", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, 0, -1]}
+{"id": "dev-00201", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00202", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00203", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00204", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00205", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1, 1, -1]}
+{"id": "dev-00206", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1]}
+{"id": "dev-00207", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00208", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00209", "tone_sum": 4, "p_tone": 0.7409503500806047, "item_tones": [1, 1, 1, 1]}
+{"id": "dev-00210", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00211", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00212", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, 1, -1, 1]}
+{"id": "dev-00213", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0, 1, -1]}
+{"id": "dev-00214", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00215", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00216", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00217", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00218", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1, 1, -1]}
+{"id": "dev-00219", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1, 1, -1]}
+{"id": "dev-00220", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1, -1, 1]}
+{"id": "dev-00221", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00222", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, 1, -1, -1]}
+{"id": "dev-00223", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00224", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1, -1, 1]}
+{"id": "dev-00225", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00226", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, 1, -1, -1]}
+{"id": "dev-00227", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [0, -1, -1, 1]}
+{"id": "dev-00228", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 1, -1]}
+{"id": "dev-00229", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00230", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00231", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00232", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00233", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00234", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00235", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00236", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, -1, 1]}
+{"id": "dev-00237", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00238", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, 1]}
+{"id": "dev-00239", "tone_sum": -3, "p_tone": 0.3577623501509334, "item_tones": [-1, -1, -1]}
+{"id": "dev-00240", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00241", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00242", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, -1, 1, 0]}
+{"id": "dev-00243", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, 1]}
+{"id": "dev-00244", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 1, 0, -1]}
+{"id": "dev-00245", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00246", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00247", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00248", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00249", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00250", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 1, -1, 0]}
+{"id": "dev-00251", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1, 1, -1]}
+{"id": "dev-00252", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [0]}
+{"id": "dev-00253", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00254", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1, 1, -1]}
+{"id": "dev-00255", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}
+{"id": "dev-00256", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, 1]}
+{"id": "dev-00257", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, 0, -1]}
+{"id": "dev-00258", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, 0, -1]}
+{"id": "dev-00259", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1]}
+{"id": "dev-00260", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00261", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00262", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00263", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00264", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, 1, -1, -1]}
+{"id": "dev-00265", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00266", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00267", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00268", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, -1]}
+{"id": "dev-00269", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00270", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, -1, 1]}
+{"id": "dev-00271", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 1, 0, -1]}
+{"id": "dev-00272", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, 0, 1]}
+{"id": "dev-00273", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00274", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1]}
+{"id": "dev-00275", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1]}
+{"id": "dev-00276", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00277", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1]}
+{"id": "dev-00278", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, -1, 1, 1]}
+{"id": "dev-00279", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, 1]}
+{"id": "dev-00280", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00281", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [1, 1, -1, -1]}
+{"id": "dev-00282", "tone_sum": 3, "p_tone": 0.6936414664721378, "item_tones": [1, 1, 1, 0]}
+{"id": "dev-00283", "tone_sum": -5, "p_tone": 0.2587416783673324, "item_tones": [-1, -1, -1, -1, -1]}
+{"id": "dev-00284", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00285", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1]}
+{"id": "dev-00286", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [0, 1]}
+{"id": "dev-00287", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [-1, 1, 1, 1]}
+{"id": "dev-00288", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [1, -1, -1, -1, 1]}
+{"id": "dev-00289", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, 1, -1, 0]}
+{"id": "dev-00290", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00291", "tone_sum": 1, "p_tone": 0.5865617032448729, "item_tones": [1, 0, 1, -1]}
+{"id": "dev-00292", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1]}
+{"id": "dev-00293", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00294", "tone_sum": 0, "p_tone": 0.5289811848941753, "item_tones": [-1, 1, 0]}
+{"id": "dev-00295", "tone_sum": -2, "p_tone": 0.41304909885662733, "item_tones": [-1, -1]}
+{"id": "dev-00296", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1, 0]}
+{"id": "dev-00297", "tone_sum": -1, "p_tone": 0.4706189028670415, "item_tones": [-1, -1, 1, -1, 1]}
+{"id": "dev-00298", "tone_sum": 2, "p_tone": 0.6418687606178184, "item_tones": [1, 1]}
+{"id": "dev-00299", "tone_sum": -4, "p_tone": 0.30601754758047023, "item_tones": [-1, -1, -1, -1]}

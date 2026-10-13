@@ -1,0 +1,29 @@
+{
+  "dev-reading": {
+    "items": 120,
+    "seconds": 106.455,
+    "ms_per_item": 887.125,
+    "server_model": "qwen3.6-35b-abliterated",
+    "failures": 0,
+    "mean_prompt_tokens": 90.0,
+    "note": "sequential requests"
+  },
+  "dev-stated": {
+    "items": 300,
+    "seconds": 342.665,
+    "ms_per_item": 1142.217,
+    "server_model": "qwen3.6-35b-abliterated",
+    "failures": 0,
+    "mean_prompt_tokens": 336.0,
+    "note": "sequential requests"
+  },
+  "dev-history": {
+    "items": 100,
+    "seconds": 122.91,
+    "ms_per_item": 1229.1,
+    "server_model": "qwen3.6-35b-abliterated",
+    "failures": 0,
+    "mean_prompt_tokens": 419.9,
+    "note": "sequential requests"
+  }
+}
