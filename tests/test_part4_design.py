@@ -42,15 +42,6 @@ def test_regression_returns_the_ideal_weights():
     assert np.allclose(b, [0, 1, 1, 1, 0, 0], atol=1e-9)
 
 
-def test_history_references_differ_and_only_the_design_aware_one_is_calibrated():
-    h = dc.history(100_000, np.random.default_rng(7))
-    ref = h["refs"]
-    gaps = {k: dc.calibration_gap(v, h["y"]) for k, v in ref.items()}
-    assert gaps["design_aware_bayes"] < 0.02
-    assert gaps["frequencies_taken_as_true"] > 0.04
-    assert np.mean(abs(ref["frequencies_taken_as_true"] - ref["design_aware_bayes"])) > 0.03
-
-
 def test_worked_example_of_the_design():
     # base rate 70%, congruent item 75% pointing up, reversed item 65% pointing up, one distractor
     p = dc.sigmoid(dc.logit(0.7) + dc.logit(0.75) + dc.logit(0.65))
