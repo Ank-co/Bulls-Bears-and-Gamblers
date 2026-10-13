@@ -1,0 +1,191 @@
+{
+  "reliabilities": [
+    0.55,
+    0.65,
+    0.75,
+    0.85
+  ],
+  "base_rates": [
+    0.3,
+    0.5,
+    0.7
+  ],
+  "max_evidence": 3,
+  "max_distractors": 2,
+  "p_reversed": 0.3333333333333333,
+  "episodes": 20,
+  "1_calibration_max_gap_over_deciles": 0.00486250848471087,
+  "1_brier": {
+    "ideal": 0.14975482486371905,
+    "base_rate_only": 0.2236068,
+    "coin": 0.25
+  },
+  "2_ideal_weights": {
+    "const": 0.0,
+    "base_rate": 1.0,
+    "congruent": 1.0,
+    "reversed": 1.0,
+    "distractor": 0.0,
+    "dramatic_tone": -0.0
+  },
+  "3_share_of_ideal_p": {
+    "outside_5_95": 0.1324775,
+    "outside_1_99": 0.0138475,
+    "deciles": [
+      0.07,
+      0.15,
+      0.252,
+      0.35,
+      0.5,
+      0.65,
+      0.748,
+      0.85,
+      0.93
+    ]
+  },
+  "4_precision": {
+    "assumed_model_weights": {
+      "const": 0.0,
+      "base_rate": 0.6,
+      "congruent": 0.8,
+      "reversed": 0.4,
+      "distractor": 0.15,
+      "dramatic_tone": 0.1
+    },
+    "runs": [
+      {
+        "scenarios": 1000,
+        "noise_sd_logit": 0.5,
+        "estimate": {
+          "const": -0.027,
+          "base_rate": 0.605,
+          "congruent": 0.779,
+          "reversed": 0.403,
+          "distractor": 0.122,
+          "dramatic_tone": 0.14
+        },
+        "se": {
+          "const": 0.016,
+          "base_rate": 0.022,
+          "congruent": 0.011,
+          "reversed": 0.016,
+          "distractor": 0.022,
+          "dramatic_tone": 0.033
+        }
+      },
+      {
+        "scenarios": 1000,
+        "noise_sd_logit": 1.0,
+        "estimate": {
+          "const": -0.053,
+          "base_rate": 0.61,
+          "congruent": 0.756,
+          "reversed": 0.405,
+          "distractor": 0.094,
+          "dramatic_tone": 0.179
+        },
+        "se": {
+          "const": 0.032,
+          "base_rate": 0.044,
+          "congruent": 0.022,
+          "reversed": 0.033,
+          "distractor": 0.045,
+          "dramatic_tone": 0.065
+        }
+      },
+      {
+        "scenarios": 2000,
+        "noise_sd_logit": 0.5,
+        "estimate": {
+          "const": -0.001,
+          "base_rate": 0.601,
+          "congruent": 0.783,
+          "reversed": 0.408,
+          "distractor": 0.152,
+          "dramatic_tone": 0.104
+        },
+        "se": {
+          "const": 0.011,
+          "base_rate": 0.016,
+          "congruent": 0.008,
+          "reversed": 0.012,
+          "distractor": 0.015,
+          "dramatic_tone": 0.021
+        }
+      },
+      {
+        "scenarios": 2000,
+        "noise_sd_logit": 1.0,
+        "estimate": {
+          "const": -0.001,
+          "base_rate": 0.602,
+          "congruent": 0.765,
+          "reversed": 0.416,
+          "distractor": 0.153,
+          "dramatic_tone": 0.106
+        },
+        "se": {
+          "const": 0.022,
+          "base_rate": 0.032,
+          "congruent": 0.015,
+          "reversed": 0.024,
+          "distractor": 0.03,
+          "dramatic_tone": 0.043
+        }
+      }
+    ]
+  },
+  "4_paired_shift": [
+    {
+      "scenarios": 1000,
+      "shift_logit": 0.1,
+      "noise_sd_logit": 1.0,
+      "noise_correlation": 0.0,
+      "t": 1.57
+    },
+    {
+      "scenarios": 1000,
+      "shift_logit": 0.1,
+      "noise_sd_logit": 1.0,
+      "noise_correlation": 0.5,
+      "t": 2.85
+    },
+    {
+      "scenarios": 2000,
+      "shift_logit": 0.1,
+      "noise_sd_logit": 1.0,
+      "noise_correlation": 0.0,
+      "t": 2.32
+    },
+    {
+      "scenarios": 2000,
+      "shift_logit": 0.1,
+      "noise_sd_logit": 1.0,
+      "noise_correlation": 0.5,
+      "t": 3.44
+    }
+  ],
+  "5_history_references": {
+    "true_parameters": {
+      "calibration_max_gap_over_deciles": 0.0053,
+      "brier": 0.1499
+    },
+    "frequencies_taken_as_true": {
+      "calibration_max_gap_over_deciles": 0.0765,
+      "brier": 0.174
+    },
+    "uniform_prior_bayes": {
+      "calibration_max_gap_over_deciles": 0.0506,
+      "brier": 0.1717
+    },
+    "design_aware_bayes": {
+      "calibration_max_gap_over_deciles": 0.0109,
+      "brier": 0.1684
+    }
+  },
+  "5_history_mean_abs_gap_points": {
+    "frequencies_vs_uniform_prior": 2.1,
+    "frequencies_vs_design_aware": 6.35,
+    "uniform_prior_vs_design_aware": 4.62
+  }
+}
