@@ -1,0 +1,134 @@
+{
+  "note": "exploratory, written after the test results; not part of the pre-registration; p-values are descriptive, not confirmatory",
+  "probe_sample": 20000,
+  "data_checks": {
+    "duplicate_stock_dates_returns": 0,
+    "duplicate_stock_dates_probe": 0,
+    "stock_dates_with_all_four_readers": 150000,
+    "stock_dates_in_returns": 150000,
+    "trading_days_in_sample": 504,
+    "days_in_probe_series": 501
+  },
+  "rank_correlation_probe_vs_reader": {
+    "qwen3-1.7b-lora-s0": 0.00016808134617700136,
+    "finbert": -0.006887829306872437,
+    "tfidf-logreg": -0.0003152399893304684,
+    "qwen3-1.7b-zeroshot": -0.0050937158152861576
+  },
+  "drift_ic_on_probe_sample": {
+    "qwen3-1.7b-lora-s0": {
+      "mean": 0.0137052271392068,
+      "t": 1.5550275290195874,
+      "p": 0.11993951309906757,
+      "n_days": 501
+    },
+    "finbert": {
+      "mean": 0.007571847897337528,
+      "t": 1.003682827426469,
+      "p": 0.3155315169158279,
+      "n_days": 501
+    },
+    "tfidf-logreg": {
+      "mean": 0.0029219173093833735,
+      "t": 0.34364193539227667,
+      "p": 0.731115583305189,
+      "n_days": 501
+    },
+    "qwen3-1.7b-zeroshot": {
+      "mean": 0.007932201121652471,
+      "t": 0.9541200489136342,
+      "p": 0.34002287867539494,
+      "n_days": 485
+    },
+    "probe": {
+      "mean": 0.021904225706833626,
+      "t": 3.066184533811857,
+      "p": 0.002168094607271047,
+      "n_days": 501
+    }
+  },
+  "fine_tuned_alone": {
+    "qwen3-1.7b-lora-s0": {
+      "mean": 0.0137052271392068,
+      "t": 1.5550275290195874,
+      "p": 0.11993951309906757,
+      "n_days": 501
+    }
+  },
+  "fine_tuned_with_probe": {
+    "qwen3-1.7b-lora-s0": {
+      "mean": 0.0113870427474833,
+      "t": 1.2788764904134806,
+      "p": 0.2009405526278517,
+      "n_days": 501
+    },
+    "probe": {
+      "mean": 0.02183319385611731,
+      "t": 3.1066760865100482,
+      "p": 0.0018920358823447526,
+      "n_days": 501
+    }
+  },
+  "probe_parts_joint_regression": {
+    "probe_between_stocks": {
+      "mean": 0.022309469858293483,
+      "t": 2.7778982835336343,
+      "p": 0.005471174225405191,
+      "n_days": 501
+    },
+    "probe_within_stock": {
+      "mean": 0.015570771551768283,
+      "t": 1.9178772723866357,
+      "p": 0.055126574699525685,
+      "n_days": 501
+    }
+  },
+  "probe_parts_separate_ic_not_additive": {
+    "probe_between_stocks": {
+      "mean": 0.016614208831383342,
+      "t": 2.1426351749622023,
+      "p": 0.03214240438927818,
+      "n_days": 501
+    },
+    "probe_within_stock": {
+      "mean": 0.008629994695997721,
+      "t": 1.1633424949271731,
+      "p": 0.24469057080930479,
+      "n_days": 501
+    }
+  },
+  "news_days": {
+    "news_days_whole_sample": {
+      "note": "retrospective: uses dates after the observation",
+      "rank_correlation_with_probe": 0.0848501344085608,
+      "drift_ic_on_probe_sample": {
+        "mean": 0.01975206649516837,
+        "t": 2.4266137384830246,
+        "p": 0.01524047232685937,
+        "n_days": 501
+      },
+      "drift_ic_full_sample": {
+        "mean": 0.010344822410270946,
+        "t": 2.604879898971955,
+        "p": 0.009190646975770015,
+        "n_days": 504
+      }
+    },
+    "news_days_before": {
+      "note": "known at the time: earlier news days of the stock in the sample",
+      "rank_correlation_with_probe": 0.2274995908147025,
+      "drift_ic_on_probe_sample": {
+        "mean": 0.017796729362525077,
+        "t": 2.0121893466781553,
+        "p": 0.0441999810710233,
+        "n_days": 501
+      },
+      "drift_ic_full_sample": {
+        "mean": 0.004188104315312579,
+        "t": 1.0751821068089844,
+        "p": 0.28229320480447495,
+        "n_days": 503
+      }
+    }
+  }
+}

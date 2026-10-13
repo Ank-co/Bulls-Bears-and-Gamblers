@@ -1,0 +1,46 @@
+{
+  "kept_sample": {
+    "headlines": 246764,
+    "ticker_dates": 150000,
+    "tickers": 3701,
+    "headlines_per_ticker_date": 1.6450933333333333,
+    "tfidf_label_share": {
+      "bearish": 0.11204227521032241,
+      "bullish": 0.269127587492503,
+      "neutral": 0.6188301372971746
+    },
+    "top_publishers_share": {
+      "Seeking Alpha": 0.41144575383767484,
+      "Benzinga Newsdesk": 0.16407579711789402,
+      "Zacks": 0.1023285406299136,
+      "GuruFocus": 0.07345074646220681,
+      "Vick Meyer": 0.053622084258643885
+    },
+    "symbol_kind_share": {
+      "other": 0.9989192110240476,
+      "five letters ending in F or Y (foreign, over the counter)": 0.0010807889759524452
+    }
+  },
+  "dropped_no_prices": {
+    "headlines": 44226,
+    "ticker_dates": 27228,
+    "tickers": 1083,
+    "headlines_per_ticker_date": 1.624283825473777,
+    "tfidf_label_share": {
+      "bearish": 0.12257495590828923,
+      "bullish": 0.21647899425677203,
+      "neutral": 0.6609460498349388
+    },
+    "top_publishers_share": {
+      "Seeking Alpha": 0.4312169312169312,
+      "Benzinga Newsdesk": 0.1689051689051689,
+      "Zacks": 0.0829602496269163,
+      "GuruFocus": 0.07712657712657713,
+      "Paul Quintaro": 0.036878759100981325
+    },
+    "symbol_kind_share": {
+      "other": 0.9861495844875346,
+      "class share or suffix (contains . or -)": 0.013850415512465374
+    }
+  }
+}

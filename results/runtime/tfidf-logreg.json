@@ -7,5 +7,14 @@
     "part1_agreement": 1.0,
     "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
     "peak_vram_gib": 4.483
+  },
+  "part3-test": {
+    "items": 246764,
+    "seconds": 20.805,
+    "ms_per_item": 0.084,
+    "batch_size": 32,
+    "part1_agreement": 1.0,
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "peak_vram_gib": 4.964
   }
 }

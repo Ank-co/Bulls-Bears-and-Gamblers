@@ -152,6 +152,12 @@ def test_pipeline_end_to_end(sandbox, monkeypatch):
     assert "Dev period" in md and "C1, memory probe" in md and "C2, ticker-dates kept" in md
     assert not (sandbox / "results/metrics/test_access.log").exists()
 
+    assert run(load("part3_explore"), ["--period", "dev"], monkeypatch) == 0
+    ex = json.loads((sandbox / "results/part3/dev/exploratory.json").read_text())
+    assert "not part of the pre-registration" in ex["note"]
+    assert abs(ex["rank_correlation_probe_vs_reader"]["qwen3-1.7b-lora-s0"]) < 0.1   # random probe
+    assert set(ex["fine_tuned_with_probe"]) == {"qwen3-1.7b-lora-s0", "probe"}
+
 
 def test_classify_refuses_a_model_that_is_not_the_part1_model(sandbox, monkeypatch):
     work = part3.work_dir("dev")

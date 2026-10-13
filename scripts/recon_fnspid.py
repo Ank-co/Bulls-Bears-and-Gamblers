@@ -4,8 +4,8 @@
                                    --prices ~/fnspid/Stock_price/full_history.zip
 
 Reads the news file in chunks (CPU only, about 10 minutes for 6 GB) and a few price files.
-Prints a summary and writes results/part3/recon.json. Only counts and a handful of example
-headlines are written; the dataset itself stays outside the repository (CC BY-NC 4.0).
+Prints a summary and writes results/part3/recon.json. Only counts and column names are written,
+no headline and no price row; the dataset itself stays outside the repository (CC BY-NC 4.0).
 """
 from __future__ import annotations
 
@@ -38,8 +38,7 @@ def parse_dates(s: pd.Series) -> pd.Series:
 def scan_news(path: Path, chunksize: int) -> dict:
     header = pd.read_csv(path, nrows=5)
     cols = [c for c in WANTED if c in header.columns]
-    out = {"columns": list(header.columns), "used_columns": cols,
-           "examples": header[cols].astype(str).to_dict("records")}
+    out = {"columns": list(header.columns), "used_columns": cols}
     rows, bad_dates, no_title = 0, 0, 0
     per_year, per_publisher, hours_et, minute_zero = Counter(), Counter(), Counter(), Counter()
     keys, tickers = [], set()
@@ -98,7 +97,7 @@ def scan_prices(path: Path, news_tickers: set[str]) -> dict:
                 out["probes"][t] = None
                 continue
             df = pd.read_csv(io.BytesIO(z.read(by_ticker[t])))
-            info = {"columns": list(df.columns), "rows": len(df), "head": df.head(3).astype(str).to_dict("records")}
+            info = {"columns": list(df.columns), "rows": len(df)}
             date_col = next((c for c in df.columns if c.lower() == "date"), None)
             if date_col:
                 dates = pd.to_datetime(df[date_col], errors="coerce")

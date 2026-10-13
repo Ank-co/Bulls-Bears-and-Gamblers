@@ -1,14 +1,16 @@
 # Bulls, Bears and Gamblers
 
-**Two questions about language models in markets, answered with experiments on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
+**Three questions about language models in markets, answered with experiments on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
 
 1. **Reading the market.** Can a small model fine-tuned on the laptop classify market sentiment better than a model twenty times its size?
 2. **Advising the client.** When a client sounds like a gambler, does a model protect them, or follow them? And what changes when the model's refusal behaviour is removed?
+3. **Reading the price.** Does a model's reading of the news move with stock prices, and does the better reader carry more of it?
 
 ## Key results
 
 - **A 1.7B model fine-tuned in 22 minutes beats every baseline.** On 2,388 held-out tweets, Qwen3-1.7B with LoRA reaches a macro-F1 of **0.884 ± 0.003** (three seeds), against 0.764 for TF-IDF and 0.757 for a 35B model used zero-shot (p < 10⁻⁴ for every comparison). A better quantization of the 35B model, tested later, reaches 0.788, still far below. The fine-tuned model confuses bullish and bearish tweets **7 times less often** than TF-IDF or FinBERT, and runs in 58 ms per tweet against 638 ms for the 35B model.
 - **Removing refusals turns a cautious adviser into a compliant one.** Given the same 48 client scenarios, the abliterated model recommends **43 percentage points more** of the client's savings in high-risk products to gamblers and loss-chasers than the base model, **24 points more** when the client pushes for confirmation, and recommends leverage to **43%** of fragile clients chasing losses (the base model: none). Three of the four pre-registered hypotheses are confirmed; the fourth is not.
+- **The better reader also lines up best with prices, and predicts little.** On 150,000 stock-days of 2018 and 2019 news, the fine-tuned model's reading correlates with the price move around the news more than every other reader (daily rank correlation **0.198**, against 0.133 to 0.155). Once the news is public, a small effect remains (15 bps a day between bullish and bearish stocks, almost all on bad news), but a memory control fixed in advance does not allow attributing it to the model.
 - **The same abliteration makes the model read the market as more bullish.** On the Part 1 test set, it labels **23%** of the tweets that are not bullish as bullish, against 11% for the base model with the same quantization: 229 tweets flip to bullish, 1 flips the other way. It also loses 0.07 of macro-F1. Both effects were pre-registered.
 
 ## Part 1, reading the market
@@ -95,10 +97,40 @@ Part 2 shows that the abliterated model follows the client. Does it also read th
 - **This is the optimism reported without ground truth.** [Fafuła (2026)](https://arxiv.org/abs/2607.17427) finds more optimistic stock calls after abliteration; here the right answer is known, so the optimism shows up as an error. Together with Part 2, the same edit makes the model both more optimistic about the news and more compliant with the client.
 - **Quantization matters too.** With this quantization (mradermacher `i1-Q3_K_M`), the base model scores 0.788, above the 0.757 of the file used in Part 1 (unsloth `UD-Q3_K_M`). This comparison was not pre-registered and is reported as a description. The fine-tuned 1.7B model (0.884) stays well ahead of both.
 
+## Part 3, does the reading move with prices?
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/figures/part3-dark.svg">
+  <img alt="Daily rank correlation between each model's reading of the headlines and the stock returns, around the news and after it" src="docs/figures/part3-light.svg" width="100%">
+</picture>
+
+Headlines from FNSPID ([Dong et al., 2024](https://arxiv.org/abs/2402.06698)): Benzinga, Seeking Alpha, Zacks and others. Test period 2018 and 2019: **150,000 stock-days** (one stock on one news date), 246,764 headlines, 3,701 US stocks, each headline labelled by the four Part 1 readers, unchanged. Return: stock minus SPY (market-adjusted, no factor model).
+
+- **Around the news**: from the last close before the news date to the first open after it. Most headlines have a date but no hour, so this window contains the reaction whatever the hour, and also moves that may come before the news. It measures an association, not a prediction.
+- **After the news**: from that open to the close. The news is public for sure: this is the prediction test.
+- **Measure**: each day, the rank correlation (IC) between a reader's score and the returns of all the stocks with news that day, averaged over 504 days, with Newey-West errors.
+
+The design was built and run on 2016 and 2017, then frozen in a [pre-registration](docs/part3-preregistration.md) before 2018 was touched. The dev runs changed two choices, both reported there: the test measure (a bullish minus bearish spread rewards a model that rarely takes a side) and the filter of headlines that only describe a price move ("Stock X jumps 5%").
+
+| Pre-registered test (2018 and 2019) | Mean daily IC | t | Result |
+|---|---|---|---|
+| H1. Fine-tuned reading vs move around the news | +0.198 | 40.5 | Confirmed |
+| H2. Fine-tuned minus FinBERT | +0.064 | 21.3 | Confirmed |
+| H2. Fine-tuned minus TF-IDF | +0.043 | 15.1 | Confirmed |
+| H2. Fine-tuned minus zero-shot | +0.065 | 17.6 | Confirmed |
+| H3. Fine-tuned reading vs open to close after the news | +0.018 | 6.0 | Significant, not separable from look-ahead (see C1) |
+
+- **The ranking of Part 1 holds against prices.** The fine-tuned model lines up best with the move around the news, then TF-IDF (0.155), FinBERT (0.134) and the zero-shot model (0.133). In basis points, stocks it reads as bullish beat those it reads as bearish by 306 bps over that window.
+- **After the news is public, little is left, and only on bad news.** Stocks read as bearish keep falling (-15 bps from open to close); stocks read as bullish do not move (-0.2 bps). The 15 bps daily spread would break even at 7.6 bps of trading cost per leg. No strategy is claimed: equal weights, daily rebalancing, no execution, liquidity or risk model.
+- **Memory control (C1).** The base Qwen model, asked with the ticker and the two dates only, no headline, gives answers unrelated to the move around the news (IC -0.006) but related to the move after it (IC +0.022, t 3.1). Under the rule fixed in advance, H3 is therefore reported as not separable from look-ahead, and every Qwen result as possibly affected by memory of the prices.
+- **What the control does not settle** (exploratory, written after the results; every output is in `results/part3/test/exploratory.json` and its p-values are descriptive only). The probe's score is unrelated to every reader's score (rank correlations below 0.01). Which stock it is explains part of that link, perhaps not all of it: in a joint regression, the stock's average probe score is associated with the drift (t 2.8), and the date-to-date deviation from it points the same way, more weakly (t 1.9, p 0.06). A stock's news coverage known at the time gives mixed results (t 2.0 on the probe's stock-days, 1.1 on the full sample). On the probe's 20,000 stock-days, the readers' own drift associations are too imprecise to compare with it (t 0.3 to 1.6). The positive control therefore stays unexplained. FinBERT and TF-IDF, which cannot remember these prices, show a drift association on the full sample (IC 0.012 and 0.015, reported without a test in the pre-registration): this suggests, without establishing it, that a small post-news drift exists apart from any memory.
+- **Coverage control (C2).** 14% of the candidate stock-days have no prices in FNSPID, most likely companies that later disappeared. Their headlines look like the others (TF-IDF tone 22% bullish, 66% neutral, 12% bearish, against 27%, 62%, 11%), but their returns are unknown.
+
 ## Limits
 
-- **Part 1.** One dataset of tweets without timestamps or prices, so no link to returns. The fine-tuned model was still improving after two epochs; the protocol was kept as committed rather than tuned further.
+- **Part 1.** One dataset of tweets without timestamps or prices; Part 3 links the same models to returns on another dataset. The fine-tuned model was still improving after two epochs; the protocol was kept as committed rather than tuned further.
 - **Part 2.** One model family at one quantization level, English only, single-turn questions, thinking disabled, and a JSON format that may change behaviour compared with a free conversation. The scenarios were written for this study and are not a validated risk questionnaire. The abliteration was made by a third party and is not reproduced here. A base model that recommends 0% to a client with savings and a stable job could also be judged too conservative.
+- **Part 3.** The Qwen models were pretrained on text covering the test years, and the memory control cannot check whether a headline reminds a model of a famous event and its outcome (that would need headlines with company names removed). Publication hours are unknown, returns are market-adjusted only, 14% of stock-days lack prices, and the headlines come from a few English-language sources. The abliterated model is not part of Part 3: at 0.6 s per headline it would need about 38 hours.
 
 ## Related work
 
@@ -107,6 +139,8 @@ Part 2 shows that the abliterated model follows the client. Does it also read th
 - [Cho et al. (2026)](https://arxiv.org/abs/2603.09303) measure the risk profiles of language models with personas.
 - [Zhao et al. (2026)](https://arxiv.org/pdf/2604.24668) measure sycophancy in professional financial tasks, not retail advice.
 - [Fafuła (2026), "Abliteration Is Not a Scalpel"](https://arxiv.org/abs/2607.17427) is the closest work: Huihui abliterations of Qwen3-30B-A3B and Gemma make more optimistic weekly calls on stocks than their base models (+7.4 and +12.2 points of upside calls), with instruction-following preserved. It studies the model's own market calls, not advice to a client; the addendum measures the same optimism on labelled news.
+- [Lopez-Lira and Tang (2023)](https://arxiv.org/abs/2304.07619) score headlines with GPT models and find returns that keep drifting after the news is public, stronger for bad news and for small firms. Part 3 finds the same asymmetry on bad news, with small models on a laptop, and a memory control.
+- [Glasserman and Lin (2023)](https://arxiv.org/abs/2309.17322) study how look-ahead in pretrained models could inflate return predictions, and test for it by removing company names from the headlines.
 - [Sharma et al. (2024)](https://arxiv.org/abs/2310.13548) document sycophancy in assistants trained from human feedback.
 - [What does abliteration actually cost](https://www.greaterwrong.com/posts/ipAXsLjkyqC6s7Cin/what-does-abliteration-actually-cost) measures the cost of a Huihui abliterated Qwen on MMLU and TruthfulQA.
 
@@ -132,6 +166,13 @@ python scripts/analyze_advice.py      # part 2: pre-registered tests
 LLAMA_MODEL=qwen3.6-35b-base-i1 python scripts/zero_shot_llamacpp.py --name qwen3.6-35b-i1-zeroshot
 LLAMA_MODEL=qwen3.6-35b-abliterated python scripts/zero_shot_llamacpp.py --name qwen3.6-35b-abliterated-zeroshot
 python scripts/analyze_abliteration_sentiment.py   # addendum: pre-registered tests
+
+# part 3: FNSPID headlines and prices, downloaded outside the repository (docs/part3-preregistration.md)
+python scripts/part3_prepare.py --period test --news ~/fnspid/Stock_news/All_external.csv --prices ~/fnspid/Stock_price/full_history.zip
+python scripts/part3_classify.py --period test --model all
+python scripts/part3_probe.py --period test       # control C1
+python scripts/part3_coverage.py --period test    # control C2
+python scripts/part3_analyze.py --period test     # pre-registered tests
 python scripts/make_figures.py        # README figures
 ```
 
@@ -139,4 +180,4 @@ Every model writes `results/predictions/<split>/<model>.csv`; `scripts/evaluate.
 
 ## License
 
-Code under the MIT license. The dataset belongs to its authors (MIT license). Models belong to their respective authors.
+Code under the MIT license. The Part 1 dataset belongs to its authors (MIT license). FNSPID belongs to its authors (CC BY-NC 4.0); its headlines and prices are not redistributed here, only hashed headline ids, labels and results. Models belong to their respective authors.

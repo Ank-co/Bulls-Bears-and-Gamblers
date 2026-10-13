@@ -1,0 +1,39 @@
+{
+  "rows_read": 13057514,
+  "no_ticker": 9804627,
+  "no_title": 0,
+  "no_valid_date": 0,
+  "rows_in_period": 998479,
+  "dropped_several_tickers": 635915,
+  "dropped_duplicates": 1822,
+  "dropped_price_moves": 35157,
+  "headlines_kept": 325585,
+  "ticker_dates_candidates": 198287,
+  "ticker_dates": 198287,
+  "dropped_no_price_file": 26399,
+  "dropped_missing_prices_around_date": 829,
+  "ticker_dates_with_returns": 171059,
+  "next_day_missing": 29,
+  "sample_seed": 31,
+  "sample_size_target": 150000,
+  "sample_ticker_dates": 150000,
+  "sample_headlines": 246764,
+  "sample_tickers": 3701,
+  "sample_per_year": {
+    "2018": 67197,
+    "2019": 82803
+  },
+  "sample_top_publishers": {
+    "Seeking Alpha": 101530,
+    "Benzinga Newsdesk": 40488,
+    "Zacks": 25251,
+    "GuruFocus": 18125,
+    "Vick Meyer": 13232,
+    "Benzinga_Newsdesk": 9910,
+    "Investor's Business Daily": 6216,
+    "Paul Quintaro": 5702,
+    "Charles Gross": 5648,
+    "Eddie Staley": 5436
+  },
+  "excluded_headlines_no_prices": 44226
+}

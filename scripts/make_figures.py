@@ -137,6 +137,49 @@ def part2(ans: pd.DataFrame, t: dict, out: Path) -> None:
     plt.close(fig)
 
 
+PART3_ROWS = [("qwen3-1.7b-lora-s0", "Qwen3-1.7B + LoRA"), ("tfidf-logreg", "TF-IDF + logistic regression"),
+              ("finbert", "FinBERT"), ("qwen3-1.7b-zeroshot", "Qwen3-1.7B, zero-shot"),
+              ("probe", "Memory probe: ticker and dates only")]
+
+
+def part3(res: dict, t: dict, out: Path) -> None:
+    """Daily IC of each reader, reaction window and drift window, with 95% Newey-West intervals."""
+    probe = res["controls"]["C1_memory_probe"]
+    rows = list(reversed(PART3_ROWS))
+    y = range(len(rows))
+    h = 0.62
+    fig = plt.figure(figsize=(10.4, 4.8), facecolor=t["bg"])
+    header(fig, f"Headline readings and stock returns, {res['n_ticker_dates']:,} stock-days of 2018 and 2019",
+           "Daily rank correlation (IC) between the reading and the market-adjusted return. "
+           "Blue: fine-tuned. Grey: other readers. Outline: control.", t)
+    card(fig, 0.008, 0.592, "Around the news: last close to next open", t)
+    card(fig, 0.612, 0.992, "After it, open to close: prediction", t)
+    a1 = fig.add_axes((0.25, 0.165, 0.315, 0.555))
+    a2 = fig.add_axes((0.64, 0.165, 0.33, 0.555), sharey=a1)
+    for ax, w, xmax, pad in ((a1, "reaction", 0.24, 0.006), (a2, "drift", 0.045, 0.0015)):
+        for i, (key, _) in zip(y, rows):
+            r = probe[w] if key == "probe" else res["models"][key][w]["ic"]
+            m, half = r["mean"], 1.96 * r["se"]
+            if key == "probe":
+                ax.barh(i, m, height=h, facecolor=t["card"], edgecolor=t["baseline"], linewidth=1.5)
+            else:
+                ax.barh(i, m, height=h, color=t["ours"] if "lora" in key else t["baseline"])
+            ax.plot([m - half, m + half], [i, i], color=t["ink"], linewidth=1.5, zorder=3)
+            for x in (m - half, m + half):
+                ax.plot([x, x], [i - 0.12, i + 0.12], color=t["ink"], linewidth=1.5, zorder=3)
+            ax.text(max(m + half, 0) + pad, i, f"{m:+.3f}", va="center", fontsize=9, color=t["ink"])
+        ax.axvline(0, color=t["ink2"], linewidth=1)
+        ax.set_xlim(min(-0.01, ax.get_xlim()[0]) if w == "drift" else -0.02, xmax)
+        style(ax, t, "x", face="card")
+    a1.set_yticks(list(y), [name for _, name in rows], color=t["ink"], fontsize=9.5)
+    a1.set_ylim(-0.6, len(rows) - 0.4)
+    a1.set_xlabel("mean daily IC, error bars: 95% interval", color=t["ink2"], fontsize=9)
+    a2.set_xlabel("mean daily IC, error bars: 95% interval", color=t["ink2"], fontsize=9)
+    a2.tick_params(axis="y", left=False, labelleft=False)
+    fig.savefig(out, facecolor=t["bg"])
+    plt.close(fig)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--results", type=Path, default=config.RESULTS_DIR)
@@ -150,6 +193,11 @@ def main() -> int:
     for name, t in THEMES.items():
         part1(test, t, args.out / f"part1-{name}.svg")
         part2(ans, t, args.out / f"part2-{name}.svg")
+    p3 = args.results / "part3" / "test" / "analysis.json"
+    if p3.exists():
+        res3 = json.loads(p3.read_text(encoding="utf-8"))
+        for name, t in THEMES.items():
+            part3(res3, t, args.out / f"part3-{name}.svg")
     print(f"figures written to {args.out}")
     return 0
 
