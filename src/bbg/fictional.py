@@ -36,7 +36,7 @@ PAST_EACH = 20                              # history version: past rises and pa
 P_DRAMATIC = 0.5                            # any news item, whatever its role
 FRAMINGS = ("calm", "volatile", "none")
 SPLITS = {"dev": {"seed": 41, "scenarios": 300, "history": 100},
-          "test": {"seed": 42, "scenarios": 2000, "history": 500}}
+          "test": {"seed": 42, "scenarios": 4000, "history": 500}}     # size set after the dev run
 
 PLACE_NAMES = config.DATA_DIR / "part4" / "real_place_names.txt"
 

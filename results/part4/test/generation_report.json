@@ -1,0 +1,37 @@
+{
+  "scenarios": 4000,
+  "history_subset": 500,
+  "share_up": 0.49325,
+  "mean_ideal_stated": 0.497957501480402,
+  "items": {
+    "distractor": 3994,
+    "evidence-reversed": 2623,
+    "evidence": 5409
+  },
+  "dramatic_by_role": {
+    "evidence": 4115,
+    "distractor": 1993
+  },
+  "topics": {
+    "politics": 2432,
+    "central_bank": 2381,
+    "macro": 2419,
+    "company": 2413,
+    "international": 2381
+  },
+  "framings": {
+    "none": 1300,
+    "calm": 1357,
+    "volatile": 1343
+  },
+  "words": {
+    "stated": {
+      "mean": 215.7445,
+      "max": 333
+    },
+    "history": {
+      "mean": 274.23475,
+      "max": 438
+    }
+  }
+}

@@ -1,6 +1,8 @@
 # Part 4 design: reading the news in a fictional market
 
-Status: **draft, fourth version** (after three reviews). The scenario generator is written and tested
+Status: **fourth version** (after three reviews), followed by the dev run and by
+`docs/part4-preregistration.md`, which wins where the two differ (test size, H5 two-sided, null values
+moved by the measurement bias, smallest effects of interest, no Qwen3-1.7B). The scenario generator is written and tested
 (`src/bbg/fictional.py`, `tests/test_fictional.py`) and the 300 dev scenarios are generated
 (`data/part4/dev/scenarios.jsonl`); no language model has been run. As in Part 3, the pre-registration
 will be written after a dev run and committed before the test scenarios are generated, which the

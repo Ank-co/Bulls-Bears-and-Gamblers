@@ -1,0 +1,120 @@
+{"id": "reading-orders-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.994}
+{"id": "reading-orders-bad-v0", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 93, "completion_tokens": 12, "seconds": 0.87}
+{"id": "reading-results-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.877}
+{"id": "reading-results-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.85}
+{"id": "reading-contract-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.898}
+{"id": "reading-contract-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 87, "completion_tokens": 11, "seconds": 0.874}
+{"id": "reading-leadership-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 95, "completion_tokens": 11, "seconds": 0.909}
+{"id": "reading-leadership-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.904}
+{"id": "reading-analysts-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.88}
+{"id": "reading-analysts-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.852}
+{"id": "reading-industry-good-v0", "value": "neither", "error": null, "raw": "{\n\"reading\": \"neither\"\n}", "prompt_tokens": 89, "completion_tokens": 12, "seconds": 0.901}
+{"id": "reading-industry-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.875}
+{"id": "reading-jobs-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 11, "seconds": 0.889}
+{"id": "reading-jobs-bad-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 11, "seconds": 0.87}
+{"id": "reading-prices-good-v0", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.941}
+{"id": "reading-prices-bad-v0", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.92}
+{"id": "reading-retail-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.9}
+{"id": "reading-retail-bad-v0", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.919}
+{"id": "reading-rates-good-v0", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 12, "seconds": 0.924}
+{"id": "reading-rates-bad-v0", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 91, "completion_tokens": 12, "seconds": 0.904}
+{"id": "reading-guidance-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 95, "completion_tokens": 11, "seconds": 0.895}
+{"id": "reading-guidance-bad-v0", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 94, "completion_tokens": 12, "seconds": 0.914}
+{"id": "reading-lending-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.887}
+{"id": "reading-lending-bad-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.873}
+{"id": "reading-tax-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.886}
+{"id": "reading-tax-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.881}
+{"id": "reading-budget-good-v0", "value": "neither", "error": null, "raw": "{\n\"reading\": \"neither\"\n}", "prompt_tokens": 85, "completion_tokens": 12, "seconds": 0.917}
+{"id": "reading-budget-bad-v0", "value": "neither", "error": null, "raw": "{\n\"reading\": \"neither\"\n}", "prompt_tokens": 89, "completion_tokens": 12, "seconds": 0.917}
+{"id": "reading-coalition-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 11, "seconds": 1.262}
+{"id": "reading-coalition-bad-v0", "value": "neither", "error": null, "raw": "{\n\"reading\": \"neither\"\n}", "prompt_tokens": 90, "completion_tokens": 12, "seconds": 0.918}
+{"id": "reading-regulation-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 86, "completion_tokens": 11, "seconds": 0.9}
+{"id": "reading-regulation-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 87, "completion_tokens": 11, "seconds": 0.916}
+{"id": "reading-trade-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.896}
+{"id": "reading-trade-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.883}
+{"id": "reading-sanctions-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.91}
+{"id": "reading-sanctions-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.892}
+{"id": "reading-commodities-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.895}
+{"id": "reading-commodities-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.912}
+{"id": "reading-investors-good-v0", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.898}
+{"id": "reading-investors-bad-v0", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.895}
+{"id": "reading-orders-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.899}
+{"id": "reading-orders-bad-v1", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 93, "completion_tokens": 12, "seconds": 0.958}
+{"id": "reading-results-good-v1", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 12, "seconds": 0.918}
+{"id": "reading-results-bad-v1", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 89, "completion_tokens": 12, "seconds": 0.918}
+{"id": "reading-contract-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.918}
+{"id": "reading-contract-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 87, "completion_tokens": 11, "seconds": 0.909}
+{"id": "reading-leadership-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 96, "completion_tokens": 11, "seconds": 0.903}
+{"id": "reading-leadership-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 94, "completion_tokens": 11, "seconds": 0.929}
+{"id": "reading-analysts-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.889}
+{"id": "reading-analysts-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.87}
+{"id": "reading-industry-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.865}
+{"id": "reading-industry-bad-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.87}
+{"id": "reading-jobs-good-v1", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 12, "seconds": 0.885}
+{"id": "reading-jobs-bad-v1", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 91, "completion_tokens": 12, "seconds": 0.886}
+{"id": "reading-prices-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.845}
+{"id": "reading-prices-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.845}
+{"id": "reading-retail-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.871}
+{"id": "reading-retail-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.854}
+{"id": "reading-rates-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 11, "seconds": 0.881}
+{"id": "reading-rates-bad-v1", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 91, "completion_tokens": 12, "seconds": 0.907}
+{"id": "reading-guidance-good-v1", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 96, "completion_tokens": 12, "seconds": 0.913}
+{"id": "reading-guidance-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 95, "completion_tokens": 11, "seconds": 0.894}
+{"id": "reading-lending-good-v1", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 12, "seconds": 0.932}
+{"id": "reading-lending-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.89}
+{"id": "reading-tax-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.932}
+{"id": "reading-tax-bad-v1", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.864}
+{"id": "reading-budget-good-v1", "value": "neither", "error": null, "raw": "{\n  \"reading\": \"neither\"\n}", "prompt_tokens": 85, "completion_tokens": 13, "seconds": 0.929}
+{"id": "reading-budget-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.866}
+{"id": "reading-coalition-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 11, "seconds": 0.885}
+{"id": "reading-coalition-bad-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.906}
+{"id": "reading-regulation-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 86, "completion_tokens": 11, "seconds": 0.889}
+{"id": "reading-regulation-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 87, "completion_tokens": 11, "seconds": 0.899}
+{"id": "reading-trade-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.9}
+{"id": "reading-trade-bad-v1", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 89, "completion_tokens": 12, "seconds": 0.876}
+{"id": "reading-sanctions-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.87}
+{"id": "reading-sanctions-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.869}
+{"id": "reading-commodities-good-v1", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.914}
+{"id": "reading-commodities-bad-v1", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.921}
+{"id": "reading-investors-good-v1", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.904}
+{"id": "reading-investors-bad-v1", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 92, "completion_tokens": 12, "seconds": 0.909}
+{"id": "reading-orders-good-v2", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 93, "completion_tokens": 12, "seconds": 0.9}
+{"id": "reading-orders-bad-v2", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 94, "completion_tokens": 12, "seconds": 0.909}
+{"id": "reading-results-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.86}
+{"id": "reading-results-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.833}
+{"id": "reading-contract-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 11, "seconds": 0.865}
+{"id": "reading-contract-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.885}
+{"id": "reading-leadership-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 97, "completion_tokens": 11, "seconds": 0.905}
+{"id": "reading-leadership-bad-v2", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 94, "completion_tokens": 12, "seconds": 0.915}
+{"id": "reading-analysts-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.902}
+{"id": "reading-analysts-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.88}
+{"id": "reading-industry-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.913}
+{"id": "reading-industry-bad-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.89}
+{"id": "reading-jobs-good-v2", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 12, "seconds": 0.931}
+{"id": "reading-jobs-bad-v2", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 91, "completion_tokens": 12, "seconds": 0.908}
+{"id": "reading-prices-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.877}
+{"id": "reading-prices-bad-v2", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.892}
+{"id": "reading-retail-good-v2", "value": "neither", "error": null, "raw": "{\n\"reading\": \"neither\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.934}
+{"id": "reading-retail-bad-v2", "value": "neither", "error": null, "raw": "{\n  \"reading\": \"neither\"\n}", "prompt_tokens": 88, "completion_tokens": 13, "seconds": 0.891}
+{"id": "reading-rates-good-v2", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 12, "seconds": 0.919}
+{"id": "reading-rates-bad-v2", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 91, "completion_tokens": 12, "seconds": 0.895}
+{"id": "reading-guidance-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 96, "completion_tokens": 11, "seconds": 0.897}
+{"id": "reading-guidance-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 95, "completion_tokens": 11, "seconds": 0.907}
+{"id": "reading-lending-good-v2", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 12, "seconds": 0.913}
+{"id": "reading-lending-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.874}
+{"id": "reading-tax-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 11, "seconds": 0.896}
+{"id": "reading-tax-bad-v2", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.898}
+{"id": "reading-budget-good-v2", "value": "neither", "error": null, "raw": "{\n\"reading\": \"neither\"\n}", "prompt_tokens": 85, "completion_tokens": 12, "seconds": 0.891}
+{"id": "reading-budget-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.868}
+{"id": "reading-coalition-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 91, "completion_tokens": 11, "seconds": 0.883}
+{"id": "reading-coalition-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.88}
+{"id": "reading-regulation-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 86, "completion_tokens": 11, "seconds": 0.87}
+{"id": "reading-regulation-bad-v2", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 87, "completion_tokens": 12, "seconds": 0.922}
+{"id": "reading-trade-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.864}
+{"id": "reading-trade-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 90, "completion_tokens": 11, "seconds": 0.856}
+{"id": "reading-sanctions-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 89, "completion_tokens": 11, "seconds": 0.839}
+{"id": "reading-sanctions-bad-v2", "value": "bad", "error": null, "raw": "{\n  \"reading\": \"bad\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.886}
+{"id": "reading-commodities-good-v2", "value": "good", "error": null, "raw": "{\n\"reading\": \"good\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.894}
+{"id": "reading-commodities-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.883}
+{"id": "reading-investors-good-v2", "value": "good", "error": null, "raw": "{\n  \"reading\": \"good\"\n}", "prompt_tokens": 88, "completion_tokens": 12, "seconds": 0.93}
+{"id": "reading-investors-bad-v2", "value": "bad", "error": null, "raw": "{\n\"reading\": \"bad\"\n}", "prompt_tokens": 92, "completion_tokens": 11, "seconds": 0.879}

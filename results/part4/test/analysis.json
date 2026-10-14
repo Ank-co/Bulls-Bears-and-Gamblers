@@ -1,0 +1,773 @@
+{
+  "note": "pre-registered analysis of the test run, run once (results/metrics/test_access.log)",
+  "frozen_from_dev": {
+    "measurement_bias": {
+      "H1": -0.013523312361016313,
+      "H2": -0.0008883691516773527,
+      "H3": -0.007803211724988368,
+      "H4": 0.004890639996296787,
+      "H5": 0.0013650310779867608
+    },
+    "smallest_effects": {
+      "H1": 0.11802225011438289,
+      "H2": 0.0748456975071908,
+      "H3": 0.10960814018238152,
+      "H4": 0.1,
+      "H5": 0.06260445958115318
+    }
+  },
+  "scenarios": 4000,
+  "failures": {
+    "base": {
+      "reading": {
+        "n": 120,
+        "failures": 0,
+        "rate": 0.0,
+        "by_reason": {}
+      },
+      "stated": {
+        "n": 4000,
+        "failures": 0,
+        "rate": 0.0,
+        "by_reason": {}
+      },
+      "history": {
+        "n": 500,
+        "failures": 0,
+        "rate": 0.0,
+        "by_reason": {}
+      },
+      "stated_by_scenario": null
+    },
+    "abliterated": {
+      "reading": {
+        "n": 120,
+        "failures": 0,
+        "rate": 0.0,
+        "by_reason": {}
+      },
+      "stated": {
+        "n": 4000,
+        "failures": 0,
+        "rate": 0.0,
+        "by_reason": {}
+      },
+      "history": {
+        "n": 500,
+        "failures": 0,
+        "rate": 0.0,
+        "by_reason": {}
+      },
+      "stated_by_scenario": null
+    }
+  },
+  "confirmatory": {
+    "H1": {
+      "estimate": -0.16095835897842914,
+      "se": 0.019224524883060732,
+      "null_value": -0.013523312361016313,
+      "z": -7.669112631611613,
+      "direction": "less",
+      "p": 8.659515438814333e-15,
+      "rejected_holm": true
+    },
+    "H2": {
+      "estimate": 0.11323242826385832,
+      "se": 0.01309972158516776,
+      "null_value": -0.0008883691516773527,
+      "z": 8.71169640313193,
+      "direction": "greater",
+      "p": 1.4968027957597448e-18,
+      "rejected_holm": true
+    },
+    "H3": {
+      "estimate": -0.3785705287096223,
+      "se": 0.026638465322378308,
+      "null_value": -0.007803211724988368,
+      "z": -13.918493895861245,
+      "direction": "less",
+      "p": 2.445510635249532e-44,
+      "rejected_holm": true
+    },
+    "H4": {
+      "estimate": 0.3316442542547279,
+      "se": 0.011141958098710467,
+      "null_value": 0.004890639996296787,
+      "z": 29.32640846102701,
+      "direction": "greater",
+      "p": 2.389011375851271e-189,
+      "rejected_holm": true
+    },
+    "H5": {
+      "estimate": -0.16999709395017973,
+      "se": 0.007164335029680131,
+      "null_value": 0.0013650310779867608,
+      "z": -23.91877603689025,
+      "direction": "two-sided",
+      "p": 1.9534610665979928e-126,
+      "rejected_holm": true
+    },
+    "manipulation_check": {
+      "w_congruent": 0.5117806475719,
+      "z": 38.138414895796515,
+      "p": 0.0,
+      "passed": true
+    }
+  },
+  "interpretation": {
+    "H1": {
+      "effect": 0.14743504661741283,
+      "smallest_effect": 0.11802225011438289,
+      "upper_90": 0.1790565760977341,
+      "verdict": "confirmed, at least the smallest effect of interest"
+    },
+    "H2": {
+      "effect": 0.11412079741553567,
+      "smallest_effect": 0.0748456975071908,
+      "upper_90": 0.13566792197695335,
+      "verdict": "confirmed, at least the smallest effect of interest"
+    },
+    "H3": {
+      "effect": 0.37076731698463394,
+      "smallest_effect": 0.10960814018238152,
+      "upper_90": 0.4145836932865689,
+      "verdict": "confirmed, at least the smallest effect of interest"
+    },
+    "H4": {
+      "effect": 0.3267536142584311,
+      "smallest_effect": 0.1,
+      "upper_90": 0.3450805044484363,
+      "verdict": "confirmed, at least the smallest effect of interest"
+    },
+    "H5": {
+      "effect": 0.1713621250281665,
+      "smallest_effect": 0.06260445958115318,
+      "upper_90": 0.18314640748643135,
+      "verdict": "confirmed, at least the smallest effect of interest"
+    }
+  },
+  "sensitivity": {
+    "own_reading": {
+      "H2": {
+        "estimate": 0.1122512268300848,
+        "se": 0.013370071537979613,
+        "z": 8.462153374450754,
+        "p": 1.3124249468180463e-17,
+        "holm_threshold": 0.025,
+        "rejected": true,
+        "same_conclusion": true
+      },
+      "H3": {
+        "estimate": -0.36494394306357847,
+        "se": 0.026519021515191015,
+        "z": -13.467341965615416,
+        "p": 1.2173705270692212e-41,
+        "holm_threshold": 0.016666666666666666,
+        "rejected": true,
+        "same_conclusion": true
+      }
+    },
+    "clear_kinds": {
+      "H2": {
+        "estimate": 0.08578774531482658,
+        "se": 0.016884642393001192,
+        "z": 5.133429091896659,
+        "p": 1.4225512491638263e-07,
+        "holm_threshold": 0.025,
+        "rejected": true,
+        "same_conclusion": true
+      },
+      "H3": {
+        "estimate": -0.39677884006464037,
+        "se": 0.034151270332541075,
+        "z": -11.389785051978466,
+        "p": 2.350740291306892e-30,
+        "holm_threshold": 0.016666666666666666,
+        "rejected": true,
+        "same_conclusion": true
+      }
+    }
+  },
+  "descriptive": {
+    "base": {
+      "weights": {
+        "n": 4000,
+        "weights": {
+          "const": {
+            "estimate": 0.17299653520315678,
+            "se": 0.011843996763839092,
+            "t": 14.606263295455511
+          },
+          "base_rate": {
+            "estimate": 0.8390416410215709,
+            "se": 0.019224524883060732,
+            "t": 43.644336914712206
+          },
+          "e_congruent": {
+            "estimate": 0.5117806475719,
+            "se": 0.013419032987349106,
+            "t": 38.138414895796515
+          },
+          "e_reversed": {
+            "estimate": 0.13321011886227768,
+            "se": 0.0198869824200428,
+            "t": 6.698357551119663
+          },
+          "distractor": {
+            "estimate": 0.11323242826385832,
+            "se": 0.01309972158516776,
+            "t": 8.643880522778929
+          },
+          "dramatic_tone": {
+            "estimate": 0.04910864552157592,
+            "se": 0.012809362199041665,
+            "t": 3.8338088000392396
+          }
+        }
+      },
+      "shift_amplification_noise": {
+        "n": 4000,
+        "shift": {
+          "estimate": 0.17133961872744302,
+          "se": 0.01351358079632828,
+          "t": 12.679068657657119
+        },
+        "amplification": {
+          "estimate": 0.47096439376988625,
+          "se": 0.008561790053825962,
+          "t": 55.00770175501195
+        },
+        "noise_sd": 0.8546048201166451
+      },
+      "accuracy": {
+        "model": {
+          "brier": 0.19263235,
+          "log_loss": 0.5700600678533928
+        },
+        "ideal": {
+          "brier": 0.14736191662955578,
+          "log_loss": 0.4491308710619959
+        },
+        "base_rate_only": {
+          "brier": 0.22235999999999995,
+          "log_loss": 0.6361869413965403
+        },
+        "tone_reader": {
+          "brier": 0.25478114529512574,
+          "log_loss": 0.703257651618163
+        }
+      },
+      "calibration": [
+        {
+          "bin": "0-10",
+          "n": 12,
+          "mean_answer": 0.008333333333333333,
+          "frequency_up": 0.0
+        },
+        {
+          "bin": "10-20",
+          "n": 470,
+          "mean_answer": 0.13670212765957446,
+          "frequency_up": 0.10851063829787234
+        },
+        {
+          "bin": "20-30",
+          "n": 145,
+          "mean_answer": 0.2518620689655172,
+          "frequency_up": 0.22758620689655173
+        },
+        {
+          "bin": "30-40",
+          "n": 520,
+          "mean_answer": 0.31248076923076923,
+          "frequency_up": 0.26153846153846155
+        },
+        {
+          "bin": "40-50",
+          "n": 310,
+          "mean_answer": 0.4392258064516129,
+          "frequency_up": 0.34516129032258064
+        },
+        {
+          "bin": "50-60",
+          "n": 856,
+          "mean_answer": 0.5100350467289719,
+          "frequency_up": 0.4742990654205608
+        },
+        {
+          "bin": "60-70",
+          "n": 281,
+          "mean_answer": 0.6322419928825623,
+          "frequency_up": 0.5480427046263345
+        },
+        {
+          "bin": "70-80",
+          "n": 852,
+          "mean_answer": 0.728180751173709,
+          "frequency_up": 0.7147887323943662
+        },
+        {
+          "bin": "80-90",
+          "n": 409,
+          "mean_answer": 0.8480929095354522,
+          "frequency_up": 0.843520782396088
+        },
+        {
+          "bin": "90-100",
+          "n": 145,
+          "mean_answer": 0.960896551724138,
+          "frequency_up": 0.9103448275862069
+        }
+      ],
+      "reading_agreement": {
+        "overall": {
+          "agrees": 109,
+          "neither": 11
+        },
+        "per_kind": {
+          "orders": {
+            "agrees": 6
+          },
+          "results": {
+            "agrees": 6
+          },
+          "contract": {
+            "agrees": 6
+          },
+          "leadership": {
+            "agrees": 6
+          },
+          "analysts": {
+            "agrees": 6
+          },
+          "industry": {
+            "neither": 2,
+            "agrees": 4
+          },
+          "jobs": {
+            "agrees": 6
+          },
+          "prices": {
+            "agrees": 6
+          },
+          "retail": {
+            "neither": 3,
+            "agrees": 3
+          },
+          "rates": {
+            "agrees": 6
+          },
+          "guidance": {
+            "agrees": 6
+          },
+          "lending": {
+            "agrees": 5,
+            "neither": 1
+          },
+          "tax": {
+            "agrees": 6
+          },
+          "budget": {
+            "neither": 4,
+            "agrees": 2
+          },
+          "coalition": {
+            "agrees": 5,
+            "neither": 1
+          },
+          "regulation": {
+            "agrees": 6
+          },
+          "trade": {
+            "agrees": 6
+          },
+          "sanctions": {
+            "agrees": 6
+          },
+          "commodities": {
+            "agrees": 6
+          },
+          "investors": {
+            "agrees": 6
+          }
+        },
+        "own_reading": {
+          "orders|good": 1,
+          "orders|bad": -1,
+          "results|good": 1,
+          "results|bad": -1,
+          "contract|good": 1,
+          "contract|bad": -1,
+          "leadership|good": 1,
+          "leadership|bad": -1,
+          "analysts|good": 1,
+          "analysts|bad": -1,
+          "industry|good": 1,
+          "industry|bad": -1,
+          "jobs|good": 1,
+          "jobs|bad": -1,
+          "prices|good": 1,
+          "prices|bad": -1,
+          "retail|good": 0,
+          "retail|bad": -1,
+          "rates|good": 1,
+          "rates|bad": -1,
+          "guidance|good": 1,
+          "guidance|bad": -1,
+          "lending|good": 1,
+          "lending|bad": -1,
+          "tax|good": 1,
+          "tax|bad": -1,
+          "budget|good": 0,
+          "budget|bad": -1,
+          "coalition|good": 1,
+          "coalition|bad": -1,
+          "regulation|good": 1,
+          "regulation|bad": -1,
+          "trade|good": 1,
+          "trade|bad": -1,
+          "sanctions|good": 1,
+          "sanctions|bad": -1,
+          "commodities|good": 1,
+          "commodities|bad": -1,
+          "investors|good": 1,
+          "investors|bad": -1
+        }
+      }
+    },
+    "abliterated": {
+      "weights": {
+        "n": 4000,
+        "weights": {
+          "const": {
+            "estimate": 0.5062472895282623,
+            "se": 0.007345222201256263,
+            "t": 68.92198433992618
+          },
+          "base_rate": {
+            "estimate": 0.7186502172313924,
+            "se": 0.0109035468215393,
+            "t": 65.90976578481254
+          },
+          "e_congruent": {
+            "estimate": 0.2715891194068377,
+            "se": 0.008041903296378175,
+            "t": 33.77174648806746
+          },
+          "e_reversed": {
+            "estimate": 0.07308157587640086,
+            "se": 0.011235134947208472,
+            "t": 6.504735031648108
+          },
+          "distractor": {
+            "estimate": 0.0687492620060125,
+            "se": 0.0076336566868472865,
+            "t": 9.006072034188646
+          },
+          "dramatic_tone": {
+            "estimate": 0.035772978726225715,
+            "se": 0.007572896348550712,
+            "t": 4.723817292583424
+          }
+        }
+      },
+      "shift_amplification_noise": {
+        "n": 4000,
+        "shift": {
+          "estimate": 0.5029838729821748,
+          "se": 0.009169947050807826,
+          "t": 54.85133885673467
+        },
+        "amplification": {
+          "estimate": 0.30096729981970616,
+          "se": 0.005607059731228381,
+          "t": 53.67649253734113
+        },
+        "noise_sd": 0.5804957450233474
+      },
+      "accuracy": {
+        "model": {
+          "brier": 0.214401175,
+          "log_loss": 0.6144820083913204
+        },
+        "ideal": {
+          "brier": 0.14736191662955578,
+          "log_loss": 0.4491308710619959
+        },
+        "base_rate_only": {
+          "brier": 0.22235999999999995,
+          "log_loss": 0.6361869413965403
+        },
+        "tone_reader": {
+          "brier": 0.25478114529512574,
+          "log_loss": 0.703257651618163
+        }
+      },
+      "calibration": [
+        {
+          "bin": "10-20",
+          "n": 105,
+          "mean_answer": 0.14333333333333334,
+          "frequency_up": 0.0380952380952381
+        },
+        {
+          "bin": "20-30",
+          "n": 63,
+          "mean_answer": 0.2509523809523809,
+          "frequency_up": 0.14285714285714285
+        },
+        {
+          "bin": "30-40",
+          "n": 182,
+          "mean_answer": 0.3340659340659341,
+          "frequency_up": 0.15934065934065933
+        },
+        {
+          "bin": "40-50",
+          "n": 677,
+          "mean_answer": 0.438109305760709,
+          "frequency_up": 0.2171344165435746
+        },
+        {
+          "bin": "50-60",
+          "n": 355,
+          "mean_answer": 0.520056338028169,
+          "frequency_up": 0.38028169014084506
+        },
+        {
+          "bin": "60-70",
+          "n": 1365,
+          "mean_answer": 0.6387179487179487,
+          "frequency_up": 0.504029304029304
+        },
+        {
+          "bin": "70-80",
+          "n": 710,
+          "mean_answer": 0.7423239436619719,
+          "frequency_up": 0.6816901408450704
+        },
+        {
+          "bin": "80-90",
+          "n": 502,
+          "mean_answer": 0.8470517928286853,
+          "frequency_up": 0.8685258964143426
+        },
+        {
+          "bin": "90-100",
+          "n": 41,
+          "mean_answer": 0.9556097560975609,
+          "frequency_up": 1.0
+        }
+      ],
+      "reading_agreement": {
+        "overall": {
+          "agrees": 106,
+          "neither": 8,
+          "opposite": 6
+        },
+        "per_kind": {
+          "orders": {
+            "agrees": 6
+          },
+          "results": {
+            "agrees": 6
+          },
+          "contract": {
+            "agrees": 6
+          },
+          "leadership": {
+            "agrees": 6
+          },
+          "analysts": {
+            "agrees": 6
+          },
+          "industry": {
+            "neither": 1,
+            "agrees": 3,
+            "opposite": 2
+          },
+          "jobs": {
+            "agrees": 5,
+            "opposite": 1
+          },
+          "prices": {
+            "agrees": 6
+          },
+          "retail": {
+            "agrees": 3,
+            "opposite": 1,
+            "neither": 2
+          },
+          "rates": {
+            "agrees": 6
+          },
+          "guidance": {
+            "agrees": 6
+          },
+          "lending": {
+            "agrees": 5,
+            "opposite": 1
+          },
+          "tax": {
+            "agrees": 6
+          },
+          "budget": {
+            "neither": 4,
+            "agrees": 2
+          },
+          "coalition": {
+            "agrees": 4,
+            "neither": 1,
+            "opposite": 1
+          },
+          "regulation": {
+            "agrees": 6
+          },
+          "trade": {
+            "agrees": 6
+          },
+          "sanctions": {
+            "agrees": 6
+          },
+          "commodities": {
+            "agrees": 6
+          },
+          "investors": {
+            "agrees": 6
+          }
+        },
+        "own_reading": {
+          "orders|good": 1,
+          "orders|bad": -1,
+          "results|good": 1,
+          "results|bad": -1,
+          "contract|good": 1,
+          "contract|bad": -1,
+          "leadership|good": 1,
+          "leadership|bad": -1,
+          "analysts|good": 1,
+          "analysts|bad": -1,
+          "industry|good": 1,
+          "industry|bad": 1,
+          "jobs|good": 1,
+          "jobs|bad": -1,
+          "prices|good": 1,
+          "prices|bad": -1,
+          "retail|good": 1,
+          "retail|bad": 0,
+          "rates|good": 1,
+          "rates|bad": -1,
+          "guidance|good": 1,
+          "guidance|bad": -1,
+          "lending|good": 1,
+          "lending|bad": -1,
+          "tax|good": 1,
+          "tax|bad": -1,
+          "budget|good": 0,
+          "budget|bad": -1,
+          "coalition|good": 1,
+          "coalition|bad": 0,
+          "regulation|good": 1,
+          "regulation|bad": -1,
+          "trade|good": 1,
+          "trade|bad": -1,
+          "sanctions|good": 1,
+          "sanctions|bad": -1,
+          "commodities|good": 1,
+          "commodities|bad": -1,
+          "investors|good": 1,
+          "investors|bad": -1
+        }
+      }
+    },
+    "base_vs_abliterated": {
+      "n": 4000,
+      "mean_difference": 0.3333030770850082,
+      "sd_difference": 0.7794372078930512,
+      "sd_difference_around_trend": 0.7047404426490755,
+      "error_correlation": 0.5751582219178233,
+      "power": [
+        {
+          "scenarios": 1000,
+          "shift_logit": 0.1,
+          "expected_t": 4.4871522461256435,
+          "power_5pct": 0.9977605241337778,
+          "power_1pct": 0.9846447728955477
+        },
+        {
+          "scenarios": 2000,
+          "shift_logit": 0.1,
+          "expected_t": 6.3457915629037815,
+          "power_5pct": 0.9999987051538839,
+          "power_1pct": 0.9999708321389827
+        }
+      ]
+    }
+  },
+  "exploratory": {
+    "base": {
+      "history": {
+        "n": 500,
+        "frequencies_taken_as_true": {
+          "mean_abs_gap_points": 22.082960110212344,
+          "correlation": 0.5211809395991848
+        },
+        "uniform_prior_bayes": {
+          "mean_abs_gap_points": 20.758791026619377,
+          "correlation": 0.5284464278518781
+        },
+        "design_aware_bayes": {
+          "mean_abs_gap_points": 20.31374637701789,
+          "correlation": 0.5039521032446415
+        }
+      },
+      "mean_gap_to_ideal_by_framing": {
+        "calm": 0.20718918730906177,
+        "none": 0.1296100576177718,
+        "volatile": 0.19088524267447432
+      },
+      "distractor_weight_by_topic": {
+        "distractor_politics_international": {
+          "estimate": 0.081195506331988,
+          "se": 0.019333985755270875
+        },
+        "distractor_other": {
+          "estimate": 0.13660468832257805,
+          "se": 0.015843828946071607
+        }
+      }
+    },
+    "abliterated": {
+      "history": {
+        "n": 500,
+        "frequencies_taken_as_true": {
+          "mean_abs_gap_points": 28.024920583091202,
+          "correlation": 0.33975472634909
+        },
+        "uniform_prior_bayes": {
+          "mean_abs_gap_points": 26.565466010465766,
+          "correlation": 0.34248026921309876
+        },
+        "design_aware_bayes": {
+          "mean_abs_gap_points": 25.90894535479128,
+          "correlation": 0.31081127742044307
+        }
+      },
+      "mean_gap_to_ideal_by_framing": {
+        "calm": 0.5001220935884393,
+        "none": 0.4539479124528029,
+        "volatile": 0.5736575012250157
+      },
+      "distractor_weight_by_topic": {
+        "distractor_politics_international": {
+          "estimate": 0.05826936548785037,
+          "se": 0.01085621366879396
+        },
+        "distractor_other": {
+          "estimate": 0.07639478011576867,
+          "se": 0.009605158644944833
+        }
+      }
+    }
+  }
+}

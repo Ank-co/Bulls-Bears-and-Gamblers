@@ -25,5 +25,32 @@
     "failures": 0,
     "mean_prompt_tokens": 419.9,
     "note": "sequential requests"
+  },
+  "test-reading": {
+    "items": 120,
+    "seconds": 114.7,
+    "ms_per_item": 955.833,
+    "server_model": "qwen3.6-35b-base-i1",
+    "failures": 0,
+    "mean_prompt_tokens": 90.0,
+    "note": "sequential requests"
+  },
+  "test-stated": {
+    "items": 4000,
+    "seconds": 4829.907,
+    "ms_per_item": 1207.477,
+    "server_model": "qwen3.6-35b-base-i1",
+    "failures": 0,
+    "mean_prompt_tokens": 339.0,
+    "note": "sequential requests"
+  },
+  "test-history": {
+    "items": 500,
+    "seconds": 651.148,
+    "ms_per_item": 1302.296,
+    "server_model": "qwen3.6-35b-base-i1",
+    "failures": 0,
+    "mean_prompt_tokens": 418.5,
+    "note": "sequential requests"
   }
 }
