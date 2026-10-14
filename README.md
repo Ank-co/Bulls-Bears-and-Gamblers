@@ -2,7 +2,9 @@
 
 **Four questions about language models in markets, answered with experiments on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
 
-Each experiment fixes its protocol before the test data are opened (in Part 4 it was committed only after the run, a deviation reported on its page), opens the test data once, and computes every score with code from what the models answer. No model grades another model's text. Each part has a page with its full protocol, tables and limits.
+Each experiment fixes its protocol before the test data are opened (in Part 4 it was committed only after the run, a deviation reported on its page), opens the test data once, and computes every score with code from what the models answer. No model grades another model's text.
+
+**Full write-up, one page per part:** [Part 1](docs/part1.md) · [Part 2](docs/part2.md) · [Addendum](docs/addendum.md) · [Part 3](docs/part3.md) · [Part 4](docs/part4.md) · [Related work](docs/related-work.md). The pre-registrations and design notes are in [docs](docs/).
 
 ## At a glance
 
