@@ -1,0 +1,29 @@
+{
+  "dev-reading": {
+    "items": 120,
+    "seconds": 22.4,
+    "ms_per_item": 186.667,
+    "server_model": "llama-3.1-8b-abliterated",
+    "failures": 0,
+    "mean_prompt_tokens": 89.1,
+    "note": "sequential requests"
+  },
+  "dev-stated": {
+    "items": 300,
+    "seconds": 91.64,
+    "ms_per_item": 305.467,
+    "server_model": "llama-3.1-8b-abliterated",
+    "failures": 0,
+    "mean_prompt_tokens": 319.7,
+    "note": "sequential requests"
+  },
+  "dev-history": {
+    "items": 100,
+    "seconds": 33.535,
+    "ms_per_item": 335.35,
+    "server_model": "llama-3.1-8b-abliterated",
+    "failures": 0,
+    "mean_prompt_tokens": 396.0,
+    "note": "sequential requests"
+  }
+}

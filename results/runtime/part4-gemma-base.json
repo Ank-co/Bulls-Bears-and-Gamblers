@@ -1,0 +1,29 @@
+{
+  "dev-reading": {
+    "items": 120,
+    "seconds": 140.331,
+    "ms_per_item": 1169.425,
+    "server_model": "gemma-4-26b-a4b-base-i1",
+    "failures": 0,
+    "mean_prompt_tokens": 89.3,
+    "note": "sequential requests"
+  },
+  "dev-stated": {
+    "items": 300,
+    "seconds": 433.557,
+    "ms_per_item": 1445.19,
+    "server_model": "gemma-4-26b-a4b-base-i1",
+    "failures": 0,
+    "mean_prompt_tokens": 340.6,
+    "note": "sequential requests"
+  },
+  "dev-history": {
+    "items": 100,
+    "seconds": 152.498,
+    "ms_per_item": 1524.98,
+    "server_model": "gemma-4-26b-a4b-base-i1",
+    "failures": 0,
+    "mean_prompt_tokens": 425.5,
+    "note": "sequential requests"
+  }
+}
