@@ -2,8 +2,9 @@
 
     python scripts/make_figures.py
 
-Reads results/metrics/test.json and results/advice/answers.csv, writes docs/figures/*.svg.
-Requires matplotlib.
+Reads results/metrics/test.json, results/advice/answers.csv and, when they exist, the Part 3 and Part 4
+test analyses (results/part3/test/analysis.json, results/part4/test/analysis.json); writes
+docs/figures/*.svg. Requires matplotlib.
 """
 from __future__ import annotations
 
@@ -180,6 +181,74 @@ def part3(res: dict, t: dict, out: Path) -> None:
     plt.close(fig)
 
 
+PART4_ROWS = [("base_rate", "Base rate", 1.0), ("e_congruent", "News, usual direction", 1.0),
+              ("e_reversed", "News, reversed direction", 1.0), ("distractor", "Worthless news", 0.0),
+              ("dramatic_tone", "Dramatic wording", 0.0)]
+PART4_MODELS = [("base", "base", "Base model"), ("abliterated", "abl", "Abliterated model")]
+
+
+def part4(res: dict, t: dict, out: Path) -> None:
+    """Belief-updating weights of both models against the ideal observer, and their calibration."""
+    fig = plt.figure(figsize=(10.4, 4.8), facecolor=t["bg"])
+    header(fig, f"Reading the news in an invented market, {res['scenarios']:,} scenarios",
+           "Blue: base model. Orange: abliterated model. Vertical marks and diagonal: the ideal observer, "
+           "computed by code.", t)
+    card(fig, 0.008, 0.592, "Weight given to each input", t)
+    card(fig, 0.612, 0.992, "When the model says x%, the share rises y%", t)
+    a1 = fig.add_axes((0.215, 0.165, 0.35, 0.555))
+    a2 = fig.add_axes((0.68, 0.165, 0.29, 0.555))
+
+    rows = list(reversed(PART4_ROWS))
+    h = 0.34
+    for i, (key, _, ideal) in enumerate(rows):
+        for j, (m, color, _) in enumerate(PART4_MODELS):
+            w = res["descriptive"][m]["weights"]["weights"][key]
+            y = i + (0.19 if j == 0 else -0.19)
+            a1.barh(y, w["estimate"], height=h, color=t[color])
+            lo, hi = w["estimate"] - 1.96 * w["se"], w["estimate"] + 1.96 * w["se"]
+            a1.plot([lo, hi], [y, y], color=t["ink"], linewidth=1.2, zorder=3)
+            for x in (lo, hi):
+                a1.plot([x, x], [y - 0.07, y + 0.07], color=t["ink"], linewidth=1.2, zorder=3)
+            a1.text(max(hi, 0) + 0.02, y, f"{w['estimate']:.2f}", va="center", fontsize=8.5, color=t["ink"])
+        a1.plot([ideal, ideal], [i - 0.45, i + 0.45], color=t["ink"], linewidth=2.2, zorder=4,
+                solid_capstyle="butt")
+    a1.text(1.0, len(rows) - 0.5, "ideal", ha="center", va="bottom", fontsize=8.5, color=t["ink2"])
+    a1.axvline(0, color=t["ink2"], linewidth=1)
+    a1.set_yticks(range(len(rows)), [name for _, name, _ in rows], color=t["ink"], fontsize=9.5)
+    a1.set_ylim(-0.6, len(rows) - 0.4)
+    a1.set_xlim(-0.03, 1.12)
+    a1.set_xticks([0, 0.25, 0.5, 0.75, 1.0])
+    a1.set_xlabel("weight in the belief-updating regression, error bars: 95% interval", color=t["ink2"], fontsize=9)
+    style(a1, t, "x", face="card")
+
+    a2.plot([0, 1], [0, 1], color=t["ink"], linewidth=1.2, zorder=2)
+    for m, color, label in PART4_MODELS:
+        cal = res["descriptive"][m]["calibration"]
+        x = [c["mean_answer"] for c in cal]
+        y = [c["frequency_up"] for c in cal]
+        a2.plot(x, y, color=t[color], linewidth=1.6, zorder=3, label=label)
+        a2.scatter(x, y, s=[max(6.0, c["n"] / 8) for c in cal], color=t[color], edgecolor=t["card"],
+                   linewidth=0.8, zorder=4)
+    top = max(res["descriptive"]["abliterated"]["calibration"], key=lambda c: c["n"])
+    lo, hi = (int(v) for v in top["bin"].split("-"))
+    a2.annotate(f"{top['n']:,} answers from {lo}% to {hi if hi == 100 else hi - 1}%:\n"
+                f"the share rose in {100 * top['frequency_up']:.0f}% of the weeks",
+                xy=(top["mean_answer"], top["frequency_up"]), xytext=(0.98, 0.05), ha="right", fontsize=8.5,
+                color=t["ink"], arrowprops={"arrowstyle": "-", "color": t["ink2"], "linewidth": 1})
+    a2.set_xlim(0, 1)
+    a2.set_ylim(0, 1)
+    ticks = [0, 0.25, 0.5, 0.75, 1.0]
+    a2.set_xticks(ticks, [f"{100 * v:.0f}%" for v in ticks])
+    a2.set_yticks(ticks, [f"{100 * v:.0f}%" for v in ticks])
+    a2.set_xlabel("mean answer in each 10-point bin, dot area: answers", color=t["ink2"], fontsize=9)
+    a2.set_ylabel("share of weeks up", color=t["ink2"], fontsize=9)
+    style(a2, t, "both", face="card")
+    a2.spines["left"].set_visible(True)
+    a2.spines["left"].set_color(t["grid"])
+    fig.savefig(out, facecolor=t["bg"])
+    plt.close(fig)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--results", type=Path, default=config.RESULTS_DIR)
@@ -198,6 +267,11 @@ def main() -> int:
         res3 = json.loads(p3.read_text(encoding="utf-8"))
         for name, t in THEMES.items():
             part3(res3, t, args.out / f"part3-{name}.svg")
+    p4 = args.results / "part4" / "test" / "analysis.json"
+    if p4.exists():
+        res4 = json.loads(p4.read_text(encoding="utf-8"))
+        for name, t in THEMES.items():
+            part4(res4, t, args.out / f"part4-{name}.svg")
     print(f"figures written to {args.out}")
     return 0
 

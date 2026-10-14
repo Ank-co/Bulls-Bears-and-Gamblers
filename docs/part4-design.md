@@ -375,8 +375,9 @@ built on the observed base minus abliterated differences. The test results are n
   explicit instruction about the coin's bias.
 - [Ilanyan and Jain (2026)](https://iclr.cc/virtual/2026/10018243) find base-rate neglect and updates
   weakly linked to the evidence in a language model playing poker.
-- [Yee and Sharma (2026)](https://arxiv.org/abs/2602.01022) use synthetic scenarios to measure behavioural
-  biases of language models, with correct answers set by the authors rather than computed.
+- [Yee and Koh (2026)](https://arxiv.org/abs/2602.01022) use synthetic scenarios to measure behavioural
+  biases of language models, with correct answers set by the authors rather than computed. (The authors
+  were misnamed "Yee and Sharma" in earlier versions of this file; corrected after the test run.)
 - [Fafuła (2026)](https://arxiv.org/abs/2607.17427) find abliterated models more optimistic in their own
   stock calls.
 - [Gao, Jiang and Yan (2026)](https://arxiv.org/abs/2512.23847v2) show that look-ahead from memory inflates

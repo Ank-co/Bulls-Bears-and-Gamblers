@@ -2,3 +2,4 @@
 2026-10-08T13:43:40 analyze_abliteration_sentiment models=['qwen3.6-35b-i1-zeroshot', 'qwen3.6-35b-abliterated-zeroshot']
 2026-10-13T07:09:11 part3_analyze models=['qwen3-1.7b-lora-s0', 'finbert', 'tfidf-logreg', 'qwen3-1.7b-zeroshot']
 2026-10-14T02:52:14 part4_analyze models=['base', 'abliterated']
+2026-10-14T13:26:30 part4_explore models=['base', 'abliterated'] (exploratory, after the pre-registered analysis)

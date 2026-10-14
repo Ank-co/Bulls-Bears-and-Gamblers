@@ -1,0 +1,175 @@
+{
+  "note": "exploratory, written after the pre-registered test analysis; no p-value here is confirmatory",
+  "points": {
+    "base": {
+      "n": 4000,
+      "mean_answer": 53.0095,
+      "share_up": 49.325
+    },
+    "abliterated": {
+      "n": 4000,
+      "mean_answer": 60.9045,
+      "share_up": 49.325
+    },
+    "abliterated_minus_base": {
+      "n": 4000,
+      "mean": 7.895,
+      "se": 0.21980604501322545,
+      "share_higher": 60.5,
+      "share_equal": 20.575
+    }
+  },
+  "fitted_answer_at_ideal_50": {
+    "base": 54.27304184436893,
+    "abliterated": 62.316029577469656
+  },
+  "brier_gap_closed": {
+    "base": 0.3963787961508793,
+    "abliterated": 0.10612037857938678
+  },
+  "intervals_90": {
+    "H1": {
+      "effect": 0.14743504661741283,
+      "lower": 0.11581351713709157,
+      "upper": 0.1790565760977341,
+      "smallest_effect": 0.11802225011438289,
+      "whole_interval_above_smallest": false
+    },
+    "H2": {
+      "effect": 0.11412079741553567,
+      "lower": 0.092573672854118,
+      "upper": 0.13566792197695335,
+      "smallest_effect": 0.0748456975071908,
+      "whole_interval_above_smallest": true
+    },
+    "H3": {
+      "effect": 0.37076731698463394,
+      "lower": 0.326950940682699,
+      "upper": 0.4145836932865689,
+      "smallest_effect": 0.10960814018238152,
+      "whole_interval_above_smallest": true
+    },
+    "H4": {
+      "effect": 0.3267536142584311,
+      "lower": 0.30842672406842586,
+      "upper": 0.3450805044484363,
+      "smallest_effect": 0.1,
+      "whole_interval_above_smallest": true
+    },
+    "H5": {
+      "effect": 0.1713621250281665,
+      "lower": 0.15957784256990165,
+      "upper": 0.18314640748643135,
+      "smallest_effect": 0.06260445958115318,
+      "whole_interval_above_smallest": true
+    }
+  },
+  "framing": {
+    "base": {
+      "n": 4000,
+      "logodds_vs_no_sentence": {
+        "calm": {
+          "estimate": 0.05336122378804329,
+          "se": 0.033712991894358356,
+          "p_two_sided": 0.11346502640411087
+        },
+        "volatile": {
+          "estimate": 0.013338374166890866,
+          "se": 0.03238926305355942,
+          "p_two_sided": 0.6804752568894826
+        }
+      },
+      "mean_answer_points": {
+        "calm": 53.308032424465736,
+        "none": 53.13461538461539,
+        "volatile": 52.5867460908414
+      },
+      "mean_ideal_points": {
+        "calm": 49.64637745227351,
+        "none": 50.54309917889904,
+        "volatile": 49.22325946154646
+      },
+      "scenarios": {
+        "calm": 1357,
+        "none": 1300,
+        "volatile": 1343
+      }
+    },
+    "abliterated": {
+      "n": 4000,
+      "logodds_vs_no_sentence": {
+        "calm": {
+          "estimate": 0.014181210314436948,
+          "se": 0.02246596610394087,
+          "p_two_sided": 0.5278896097885581
+        },
+        "volatile": {
+          "estimate": 0.05638285035865329,
+          "se": 0.022600438560755807,
+          "p_two_sided": 0.012603951593834789
+        }
+      },
+      "mean_answer_points": {
+        "calm": 60.57184966838614,
+        "none": 60.79692307692308,
+        "volatile": 61.34475055845123
+      },
+      "mean_ideal_points": {
+        "calm": 49.64637745227351,
+        "none": 50.54309917889904,
+        "volatile": 49.22325946154646
+      },
+      "scenarios": {
+        "calm": 1357,
+        "none": 1300,
+        "volatile": 1343
+      }
+    }
+  },
+  "history_vs_stated": {
+    "base": {
+      "n": 500,
+      "stated_vs_ideal": {
+        "mean_abs_gap_points": 15.288939974111617,
+        "correlation": 0.7277019693280187
+      },
+      "history_vs_references": {
+        "n": 500,
+        "frequencies_taken_as_true": {
+          "mean_abs_gap_points": 22.082960110212344,
+          "correlation": 0.5211809395991848
+        },
+        "uniform_prior_bayes": {
+          "mean_abs_gap_points": 20.758791026619377,
+          "correlation": 0.5284464278518781
+        },
+        "design_aware_bayes": {
+          "mean_abs_gap_points": 20.31374637701789,
+          "correlation": 0.5039521032446415
+        }
+      }
+    },
+    "abliterated": {
+      "n": 500,
+      "stated_vs_ideal": {
+        "mean_abs_gap_points": 20.283418446880486,
+        "correlation": 0.6745041229617239
+      },
+      "history_vs_references": {
+        "n": 500,
+        "frequencies_taken_as_true": {
+          "mean_abs_gap_points": 28.024920583091202,
+          "correlation": 0.33975472634909
+        },
+        "uniform_prior_bayes": {
+          "mean_abs_gap_points": 26.565466010465766,
+          "correlation": 0.34248026921309876
+        },
+        "design_aware_bayes": {
+          "mean_abs_gap_points": 25.90894535479128,
+          "correlation": 0.31081127742044307
+        }
+      }
+    }
+  }
+}
