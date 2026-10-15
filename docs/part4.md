@@ -47,3 +47,7 @@ Part 3 could not separate reading from remembering. Part 4 removes memory by con
 ## Limits
 
 Synthetic by design: it measures how the models use stated information, not whether they predict real markets. The templates are less varied than real news, and news items are independent given the outcome. H2 and H3 rest on a usual reading of the news fixed by us; the sensitivity analyses show that the conclusions hold without it. One model family at one quantization, English only, thinking disabled, JSON answers. The pre-registration was committed after the test run.
+
+## Replication
+
+With Gemma 4 26B-A4B and Llama 3.1 8B, the base model also underweights the base rate (weights 0.42 and 0.84) and follows a reversed track record less (substantively for Gemma only), and worthless news shows no effect of interest with Gemma. The higher answers of the abliterated model do not replicate (49.4% against 52.2% with Gemma, 58.8% against 58.9% with Llama), and the flatter slope replicates at about a third of the size found here, below the smallest effect of interest. Details in [replication.md](replication.md).

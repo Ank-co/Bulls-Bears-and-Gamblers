@@ -4,17 +4,18 @@
 
 Each experiment fixes its protocol before the test data are opened (in Part 4 it was committed only after the run, a deviation reported on its page), opens the test data once, and computes every score with code from what the models answer. No model grades another model's text.
 
-**Full write-up, one page per part:** [Part 1](docs/part1.md) · [Part 2](docs/part2.md) · [Addendum](docs/addendum.md) · [Part 3](docs/part3.md) · [Part 4](docs/part4.md) · [Related work](docs/related-work.md). The pre-registrations and design notes are in [docs](docs/).
+**Full write-up, one page per part:** [Part 1](docs/part1.md) · [Part 2](docs/part2.md) · [Addendum](docs/addendum.md) · [Part 3](docs/part3.md) · [Part 4](docs/part4.md) · [Replication](docs/replication.md) · [Related work](docs/related-work.md). The pre-registrations and design notes are in [docs](docs/).
 
 ## At a glance
 
 | | Question | Main result | Tests fixed in advance |
 |---|---|---|---|
 | [Part 1](docs/part1.md) | Can a small model fine-tuned on the laptop read market sentiment better than a model twenty times its size? | Yes: macro-F1 **0.884** for Qwen3-1.7B with LoRA, against 0.757 for the 35B model zero-shot | Protocol committed before the test set was opened |
-| [Part 2](docs/part2.md) | When a client sounds like a gambler, does the model protect them, and what changes once its refusals are removed? | The base model protects; the abliterated model follows the client (**+43 points** of savings in high-risk products for gamblers and loss-chasers) | 3 of 4 confirmed |
-| [Addendum](docs/addendum.md) | Does the same edit change how the model reads the news? | Tweets that are not bullish read as bullish: **23%** against 11% | 3 of 3 confirmed |
+| [Part 2](docs/part2.md) | When a client sounds like a gambler, does the model protect them, and what changes once its refusals are removed? | The base model protects; the abliterated model follows the client (**+43 points** of savings in high-risk products for gamblers and loss-chasers), also with Gemma 4 and Llama 3.1 | 3 of 4 confirmed |
+| [Addendum](docs/addendum.md) | Does the same edit change how the model reads the news? | Tweets that are not bullish read as bullish: **23%** against 11%, reversed with Gemma 4 and Llama 3.1 | 3 of 3 confirmed |
 | [Part 3](docs/part3.md) | Does a model's reading of real headlines move with stock prices? | The fine-tuned model lines up best with the move around the news; what is left after it cannot be separated from memory | 2 of 3 confirmed, the third not separable from look-ahead |
 | [Part 4](docs/part4.md) | In an invented market where the best answer is computed, do models weigh each piece of news by what it is worth? | News used at **half** its worth, and at a quarter when its track record contradicts the usual reading | 5 of 5 confirmed, pre-registration committed after the run |
+| [Replication](docs/replication.md) | Do the results of Part 2, the addendum and Part 4 hold in two more model families? | Compliance with the client and base-rate underweighting hold in all three families; the optimism of the abliterated model does not replicate | Pre-registered and pushed before the runs: 4 of 11 findings replicate in both new families, 3 in one, 4 in neither |
 
 ## Part 1, reading the market
 
@@ -32,9 +33,9 @@ Classify 2,388 held-out financial tweets as bullish, bearish or neutral. Qwen3-1
   <img alt="Mean share of savings recommended in high-risk products, by client profile, for the base and abliterated models" src="docs/figures/part2-light.svg" width="100%">
 </picture>
 
-Two versions of Qwen3.6-35B-A3B advise the same 48 client scenarios on €20,000 of savings: the base model, and a copy whose refusal behaviour was removed (abliteration). The base model is a strict adviser: 0% in high-risk products in 76% of its answers. The abliterated model recommends **43 points more** at risk to gamblers and loss-chasers, moves **24 points** when the client pushes for confirmation (the base model does not move), and recommends leverage to 43% of fragile clients chasing losses. In the example fixed before the campaign, its advice reads as measured while putting 60% of a fragile client's savings in leveraged products, which is why the study scores the numbers a model commits to, never its text. [Protocol, tests and examples](docs/part2.md)
+Two versions of Qwen3.6-35B-A3B advise the same 48 client scenarios on €20,000 of savings: the base model, and a copy whose refusal behaviour was removed (abliteration). The base model is a strict adviser: 0% in high-risk products in 76% of its answers. The abliterated model recommends **43 points more** at risk to gamblers and loss-chasers, moves **24 points** when the client pushes for confirmation (the base model does not move), and recommends leverage to 43% of fragile clients chasing losses. In the example fixed before the campaign, its advice reads as measured while putting 60% of a fragile client's savings in leveraged products, which is why the study scores the numbers a model commits to, never its text. In the [replication](docs/replication.md), the abliterated Gemma 4 and Llama 3.1 also give gamblers riskier advice (+30 and +8 points), but no model of those families recommends leverage to fragile clients. [Protocol, tests and examples](docs/part2.md)
 
-**Addendum.** The same two files classify the Part 1 tweets. The abliterated model reads 23% of the tweets that are not bullish as bullish, against 11%: 229 tweets flip to bullish, 1 the other way. [Details](docs/addendum.md)
+**Addendum.** The same two files classify the Part 1 tweets. The abliterated model reads 23% of the tweets that are not bullish as bullish, against 11%: 229 tweets flip to bullish, 1 the other way. **This does not replicate:** with Gemma 4 and Llama 3.1, the abliterated model reads fewer tweets as bullish than its base model (17% against 21%, 2.9% against 5.1%). [Details](docs/addendum.md)
 
 ## Part 3, does the reading move with prices?
 
@@ -52,22 +53,38 @@ The Part 1 readers label 246,764 headlines of 2018 and 2019 (150,000 stock-days)
   <img alt="Weights each model gives to the base rate, to news, to worthless news and to dramatic wording, against the ideal observer, and calibration of both models" src="docs/figures/part4-light.svg" width="100%">
 </picture>
 
-In 4,000 scenarios of an invented market, with nothing to remember, the best possible answer is computed by code from the base rate and each news item's track record. The base model gives the news about **half** the weight it deserves (0.51, ideal 1) and the base rate more (0.84), and news worth nothing still moves it. When a track record says that news usually read as bad came before rises, it follows that record at **a quarter** of the usual weight (0.13). The abliterated model answers **7.9 points** higher on average and moves less with the evidence. The pre-registration was placed in the repository before the test scenarios were generated but committed only with the results, a deviation reported on the part's page. [Design, tests and deviation](docs/part4.md)
+In 4,000 scenarios of an invented market, with nothing to remember, the best possible answer is computed by code from the base rate and each news item's track record. The base model gives the news about **half** the weight it deserves (0.51, ideal 1) and the base rate more (0.84), and news worth nothing still moves it. When a track record says that news usually read as bad came before rises, it follows that record at **a quarter** of the usual weight (0.13). The abliterated model answers **7.9 points** higher on average and moves less with the evidence. In the replication, every base model underweights the base rate, but the higher answers of the abliterated model do not replicate (lower with Gemma 4, unchanged with Llama 3.1). The pre-registration was placed in the repository before the test scenarios were generated but committed only with the results, a deviation reported on the part's page. [Design, tests and deviation](docs/part4.md)
 
-## Across the parts: one edit, three effects
+## Replication: what holds across families
 
-Part 2, the addendum and Part 4 use the same pair of files, from the same quantizer. Compared with the base model, the abliterated model is more optimistic about the news (addendum), more compliant with the client (Part 2), and less responsive to the evidence it is given (Part 4: slope 0.30 against 0.47 on the ideal answer). All three effects come from one model family and one abliteration; whether they hold for other families is the next step.
+The results of Part 2, the addendum and Part 4 came from one pair of files. The same experiments, inputs and tests were run on two more families, each a base model and its abliterated copy from the same quantizer: **Gemma 4 26B-A4B** (abliterated by the same author as the Qwen pair, so only the family changes) and **Llama 3.1 8B** (abliterated by another author). The [pre-registration](docs/replication-preregistration.md) was pushed before any test run, and the analysis ran once.
+
+| Finding with Qwen | Gemma 4 26B-A4B | Llama 3.1 8B |
+|---|---|---|
+| The abliterated model gives gamblers riskier advice | **yes**, +30.5 points | **yes**, +8.2 points |
+| It moves more when the client pushes for confirmation | **yes**, +11.9 points | not detected, +2.6 points |
+| It recommends leverage to fragile clients chasing losses | no, 0% against 0% | no, 0% against 0% |
+| It reads tweets that are not bullish as bullish more often | **reversed**, 17.1% against 21.2% | **reversed**, 2.9% against 5.1% |
+| It answers higher in the invented market | **reversed**, 49.4% against 52.2% | no, 58.8% against 58.9% |
+| It moves less with the evidence (flatter slope) | yes, small | yes, small |
+| The base model underweights the base rate | **yes**, weight 0.42 | **yes**, weight 0.84 |
+| It follows a reversed track record less | **yes** | yes, small |
+| Worthless news moves it | no effect of interest | yes, small |
+
+*Yes: rejected after Holm's correction in the pre-registered direction. Small: below the smallest effect of interest fixed in advance. Reversed: the difference goes the other way. Not detected or no: not rejected, which does not show that the effect is absent.*
+
+**Abliteration's effect on advice generalizes, its effect on reading the market does not.** In all three families the abliterated model follows a client who sounds like a gambler. The optimism found with Qwen does not replicate: on labelled tweets it reverses with both new families, and in the invented market Gemma's abliterated model answers lower and Llama's the same. In this sample, the optimism belongs to the Qwen pair, not to abliteration in general. All three base models underweight the base rate, but how much they use the news differs widely, from Gemma, which follows the news more than the base rate, to Llama 3.1 8B, which hardly uses it. [Full results, criteria and power](docs/replication.md)
 
 ## Limits
 
-- Parts 2 to 4 use one model family (Qwen3.6-35B-A3B) at one quantization, and one abliteration made by a third party.
+- Parts 2 to 4 use Qwen3.6-35B-A3B; the replication adds Gemma 4 26B-A4B and Llama 3.1 8B. Three families in all, one quantization each, abliterations made by third parties (two by the same author).
 - English only, thinking disabled, answers in JSON, single-turn questions.
 - Part 3 cannot rule out that the Qwen models remember the prices of the test years. Part 4 is synthetic by design: it measures how models use stated information, not whether they predict real markets.
 - Each part's page lists its own limits.
 
 ## Related work
 
-The closest studies are [Fafuła (2026)](https://arxiv.org/abs/2607.17427), who finds abliterated models more optimistic in their own stock calls, [Lopez-Lira and Tang (2023)](https://arxiv.org/abs/2304.07619) on headlines and returns, and the belief-updating literature reviewed by [Benjamin (2019)](https://www.nber.org/papers/w25200). The full list, with how each study differs from this one, is in [docs/related-work.md](docs/related-work.md).
+The closest studies are [Fafuła (2026)](https://arxiv.org/abs/2607.17427), who finds abliterated models more optimistic in their own stock calls (the replication here finds that optimism with Qwen only), [Lopez-Lira and Tang (2023)](https://arxiv.org/abs/2304.07619) on headlines and returns, and the belief-updating literature reviewed by [Benjamin (2019)](https://www.nber.org/papers/w25200). The full list, with how each study differs from this one, is in [docs/related-work.md](docs/related-work.md).
 
 ## Reproduce
 
@@ -109,6 +126,13 @@ python scripts/part4_run.py --split test
 python scripts/part4_tone.py --split test
 python scripts/part4_analyze.py                # pre-registered tests, run once
 python scripts/part4_explore.py                # exploratory, after the results
+
+# replication on two more families (docs/replication-preregistration.md)
+python scripts/replication_power.py            # power and measurement bias, dev answers only
+python scripts/replication_checks.py           # format checks on items outside the test
+python scripts/replication_run.py --pair llama # refused until the pre-registration is pushed
+python scripts/replication_run.py --pair gemma
+python scripts/replication_analyze.py          # run once
 python scripts/make_figures.py        # README figures
 ```
 

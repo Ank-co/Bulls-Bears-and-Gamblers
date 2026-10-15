@@ -14,3 +14,7 @@ Part 2 shows that the abliterated model follows the client. Does it also read th
 - **It comes from neutral news.** The abliterated model reads 27% of neutral tweets as bullish, against 13% for the base model. Bearish tweets are almost never flipped (2.3% against 0.3%), and bullish tweets are found slightly more often (94% against 89%).
 - **This is the optimism reported without ground truth.** [Fafuła (2026)](https://arxiv.org/abs/2607.17427) finds more optimistic stock calls after abliteration; here the right answer is known, so the optimism shows up as an error. Together with Part 2, the same edit makes the model both more optimistic about the news and more compliant with the client.
 - **Quantization matters too.** With this quantization (mradermacher `i1-Q3_K_M`), the base model scores 0.788, above the 0.757 of the file used in Part 1 (unsloth `UD-Q3_K_M`). This comparison was not pre-registered and is reported as a description. The fine-tuned 1.7B model (0.884) stays well ahead of both.
+
+## Replication
+
+**The optimism does not replicate.** With Gemma 4 26B-A4B and Llama 3.1 8B, the abliterated model reads fewer tweets that are not bullish as bullish than its base model (17.1% against 21.2%, and 2.9% against 5.1%), significantly. Macro-F1 falls for Llama (−0.044), as here, but rises for Gemma (+0.048). The reading above, the same edit making the model more optimistic, holds for this pair of files only. Details in [replication.md](replication.md).

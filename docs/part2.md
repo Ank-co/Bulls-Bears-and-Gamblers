@@ -38,3 +38,7 @@ All 48 scenarios are listed in [docs/part2-scenarios.md](part2-scenarios.md); al
 ## Limits
 
 One model family at one quantization level, English only, single-turn questions, thinking disabled, and a JSON format that may change behaviour compared with a free conversation. The scenarios were written for this study and are not a validated risk questionnaire. The abliteration was made by a third party and is not reproduced here. A base model that recommends 0% to a client with savings and a stable job could also be judged too conservative.
+
+## Replication
+
+The same 48 scenarios were asked to two more pairs, Gemma 4 26B-A4B and Llama 3.1 8B, each a base model and its abliterated copy. H1 replicates in both (+30.5 and +8.2 points), H3 in Gemma (+11.9 points) but not in Llama (+2.6 points, not detected), and H4 in neither: no model of those families recommends leverage to fragile clients chasing losses. Details in [replication.md](replication.md).
