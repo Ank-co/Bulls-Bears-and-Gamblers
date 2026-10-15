@@ -57,6 +57,11 @@ In 4,000 scenarios of an invented market, with nothing to remember, the best pos
 
 ## Replication: what holds across families
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/figures/replication-dark.svg">
+  <img alt="Effects of abliteration on advice, tweet reading and answers in the invented market, and the base models' weights on the base rate and the news, for Qwen3.6-35B-A3B, Gemma 4 26B-A4B and Llama 3.1 8B" src="docs/figures/replication-light.svg" width="100%">
+</picture>
+
 The results of Part 2, the addendum and Part 4 came from one pair of files. The same experiments, inputs and tests were run on two more families, each a base model and its abliterated copy from the same quantizer: **Gemma 4 26B-A4B** (abliterated by the same author as the Qwen pair, so only the family changes) and **Llama 3.1 8B** (abliterated by another author). The [pre-registration](docs/replication-preregistration.md) was pushed before any test run, and the analysis ran once.
 
 | Finding with Qwen | Gemma 4 26B-A4B | Llama 3.1 8B |
@@ -67,7 +72,7 @@ The results of Part 2, the addendum and Part 4 came from one pair of files. The 
 | It reads tweets that are not bullish as bullish more often | **reversed**, 17.1% against 21.2% | **reversed**, 2.9% against 5.1% |
 | It answers higher in the invented market | **reversed**, 49.4% against 52.2% | no, 58.8% against 58.9% |
 | It moves less with the evidence (flatter slope) | yes, small | yes, small |
-| The base model underweights the base rate | **yes**, weight 0.42 | **yes**, weight 0.84 |
+| The base model underweights the base rate | **yes**, weight 0.41 | **yes**, weight 0.84 |
 | It follows a reversed track record less | **yes** | yes, small |
 | Worthless news moves it | no effect of interest | yes, small |
 

@@ -50,4 +50,4 @@ Synthetic by design: it measures how the models use stated information, not whet
 
 ## Replication
 
-With Gemma 4 26B-A4B and Llama 3.1 8B, the base model also underweights the base rate (weights 0.42 and 0.84) and follows a reversed track record less (substantively for Gemma only), and worthless news shows no effect of interest with Gemma. The higher answers of the abliterated model do not replicate (49.4% against 52.2% with Gemma, 58.8% against 58.9% with Llama), and the flatter slope replicates at about a third of the size found here, below the smallest effect of interest. Details in [replication.md](replication.md).
+With Gemma 4 26B-A4B and Llama 3.1 8B, the base model also underweights the base rate (weights 0.41 and 0.84) and follows a reversed track record less (substantively for Gemma only), and worthless news shows no effect of interest with Gemma. The higher answers of the abliterated model do not replicate (49.4% against 52.2% with Gemma, 58.8% against 58.9% with Llama), and the flatter slope replicates at about a third of the size found here, below the smallest effect of interest. Details in [replication.md](replication.md).

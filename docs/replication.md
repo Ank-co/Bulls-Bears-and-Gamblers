@@ -2,6 +2,11 @@
 
 *Short version in the [README](../README.md).*
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/replication-dark.svg">
+  <img alt="Effects of abliteration on advice, tweet reading and answers in the invented market, and the base models' weights on the base rate and the news, for Qwen3.6-35B-A3B, Gemma 4 26B-A4B and Llama 3.1 8B" src="figures/replication-light.svg" width="100%">
+</picture>
+
 Part 2, the addendum and Part 4 were run on one pair of models: Qwen3.6-35B-A3B and its abliterated copy, from the same quantizer. This replication asks whether their results hold in two more families, each a base model and its abliterated copy quantized by the same quantizer with the same method (mradermacher, `i1-Q4_K_M`):
 
 - **Gemma 4 26B-A4B**, abliterated by the author of the original pair's abliteration (Huihui), and also a mixture of experts with about 4B active parameters: only the family changes.

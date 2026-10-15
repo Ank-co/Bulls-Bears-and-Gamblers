@@ -25,10 +25,12 @@ from bbg import config  # noqa: E402
 THEMES = {
     "light": {"bg": "#ffffff", "card": "#f6f8fa", "border": "#d0d7de", "ink": "#1f2328",
               "ink2": "#59636e", "grid": "#d8dee4", "ours": "#2a78d6", "base": "#2a78d6",
-              "abl": "#eb6834", "baseline": "#818b98"},
+              "abl": "#eb6834", "baseline": "#818b98",
+              "qwen": "#2a78d6", "gemma": "#1baf7a", "llama": "#eda100"},
     "dark": {"bg": "#0d1117", "card": "#161b22", "border": "#30363d", "ink": "#e6edf3",
              "ink2": "#9198a1", "grid": "#30363d", "ours": "#3987e5", "base": "#3987e5",
-             "abl": "#d95926", "baseline": "#6e7681"},
+             "abl": "#d95926", "baseline": "#6e7681",
+             "qwen": "#3987e5", "gemma": "#199e70", "llama": "#c98500"},
 }
 
 PART1_NAMES = {
@@ -249,6 +251,78 @@ def part4(res: dict, t: dict, out: Path) -> None:
     plt.close(fig)
 
 
+FAMILIES = [("qwen", "Qwen3.6-35B-A3B (original pair)"), ("gemma", "Gemma 4 26B-A4B"), ("llama", "Llama 3.1 8B")]
+
+
+def mean_answer(desc: dict) -> float:
+    """Mean answer in points, from the calibration table of one model (n-weighted bin means)."""
+    cal = desc["calibration"]
+    return 100 * sum(c["n"] * c["mean_answer"] for c in cal) / sum(c["n"] for c in cal)
+
+
+def replication_values(rep: dict, q2: dict, qa: dict, q4: dict) -> tuple[list, list]:
+    """Effects of abliteration (abliterated minus base, points) and base-model weights, per family,
+    read from the original analyses (Qwen) and from results/replication/analysis.json."""
+    src = {"qwen": {"part2": q2, "addendum": qa, "part4": q4}}
+    src.update({p: rep["pairs"][p] for p in ("gemma", "llama")})
+    effects = []
+    for label, get in (
+            ("Riskier advice to gamblers", lambda s: s["part2"]["tests"]["H1_pressure"]["mean_diff"]),
+            ("Moves when the client pushes", lambda s: s["part2"]["tests"]["H3_push"]["mean_diff"]),
+            ("Non-bullish tweets read as bullish", lambda s: 100 * s["addendum"]["tests"]["H1_false_optimism"]["diff"]),
+            ("Mean answer, invented market", lambda s: mean_answer(s["part4"]["descriptive"]["abliterated"])
+             - mean_answer(s["part4"]["descriptive"]["base"]))):
+        effects.append((label, {f: get(src[f]) for f, _ in FAMILIES}))
+    weights = []
+    for label, key in (("Base rate", "base_rate"), ("News, usual direction", "e_congruent"),
+                       ("News, reversed direction", "e_reversed")):
+        weights.append((label, {f: src[f]["part4"]["descriptive"]["base"]["weights"]["weights"][key]["estimate"]
+                                for f, _ in FAMILIES}))
+    return effects, weights
+
+
+def replication(rep: dict, q2: dict, qa: dict, q4: dict, t: dict, out: Path) -> None:
+    """Abliteration effects and base-model weights for the three families (point estimates)."""
+    effects, weights = replication_values(rep, q2, qa, q4)
+    fig = plt.figure(figsize=(10.4, 5.0), facecolor=t["bg"])
+    header(fig, "Replication on two more model families",
+           "Point estimates; the pre-registered tests and their results are in docs/replication.md.", t)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=t[f]) for f, _ in FAMILIES]
+    leg = fig.legend(handles, [name for _, name in FAMILIES], loc="upper right", bbox_to_anchor=(0.995, 0.985),
+                     ncol=3, frameon=False, fontsize=9, handlelength=1.0, handleheight=1.0, columnspacing=1.2)
+    for txt in leg.get_texts():
+        txt.set_color(t["ink"])
+    card(fig, 0.008, 0.548, "What abliteration changes: abliterated minus base, points", t, y1=0.84)
+    card(fig, 0.566, 0.992, "Base model, weight given to each input", t, y1=0.84)
+    a1 = fig.add_axes((0.215, 0.13, 0.31, 0.6))
+    a2 = fig.add_axes((0.74, 0.13, 0.235, 0.6))
+    h = 0.24
+    for ax, rows, fmt, pad in ((a1, effects, "{:+.1f}", 1.2), (a2, weights, "{:.2f}", 0.02)):
+        n = len(rows)
+        for i, (label, vals) in enumerate(rows):
+            y0 = n - 1 - i
+            for j, (f, _) in enumerate(FAMILIES):
+                y = y0 + (1 - j) * (h + 0.04)
+                v = vals[f]
+                ax.barh(y, v, height=h, color=t[f])
+                ax.text(v + (pad if v >= 0 else -pad), y, fmt.format(v).replace("-", "\u2212"), va="center",
+                        ha="left" if v >= 0 else "right", fontsize=8.5, color=t["ink"])
+        ax.set_yticks(range(n), [label for label, _ in reversed(rows)], color=t["ink"], fontsize=9.5)
+        ax.set_ylim(-0.6, n - 0.4)
+        ax.axvline(0, color=t["ink2"], linewidth=1)
+        style(ax, t, "x", face="card")
+    a1.set_xlim(-12, 52)
+    a1.set_xlabel("percentage points; positive is the direction found with Qwen", color=t["ink2"], fontsize=9)
+    a2.set_xlim(0, 1.12)
+    a2.set_xticks([0, 0.5, 1.0])
+    for i in range(len(weights)):
+        a2.plot([1, 1], [i - 0.45, i + 0.45], color=t["ink"], linewidth=2.2, zorder=4, solid_capstyle="butt")
+    a2.text(1.0, len(weights) - 0.5, "ideal", ha="center", va="bottom", fontsize=8.5, color=t["ink2"])
+    a2.set_xlabel("belief-updating weight, ideal 1", color=t["ink2"], fontsize=9)
+    fig.savefig(out, facecolor=t["bg"])
+    plt.close(fig)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--results", type=Path, default=config.RESULTS_DIR)
@@ -272,6 +346,13 @@ def main() -> int:
         res4 = json.loads(p4.read_text(encoding="utf-8"))
         for name, t in THEMES.items():
             part4(res4, t, args.out / f"part4-{name}.svg")
+    rp = args.results / "replication" / "analysis.json"
+    if rp.exists() and p4.exists():
+        rep = json.loads(rp.read_text(encoding="utf-8"))
+        q2 = json.loads((args.results / "advice" / "analysis.json").read_text(encoding="utf-8"))
+        qa = json.loads((args.results / "metrics" / "abliteration_sentiment.json").read_text(encoding="utf-8"))
+        for name, t in THEMES.items():
+            replication(rep, q2, qa, res4, t, args.out / f"replication-{name}.svg")
     print(f"figures written to {args.out}")
     return 0
 
