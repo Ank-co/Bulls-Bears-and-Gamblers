@@ -156,10 +156,11 @@ def write_log(log: dict, path: Path) -> None:
 
 def load_base(model_id: str, device: str):
     from transformers import AutoModelForCausalLM, AutoTokenizer
-    tok = AutoTokenizer.from_pretrained(model_id)
+    tok = AutoTokenizer.from_pretrained(model_id, revision=config.revision(model_id))
     tok.padding_side = "left"
     dtype = torch.bfloat16 if device == "cuda" else torch.float32
-    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype).to(device)
+    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype,
+                                                 revision=config.revision(model_id)).to(device)
     model.config.use_cache = False
     return model, tok
 

@@ -10,6 +10,18 @@ METRICS_DIR = RESULTS_DIR / "metrics"
 
 HF_DATASET = "zeroshot/twitter-financial-news-sentiment"
 
+# Hugging Face model revisions (commit sha), pinned so a changed upstream file is never loaded.
+# None means "latest", which is only acceptable for local paths such as the tests' tiny model.
+MODEL_REVISIONS = {
+    "Qwen/Qwen3-1.7B": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",  # REV_QWEN
+    "ProsusAI/finbert": "0bc2ac10dda6929bcb1f77ccc43c7ec5c424f031",  # REV_FINBERT
+}
+
+
+def revision(model_id: str) -> str | None:
+    """Pinned revision of a Hugging Face model, or None for a local path or an unpinned id."""
+    return MODEL_REVISIONS.get(model_id)
+
 # Label ids exactly as published in the dataset card.
 LABELS = {0: "bearish", 1: "bullish", 2: "neutral"}
 LABEL_IDS = sorted(LABELS)

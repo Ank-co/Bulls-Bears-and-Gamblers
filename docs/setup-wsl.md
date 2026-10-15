@@ -25,34 +25,29 @@ it), installs the project, writes `requirements.lock.txt`, runs the unit tests a
 
 ## 3. Reaching the llama.cpp server on Windows from WSL
 
-The 35B model is served by a Windows build of llama.cpp (`llama-server`, listening on
-`0.0.0.0:8080`). The GPU has 8 GB: stop any PyTorch job before starting the server.
+The 35B model is served by a Windows build of llama.cpp (`llama-server`). The GPU has 8 GB: stop
+any PyTorch job before starting the server.
 
-From WSL, Windows is reachable at the default gateway address:
-
-```bash
-export LLAMA_URL="http://$(ip route show default | awk '{print $3}'):8080/v1/chat/completions"
-export LLAMA_API_KEY="..."        # the key given to llama-server, never committed
-curl -s -H "Authorization: Bearer $LLAMA_API_KEY" "${LLAMA_URL%/chat/completions}/models"
-```
-
-`0.0.0.0` means the server also listens on the Wi-Fi and Ethernet adapters, so other devices on
-the same network can reach it. The API key protects it, but it is safer to close the port to the
-network (PowerShell as administrator). WSL goes through a virtual adapter, which this rule does not
-touch:
-
-```powershell
-$phys = (Get-NetAdapter -Physical).Name
-New-NetFirewallRule -DisplayName "Block llama-server from network" -Direction Inbound -Protocol TCP -LocalPort 8080 -Action Block -InterfaceAlias $phys
-```
-
-If the request times out (Windows firewall), use mirrored networking instead: create
-`%UserProfile%\.wslconfig` with
+The server listens on `127.0.0.1` only, so no other device on the network can reach it. WSL reaches
+it through mirrored networking: create `%UserProfile%\.wslconfig` with
 
 ```ini
 [wsl2]
 networkingMode=mirrored
 ```
 
-run `wsl --shutdown` in PowerShell, reopen Ubuntu, and keep the default
-`LLAMA_URL=http://127.0.0.1:8080/v1/chat/completions`.
+then run `wsl --shutdown` in PowerShell and reopen Ubuntu. Start the server with
+`--host 127.0.0.1 --port 8080 --api-key <key>`, and from WSL:
+
+```bash
+export LLAMA_URL="http://127.0.0.1:8080/v1/chat/completions"
+export LLAMA_API_KEY="..."        # the key given to llama-server, never committed
+curl -s -H "Authorization: Bearer $LLAMA_API_KEY" "${LLAMA_URL%/chat/completions}/models"
+```
+
+Do not start the server on `0.0.0.0`: that address listens on the Wi-Fi and Ethernet adapters too,
+where the API key travels in clear over HTTP.
+
+Keep llama.cpp up to date (it parses third-party GGUF files) and check each GGUF file against the
+SHA-256 listed in the pre-registration before loading it:
+`Get-FileHash <file>.gguf -Algorithm SHA256` in PowerShell.

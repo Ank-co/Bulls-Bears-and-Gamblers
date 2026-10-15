@@ -29,9 +29,14 @@ echo "== PyTorch built for CUDA 12.8 (required by RTX 50-series / sm_120)"
 pip install -q torch --index-url https://download.pytorch.org/whl/cu128
 
 echo "== Project dependencies"
-pip install -q -r requirements.txt
+if [ -f requirements.lock.txt ]; then
+  # Reproduce the exact versions of the results; the lock is never overwritten here.
+  pip install -q -r requirements.lock.txt --extra-index-url https://download.pytorch.org/whl/cu128
+else
+  pip install -q -r requirements.txt
+  pip freeze --exclude-editable > requirements.lock.txt
+fi
 pip install -q -e .
-pip freeze --exclude-editable > requirements.lock.txt
 
 echo "== Unit tests"
 python -m pytest -q tests

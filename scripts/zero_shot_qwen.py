@@ -11,6 +11,7 @@ import sys
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from bbg import config
 from bbg.data import load_split
 from bbg.llm_scoring import predict
 from bbg.predictions import save_scores, write_predictions
@@ -29,10 +30,11 @@ def main() -> int:
         print("CUDA is not available: run scripts/check_gpu.py first.")
         return 1
 
-    tok = AutoTokenizer.from_pretrained(args.model_id)
+    tok = AutoTokenizer.from_pretrained(args.model_id, revision=config.revision(args.model_id))
     tok.padding_side = "left"
     dtype = torch.bfloat16 if args.device == "cuda" else torch.float32
-    model = AutoModelForCausalLM.from_pretrained(args.model_id, dtype=dtype).to(args.device).eval()
+    model = AutoModelForCausalLM.from_pretrained(
+        args.model_id, dtype=dtype, revision=config.revision(args.model_id)).to(args.device).eval()
 
     for split in ("val", "test"):
         df = load_split(split)

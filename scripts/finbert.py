@@ -11,6 +11,7 @@ import sys
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
+from bbg import config
 from bbg.data import load_split
 from bbg.predictions import write_predictions
 from bbg.runtime import gpu_info, timed, write_runtime
@@ -43,8 +44,9 @@ def main() -> int:
     args = ap.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    tok = AutoTokenizer.from_pretrained(args.model_id)
-    model = AutoModelForSequenceClassification.from_pretrained(args.model_id).to(device).eval()
+    tok = AutoTokenizer.from_pretrained(args.model_id, revision=config.revision(args.model_id))
+    model = AutoModelForSequenceClassification.from_pretrained(
+        args.model_id, revision=config.revision(args.model_id)).to(device).eval()
     mapping = label_map(model)
     print(f"label mapping (finbert id -> ours): {mapping}")
 

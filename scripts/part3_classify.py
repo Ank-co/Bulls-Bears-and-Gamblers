@@ -49,8 +49,9 @@ def make_classifier(name: str, device: str, batch_size: int):
     if name == "finbert":
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
         fb = load_script("finbert")
-        tok = AutoTokenizer.from_pretrained("ProsusAI/finbert")
-        model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert").to(device).eval()
+        tok = AutoTokenizer.from_pretrained("ProsusAI/finbert", revision=config.revision("ProsusAI/finbert"))
+        model = AutoModelForSequenceClassification.from_pretrained(
+            "ProsusAI/finbert", revision=config.revision("ProsusAI/finbert")).to(device).eval()
         mapping = fb.label_map(model)
         return lambda texts: fb.predict(model, tok, texts, batch_size, mapping)
 

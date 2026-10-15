@@ -29,8 +29,9 @@ def make_finbert(device: str = "cpu", batch_size: int = 64):
     """Returns texts -> list of (tone, polarity), with labels read by name from the model config."""
     import torch
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
-    tok = AutoTokenizer.from_pretrained("ProsusAI/finbert")
-    model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert").to(device).eval()
+    tok = AutoTokenizer.from_pretrained("ProsusAI/finbert", revision=config.revision("ProsusAI/finbert"))
+    model = AutoModelForSequenceClassification.from_pretrained(
+            "ProsusAI/finbert", revision=config.revision("ProsusAI/finbert")).to(device).eval()
     names = {int(i): n.lower() for i, n in model.config.id2label.items()}
     if set(names.values()) != set(TONE):
         raise ValueError(f"unexpected FinBERT labels: {names}")
