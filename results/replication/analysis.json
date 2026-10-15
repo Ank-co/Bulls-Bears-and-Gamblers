@@ -1,0 +1,1910 @@
+{
+  "note": "pre-registered replication analysis, run once (results/metrics/test_access.log)",
+  "preregistration_commit": "7ba9bd204467062a03b829a79686d0a70c7173d2",
+  "pairs": {
+    "gemma": {
+      "part2": {
+        "n_answers": 480,
+        "tests": {
+          "H1_pressure": {
+            "n": 24,
+            "mean_diff": 30.458333333333332,
+            "median_diff": 27.5,
+            "p": 1.798354792980129e-05,
+            "p_holm": 7.193419171920516e-05
+          },
+          "H2_fragility": {
+            "n": 24,
+            "mean_diff": -10.791666666666666,
+            "median_diff": -10.0,
+            "p": 4.880248327049303e-05,
+            "p_holm": 9.760496654098606e-05
+          },
+          "H3_push": {
+            "n": 24,
+            "mean_diff": 11.875,
+            "median_diff": 11.5,
+            "p": 1.9083149315142377e-05,
+            "p_holm": 7.193419171920516e-05
+          },
+          "H4_leverage": {
+            "n": 30,
+            "abliterated_rate": 0.0,
+            "base_rate": 0.0,
+            "abliterated_only": 0,
+            "base_only": 0,
+            "p": 1.0,
+            "p_holm": 1.0
+          }
+        },
+        "descriptives": {
+          "abliterated": {
+            "mean_alloc_by_profile_situation": {
+              "fragile": {
+                "cautious": 7.17,
+                "chasing": 17.83,
+                "gambler": 28.17,
+                "neutral": 27.33
+              },
+              "solid": {
+                "cautious": 18.0,
+                "chasing": 29.0,
+                "gambler": 54.0,
+                "neutral": 35.0
+              }
+            },
+            "mean_alloc_by_request": {
+              "open": 21.12,
+              "push": 33.0
+            },
+            "leverage_rate_by_profile": {
+              "cautious": 0.017,
+              "chasing": 0.233,
+              "gambler": 0.55,
+              "neutral": 0.533
+            },
+            "pressure_effect": 19.666666666666664,
+            "fragility_effect": -13.875,
+            "push_effect": 11.875
+          },
+          "base": {
+            "mean_alloc_by_profile_situation": {
+              "fragile": {
+                "cautious": 0.0,
+                "chasing": 0.0,
+                "gambler": 0.0,
+                "neutral": 0.0
+              },
+              "solid": {
+                "cautious": 0.0,
+                "chasing": 0.0,
+                "gambler": 7.17,
+                "neutral": 5.17
+              }
+            },
+            "mean_alloc_by_request": {
+              "open": 1.54,
+              "push": 1.54
+            },
+            "leverage_rate_by_profile": {
+              "cautious": 0.0,
+              "chasing": 0.0,
+              "gambler": 0.0,
+              "neutral": 0.0
+            },
+            "pressure_effect": 1.7916666666666667,
+            "fragility_effect": -3.0833333333333335,
+            "push_effect": 0.0
+          }
+        },
+        "criteria": {
+          "H1_pressure": {
+            "A": true
+          },
+          "H2_fragility": {
+            "A": false
+          },
+          "H3_push": {
+            "A": true
+          },
+          "H4_leverage": {
+            "A": false
+          }
+        }
+      },
+      "addendum": {
+        "n": 2388,
+        "tests": {
+          "H1_false_optimism": {
+            "n": 1913,
+            "rate_a": 0.17145844223732357,
+            "rate_b": 0.21170935703084162,
+            "diff": -0.040250914793518056,
+            "a_only": 27,
+            "b_only": 104,
+            "p": 7.431826959701346e-12,
+            "p_holm": 1.167076237979024e-11,
+            "confirmed": false
+          },
+          "H2_bullish_share": {
+            "n": 2388,
+            "rate_a": 0.32202680067001677,
+            "rate_b": 0.3559463986599665,
+            "diff": -0.03391959798994976,
+            "a_only": 31,
+            "b_only": 112,
+            "p": 5.83538118989512e-12,
+            "p_holm": 1.167076237979024e-11,
+            "confirmed": false
+          },
+          "H3_macro_f1": {
+            "diff": 0.04751750753058104,
+            "ci": [
+              0.03604060204469621,
+              0.05938845809468948
+            ],
+            "p": 0.0,
+            "p_holm": 0.0,
+            "confirmed": true
+          }
+        },
+        "criteria": {
+          "H1_false_optimism": {
+            "A": false
+          },
+          "H2_bullish_share": {
+            "A": false
+          },
+          "H3_macro_f1": {
+            "A": false
+          }
+        },
+        "models": {
+          "base": {
+            "macro_f1": 0.717324821665645,
+            "macro_f1_ci95": [
+              0.6984479982127016,
+              0.736013169748913
+            ],
+            "predicted_share": {
+              "bearish": 0.23534338358458962,
+              "bullish": 0.3559463986599665,
+              "neutral": 0.40871021775544386
+            },
+            "predicted_share_by_gold": {
+              "bearish": {
+                "bearish": 0.9567723342939481,
+                "bullish": 0.023054755043227664,
+                "neutral": 0.020172910662824207
+              },
+              "bullish": {
+                "bearish": 0.029473684210526315,
+                "bullish": 0.9368421052631579,
+                "neutral": 0.03368421052631579
+              },
+              "neutral": {
+                "bearish": 0.13793103448275862,
+                "bullish": 0.25351213282247764,
+                "neutral": 0.6085568326947637
+              }
+            },
+            "bearish_read_as_bullish": 8,
+            "bullish_read_as_bearish": 14
+          },
+          "abliterated": {
+            "macro_f1": 0.7648423291962261,
+            "macro_f1_ci95": [
+              0.7464519190163238,
+              0.7826451674089153
+            ],
+            "predicted_share": {
+              "bearish": 0.2068676716917923,
+              "bullish": 0.32202680067001677,
+              "neutral": 0.47110552763819097
+            },
+            "predicted_share_by_gold": {
+              "bearish": {
+                "bearish": 0.9423631123919308,
+                "bullish": 0.01440922190201729,
+                "neutral": 0.043227665706051875
+              },
+              "bullish": {
+                "bearish": 0.023157894736842106,
+                "bullish": 0.9284210526315789,
+                "neutral": 0.04842105263157895
+              },
+              "neutral": {
+                "bearish": 0.09961685823754789,
+                "bullish": 0.2062579821200511,
+                "neutral": 0.6941251596424011
+              }
+            },
+            "bearish_read_as_bullish": 5,
+            "bullish_read_as_bearish": 11
+          }
+        }
+      },
+      "part4": {
+        "confirmatory": {
+          "H1": {
+            "estimate": -0.5854559662034523,
+            "se": 0.015396432722969401,
+            "null_value": -0.0038617822102080396,
+            "z": -37.77460626483849,
+            "direction": "less",
+            "p": 0.0,
+            "rejected_holm": true
+          },
+          "H2": {
+            "estimate": 0.02193731905259829,
+            "se": 0.010815668342135815,
+            "null_value": 0.001706017096066578,
+            "z": 1.8705549501471264,
+            "direction": "greater",
+            "p": 0.030703396891507,
+            "rejected_holm": false
+          },
+          "H3": {
+            "estimate": -0.10870813962909942,
+            "se": 0.01913825260516187,
+            "null_value": 0.0039053778121052782,
+            "z": -5.8842110491754696,
+            "direction": "less",
+            "p": 1.9997860684037613e-09,
+            "rejected_holm": true
+          },
+          "H4": {
+            "estimate": -0.1424311756296584,
+            "se": 0.0075056747023865104,
+            "null_value": -0.001844842340287104,
+            "z": -18.730672306471043,
+            "direction": "greater",
+            "p": 1.0,
+            "rejected_holm": false
+          },
+          "H5": {
+            "estimate": -0.054298503817493016,
+            "se": 0.004179274334213712,
+            "null_value": 0.0024666999374984813,
+            "z": -13.582550274405785,
+            "direction": "two-sided",
+            "p": 5.082543173165992e-42,
+            "rejected_holm": true
+          },
+          "manipulation_check": {
+            "w_congruent": 0.6316348532491773,
+            "z": 65.74457409614087,
+            "p": 0.0,
+            "passed": true
+          }
+        },
+        "interpretation": {
+          "H1": {
+            "effect": 0.5815941839932443,
+            "smallest_effect": 0.11802225011438289,
+            "upper_90": 0.6069190621997348,
+            "verdict": "confirmed, at least the smallest effect of interest"
+          },
+          "H2": {
+            "effect": 0.02023130195653171,
+            "smallest_effect": 0.0748456975071908,
+            "upper_90": 0.038021493256998024,
+            "verdict": "no effect of interest"
+          },
+          "H3": {
+            "effect": 0.1126135174412047,
+            "smallest_effect": 0.10960814018238152,
+            "upper_90": 0.14409314165231865,
+            "verdict": "confirmed, at least the smallest effect of interest"
+          },
+          "H4": {
+            "effect": -0.14058633328937128,
+            "smallest_effect": 0.1,
+            "upper_90": -0.12824059703243293,
+            "verdict": "no effect of interest"
+          },
+          "H5": {
+            "effect": 0.0567652037549915,
+            "smallest_effect": 0.06260445958115318,
+            "upper_90": 0.06363949830164813,
+            "verdict": "detected, below the smallest effect of interest"
+          }
+        },
+        "criteria": {
+          "H1": {
+            "A": true,
+            "B": true,
+            "effect": 0.5815941839932443,
+            "smallest_effect": 0.11802225011438289
+          },
+          "H2": {
+            "A": false,
+            "B": false,
+            "effect": 0.02023130195653171,
+            "smallest_effect": 0.0748456975071908
+          },
+          "H3": {
+            "A": true,
+            "B": true,
+            "effect": 0.1126135174412047,
+            "smallest_effect": 0.10960814018238152
+          },
+          "H4": {
+            "A": false,
+            "B": false,
+            "effect": -0.14058633328937128,
+            "smallest_effect": 0.1
+          },
+          "H5": {
+            "A": true,
+            "B": false,
+            "effect": 0.0567652037549915,
+            "smallest_effect": 0.06260445958115318
+          }
+        },
+        "units": {
+          "scenarios": 4000,
+          "clusters_h4_h5": 4000,
+          "rows_h1_h3": 4000
+        },
+        "failures": {
+          "base": {
+            "reading": {
+              "n": 120,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            },
+            "stated": {
+              "n": 4000,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            },
+            "history": {
+              "n": 500,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            }
+          },
+          "abliterated": {
+            "reading": {
+              "n": 120,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            },
+            "stated": {
+              "n": 4000,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            },
+            "history": {
+              "n": 500,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            }
+          }
+        },
+        "sensitivity": {
+          "own_reading": {
+            "H2": {
+              "estimate": 0.01851297379445898,
+              "se": 0.010958078273873663,
+              "z": 1.5337503783362891,
+              "p": 0.06254553740482639,
+              "holm_threshold": 0.025,
+              "rejected": false,
+              "same_conclusion": true
+            },
+            "H3": {
+              "estimate": -0.10338020799915526,
+              "se": 0.01934836542193208,
+              "z": -5.54494312422115,
+              "p": 1.4702486849221125e-08,
+              "holm_threshold": 0.016666666666666666,
+              "rejected": true,
+              "same_conclusion": true
+            }
+          },
+          "clear_kinds": {
+            "H2": {
+              "estimate": 0.002647248292766983,
+              "se": 0.013639317818794247,
+              "z": 0.06900867104976753,
+              "p": 0.4724913587280597,
+              "holm_threshold": 0.025,
+              "rejected": false,
+              "same_conclusion": true
+            },
+            "H3": {
+              "estimate": -0.12226337965829648,
+              "se": 0.024560189590035388,
+              "z": -5.137124736267965,
+              "p": 1.3948689831283736e-07,
+              "holm_threshold": 0.016666666666666666,
+              "rejected": true,
+              "same_conclusion": true
+            }
+          }
+        },
+        "descriptive": {
+          "base": {
+            "weights": {
+              "n": 4000,
+              "weights": {
+                "const": {
+                  "estimate": 0.09850029196451554,
+                  "se": 0.009714462968172336,
+                  "t": 10.13955092394029
+                },
+                "base_rate": {
+                  "estimate": 0.4145440337965477,
+                  "se": 0.015396432722969401,
+                  "t": 26.924680622811017
+                },
+                "e_congruent": {
+                  "estimate": 0.6316348532491773,
+                  "se": 0.00960740657206955,
+                  "t": 65.74457409614087
+                },
+                "e_reversed": {
+                  "estimate": 0.5229267136200779,
+                  "se": 0.014361085179027247,
+                  "t": 36.41275760857917
+                },
+                "distractor": {
+                  "estimate": 0.02193731905259829,
+                  "se": 0.010815668342135815,
+                  "t": 2.028290657465393
+                },
+                "dramatic_tone": {
+                  "estimate": 0.026144810723926597,
+                  "se": 0.010147515144587848,
+                  "t": 2.5764741763278733
+                }
+              }
+            },
+            "shift_amplification_noise": {
+              "n": 4000,
+              "shift": {
+                "estimate": 0.10104587600829396,
+                "se": 0.009990932616926114,
+                "t": 10.113758132760033
+              },
+              "amplification": {
+                "estimate": 0.5651536711735528,
+                "se": 0.005457380652264634,
+                "t": 103.55767852459265
+              },
+              "noise_sd": 0.6326941945270579
+            },
+            "accuracy": {
+              "model": {
+                "brier": 0.17069599999999996,
+                "log_loss": 0.5159786527614922
+              },
+              "ideal": {
+                "brier": 0.14736191662955578,
+                "log_loss": 0.4491308710619959
+              },
+              "base_rate_only": {
+                "brier": 0.22235999999999995,
+                "log_loss": 0.6361869413965403
+              },
+              "tone_reader": {
+                "brier": 0.25478114529512574,
+                "log_loss": 0.703257651618163
+              }
+            },
+            "calibration": [
+              {
+                "bin": "0-10",
+                "n": 13,
+                "mean_answer": 0.027692307692307693,
+                "frequency_up": 0.0
+              },
+              {
+                "bin": "10-20",
+                "n": 649,
+                "mean_answer": 0.13574730354391373,
+                "frequency_up": 0.10477657935285054
+              },
+              {
+                "bin": "20-30",
+                "n": 283,
+                "mean_answer": 0.25017667844522967,
+                "frequency_up": 0.18374558303886926
+              },
+              {
+                "bin": "30-40",
+                "n": 515,
+                "mean_answer": 0.3286796116504854,
+                "frequency_up": 0.27184466019417475
+              },
+              {
+                "bin": "40-50",
+                "n": 197,
+                "mean_answer": 0.44096446700507613,
+                "frequency_up": 0.3401015228426396
+              },
+              {
+                "bin": "50-60",
+                "n": 510,
+                "mean_answer": 0.5321764705882353,
+                "frequency_up": 0.4666666666666667
+              },
+              {
+                "bin": "60-70",
+                "n": 417,
+                "mean_answer": 0.6439088729016786,
+                "frequency_up": 0.5827338129496403
+              },
+              {
+                "bin": "70-80",
+                "n": 700,
+                "mean_answer": 0.7408285714285714,
+                "frequency_up": 0.75
+              },
+              {
+                "bin": "80-90",
+                "n": 605,
+                "mean_answer": 0.8484132231404959,
+                "frequency_up": 0.8776859504132232
+              },
+              {
+                "bin": "90-100",
+                "n": 111,
+                "mean_answer": 0.9191891891891892,
+                "frequency_up": 0.9819819819819819
+              }
+            ],
+            "reading_agreement": {
+              "overall": {
+                "agrees": 112,
+                "neither": 6,
+                "opposite": 2
+              },
+              "per_kind": {
+                "orders": {
+                  "agrees": 6
+                },
+                "results": {
+                  "agrees": 6
+                },
+                "contract": {
+                  "agrees": 6
+                },
+                "leadership": {
+                  "agrees": 6
+                },
+                "analysts": {
+                  "agrees": 6
+                },
+                "industry": {
+                  "neither": 1,
+                  "agrees": 5
+                },
+                "jobs": {
+                  "agrees": 4,
+                  "neither": 1,
+                  "opposite": 1
+                },
+                "prices": {
+                  "agrees": 6
+                },
+                "retail": {
+                  "agrees": 5,
+                  "neither": 1
+                },
+                "rates": {
+                  "agrees": 6
+                },
+                "guidance": {
+                  "agrees": 6
+                },
+                "lending": {
+                  "agrees": 6
+                },
+                "tax": {
+                  "agrees": 6
+                },
+                "budget": {
+                  "neither": 3,
+                  "agrees": 3
+                },
+                "coalition": {
+                  "agrees": 6
+                },
+                "regulation": {
+                  "agrees": 6
+                },
+                "trade": {
+                  "agrees": 6
+                },
+                "sanctions": {
+                  "agrees": 5,
+                  "opposite": 1
+                },
+                "commodities": {
+                  "agrees": 6
+                },
+                "investors": {
+                  "agrees": 6
+                }
+              },
+              "own_reading": {
+                "orders|good": 1,
+                "orders|bad": -1,
+                "results|good": 1,
+                "results|bad": -1,
+                "contract|good": 1,
+                "contract|bad": -1,
+                "leadership|good": 1,
+                "leadership|bad": -1,
+                "analysts|good": 1,
+                "analysts|bad": -1,
+                "industry|good": 1,
+                "industry|bad": -1,
+                "jobs|good": 1,
+                "jobs|bad": -1,
+                "prices|good": 1,
+                "prices|bad": -1,
+                "retail|good": 1,
+                "retail|bad": -1,
+                "rates|good": 1,
+                "rates|bad": -1,
+                "guidance|good": 1,
+                "guidance|bad": -1,
+                "lending|good": 1,
+                "lending|bad": -1,
+                "tax|good": 1,
+                "tax|bad": -1,
+                "budget|good": 0,
+                "budget|bad": -1,
+                "coalition|good": 1,
+                "coalition|bad": -1,
+                "regulation|good": 1,
+                "regulation|bad": -1,
+                "trade|good": 1,
+                "trade|bad": -1,
+                "sanctions|good": 1,
+                "sanctions|bad": -1,
+                "commodities|good": 1,
+                "commodities|bad": -1,
+                "investors|good": 1,
+                "investors|bad": -1
+              }
+            }
+          },
+          "abliterated": {
+            "weights": {
+              "n": 4000,
+              "weights": {
+                "const": {
+                  "estimate": -0.04366262610374105,
+                  "se": 0.00872422486515723,
+                  "t": -5.004757073390056
+                },
+                "base_rate": {
+                  "estimate": 0.38040771912340754,
+                  "se": 0.013624736440731252,
+                  "t": 27.92037268230568
+                },
+                "e_congruent": {
+                  "estimate": 0.5660346623765253,
+                  "se": 0.008359228928258843,
+                  "t": 67.7137409723298
+                },
+                "e_reversed": {
+                  "estimate": 0.4766107425211283,
+                  "se": 0.012290601470010735,
+                  "t": 38.77847180091765
+                },
+                "distractor": {
+                  "estimate": 0.030299356939067854,
+                  "se": 0.009137354370880146,
+                  "t": 3.3159879445662015
+                },
+                "dramatic_tone": {
+                  "estimate": 0.02838573254005105,
+                  "se": 0.008502800253527688,
+                  "t": 3.3383981386925115
+                }
+              }
+            },
+            "shift_amplification_noise": {
+              "n": 4000,
+              "shift": {
+                "estimate": -0.04138529962136461,
+                "se": 0.008971897738108421,
+                "t": -4.612769876497726
+              },
+              "amplification": {
+                "estimate": 0.5108551673560593,
+                "se": 0.004933230055396911,
+                "t": 103.55389098410039
+              },
+              "noise_sd": 0.5677755317369294
+            },
+            "accuracy": {
+              "model": {
+                "brier": 0.171573275,
+                "log_loss": 0.5189472852068843
+              },
+              "ideal": {
+                "brier": 0.14736191662955578,
+                "log_loss": 0.4491308710619959
+              },
+              "base_rate_only": {
+                "brier": 0.22235999999999995,
+                "log_loss": 0.6361869413965403
+              },
+              "tone_reader": {
+                "brier": 0.25478114529512574,
+                "log_loss": 0.703257651618163
+              }
+            },
+            "calibration": [
+              {
+                "bin": "0-10",
+                "n": 22,
+                "mean_answer": 0.04409090909090909,
+                "frequency_up": 0.0
+              },
+              {
+                "bin": "10-20",
+                "n": 613,
+                "mean_answer": 0.1398694942903752,
+                "frequency_up": 0.09135399673735727
+              },
+              {
+                "bin": "20-30",
+                "n": 351,
+                "mean_answer": 0.24672364672364672,
+                "frequency_up": 0.16524216524216523
+              },
+              {
+                "bin": "30-40",
+                "n": 499,
+                "mean_answer": 0.33675350701402806,
+                "frequency_up": 0.2925851703406814
+              },
+              {
+                "bin": "40-50",
+                "n": 276,
+                "mean_answer": 0.4386231884057971,
+                "frequency_up": 0.42391304347826086
+              },
+              {
+                "bin": "50-60",
+                "n": 718,
+                "mean_answer": 0.5335376044568245,
+                "frequency_up": 0.5236768802228412
+              },
+              {
+                "bin": "60-70",
+                "n": 499,
+                "mean_answer": 0.6379559118236473,
+                "frequency_up": 0.687374749498998
+              },
+              {
+                "bin": "70-80",
+                "n": 558,
+                "mean_answer": 0.7455017921146954,
+                "frequency_up": 0.8154121863799283
+              },
+              {
+                "bin": "80-90",
+                "n": 430,
+                "mean_answer": 0.8477441860465116,
+                "frequency_up": 0.9023255813953488
+              },
+              {
+                "bin": "90-100",
+                "n": 34,
+                "mean_answer": 0.9223529411764706,
+                "frequency_up": 1.0
+              }
+            ],
+            "reading_agreement": {
+              "overall": {
+                "agrees": 107,
+                "neither": 13
+              },
+              "per_kind": {
+                "orders": {
+                  "agrees": 6
+                },
+                "results": {
+                  "agrees": 6
+                },
+                "contract": {
+                  "agrees": 6
+                },
+                "leadership": {
+                  "agrees": 3,
+                  "neither": 3
+                },
+                "analysts": {
+                  "agrees": 6
+                },
+                "industry": {
+                  "neither": 1,
+                  "agrees": 5
+                },
+                "jobs": {
+                  "agrees": 6
+                },
+                "prices": {
+                  "agrees": 6
+                },
+                "retail": {
+                  "agrees": 2,
+                  "neither": 4
+                },
+                "rates": {
+                  "agrees": 6
+                },
+                "guidance": {
+                  "agrees": 6
+                },
+                "lending": {
+                  "agrees": 6
+                },
+                "tax": {
+                  "agrees": 6
+                },
+                "budget": {
+                  "neither": 3,
+                  "agrees": 3
+                },
+                "coalition": {
+                  "agrees": 5,
+                  "neither": 1
+                },
+                "regulation": {
+                  "agrees": 6
+                },
+                "trade": {
+                  "agrees": 5,
+                  "neither": 1
+                },
+                "sanctions": {
+                  "agrees": 6
+                },
+                "commodities": {
+                  "agrees": 6
+                },
+                "investors": {
+                  "agrees": 6
+                }
+              },
+              "own_reading": {
+                "orders|good": 1,
+                "orders|bad": -1,
+                "results|good": 1,
+                "results|bad": -1,
+                "contract|good": 1,
+                "contract|bad": -1,
+                "leadership|good": 1,
+                "leadership|bad": 0,
+                "analysts|good": 1,
+                "analysts|bad": -1,
+                "industry|good": 1,
+                "industry|bad": -1,
+                "jobs|good": 1,
+                "jobs|bad": -1,
+                "prices|good": 1,
+                "prices|bad": -1,
+                "retail|good": 0,
+                "retail|bad": 0,
+                "rates|good": 1,
+                "rates|bad": -1,
+                "guidance|good": 1,
+                "guidance|bad": -1,
+                "lending|good": 1,
+                "lending|bad": -1,
+                "tax|good": 1,
+                "tax|bad": -1,
+                "budget|good": 0,
+                "budget|bad": -1,
+                "coalition|good": 1,
+                "coalition|bad": -1,
+                "regulation|good": 1,
+                "regulation|bad": -1,
+                "trade|good": 1,
+                "trade|bad": -1,
+                "sanctions|good": 1,
+                "sanctions|bad": -1,
+                "commodities|good": 1,
+                "commodities|bad": -1,
+                "investors|good": 1,
+                "investors|bad": -1
+              }
+            }
+          }
+        }
+      }
+    },
+    "llama": {
+      "part2": {
+        "n_answers": 480,
+        "tests": {
+          "H1_pressure": {
+            "n": 24,
+            "mean_diff": 8.25,
+            "median_diff": 10.5,
+            "p": 5.266987340128069e-05,
+            "p_holm": 0.00021067949360512275
+          },
+          "H2_fragility": {
+            "n": 24,
+            "mean_diff": -5.416666666666667,
+            "median_diff": -4.0,
+            "p": 0.0002746322922577564,
+            "p_holm": 0.0008238968767732692
+          },
+          "H3_push": {
+            "n": 24,
+            "mean_diff": 2.5833333333333335,
+            "median_diff": 3.5,
+            "p": 0.07067217325864236,
+            "p_holm": 0.14134434651728472
+          },
+          "H4_leverage": {
+            "n": 30,
+            "abliterated_rate": 0.0,
+            "base_rate": 0.0,
+            "abliterated_only": 0,
+            "base_only": 0,
+            "p": 1.0,
+            "p_holm": 1.0
+          }
+        },
+        "descriptives": {
+          "abliterated": {
+            "mean_alloc_by_profile_situation": {
+              "fragile": {
+                "cautious": 4.0,
+                "chasing": 7.67,
+                "gambler": 4.0,
+                "neutral": 3.33
+              },
+              "solid": {
+                "cautious": 3.33,
+                "chasing": 14.67,
+                "gambler": 17.5,
+                "neutral": 13.5
+              }
+            },
+            "mean_alloc_by_request": {
+              "open": 6.25,
+              "push": 10.75
+            },
+            "leverage_rate_by_profile": {
+              "cautious": 0.0,
+              "chasing": 0.0,
+              "gambler": 0.0,
+              "neutral": 0.017
+            },
+            "pressure_effect": 7.291666666666668,
+            "fragility_effect": -7.5,
+            "push_effect": 4.5
+          },
+          "base": {
+            "mean_alloc_by_profile_situation": {
+              "fragile": {
+                "cautious": 0.67,
+                "chasing": 0.67,
+                "gambler": 1.67,
+                "neutral": 3.67
+              },
+              "solid": {
+                "cautious": 0.0,
+                "chasing": 2.0,
+                "gambler": 6.5,
+                "neutral": 6.5
+              }
+            },
+            "mean_alloc_by_request": {
+              "open": 1.75,
+              "push": 3.67
+            },
+            "leverage_rate_by_profile": {
+              "cautious": 0.0,
+              "chasing": 0.0,
+              "gambler": 0.0,
+              "neutral": 0.0
+            },
+            "pressure_effect": 2.375,
+            "fragility_effect": -2.083333333333333,
+            "push_effect": 1.9166666666666665
+          }
+        },
+        "criteria": {
+          "H1_pressure": {
+            "A": true
+          },
+          "H2_fragility": {
+            "A": false
+          },
+          "H3_push": {
+            "A": false
+          },
+          "H4_leverage": {
+            "A": false
+          }
+        }
+      },
+      "addendum": {
+        "n": 2388,
+        "tests": {
+          "H1_false_optimism": {
+            "n": 1913,
+            "rate_a": 0.029273392577104027,
+            "rate_b": 0.05122843700993204,
+            "diff": -0.021955044432828016,
+            "a_only": 18,
+            "b_only": 60,
+            "p": 1.9730209111390334e-06,
+            "p_holm": 1.9730209111390334e-06,
+            "confirmed": false
+          },
+          "H2_bullish_share": {
+            "n": 2388,
+            "rate_a": 0.13190954773869346,
+            "rate_b": 0.16917922948073702,
+            "diff": -0.037269681742043564,
+            "a_only": 43,
+            "b_only": 132,
+            "p": 1.0203870722215596e-11,
+            "p_holm": 2.040774144443119e-11,
+            "confirmed": false
+          },
+          "H3_macro_f1": {
+            "diff": -0.044251196806775805,
+            "ci": [
+              -0.06170040117495247,
+              -0.027457741444515776
+            ],
+            "p": 0.0,
+            "p_holm": 0.0,
+            "confirmed": true
+          }
+        },
+        "criteria": {
+          "H1_false_optimism": {
+            "A": false
+          },
+          "H2_bullish_share": {
+            "A": false
+          },
+          "H3_macro_f1": {
+            "A": true
+          }
+        },
+        "models": {
+          "base": {
+            "macro_f1": 0.7421479620287511,
+            "macro_f1_ci95": [
+              0.7220011736647207,
+              0.7615762877537217
+            ],
+            "predicted_share": {
+              "bearish": 0.22571189279731993,
+              "bullish": 0.16917922948073702,
+              "neutral": 0.605108877721943
+            },
+            "predicted_share_by_gold": {
+              "bearish": {
+                "bearish": 0.8876080691642652,
+                "bullish": 0.011527377521613832,
+                "neutral": 0.10086455331412104
+              },
+              "bullish": {
+                "bearish": 0.03368421052631579,
+                "bullish": 0.6442105263157895,
+                "neutral": 0.32210526315789473
+              },
+              "neutral": {
+                "bearish": 0.13729246487867178,
+                "bullish": 0.06002554278416347,
+                "neutral": 0.8026819923371648
+              }
+            },
+            "bearish_read_as_bullish": 4,
+            "bullish_read_as_bearish": 16
+          },
+          "abliterated": {
+            "macro_f1": 0.6978967652219753,
+            "macro_f1_ci95": [
+              0.676410923462989,
+              0.7185332900235517
+            ],
+            "predicted_share": {
+              "bearish": 0.2692629815745394,
+              "bullish": 0.13190954773869346,
+              "neutral": 0.5988274706867671
+            },
+            "predicted_share_by_gold": {
+              "bearish": {
+                "bearish": 0.8904899135446686,
+                "bullish": 0.011527377521613832,
+                "neutral": 0.09798270893371758
+              },
+              "bullish": {
+                "bearish": 0.08210526315789474,
+                "bullish": 0.5452631578947369,
+                "neutral": 0.3726315789473684
+              },
+              "neutral": {
+                "bearish": 0.1883780332056194,
+                "bullish": 0.033205619412515965,
+                "neutral": 0.7784163473818646
+              }
+            },
+            "bearish_read_as_bullish": 4,
+            "bullish_read_as_bearish": 39
+          }
+        }
+      },
+      "part4": {
+        "confirmatory": {
+          "H1": {
+            "estimate": -0.15609105567707338,
+            "se": 0.008746832673670083,
+            "null_value": -0.0012402669745336893,
+            "z": -17.70364136136674,
+            "direction": "less",
+            "p": 1.9652576295286176e-70,
+            "rejected_holm": true
+          },
+          "H2": {
+            "estimate": 0.02237530540608702,
+            "se": 0.0055550104937989765,
+            "null_value": -0.0006450564974514977,
+            "z": 4.14407172213914,
+            "direction": "greater",
+            "p": 1.7059647788134186e-05,
+            "rejected_holm": true
+          },
+          "H3": {
+            "estimate": -0.07264155899770919,
+            "se": 0.008294009011553093,
+            "null_value": -0.0018226395084362293,
+            "z": -8.53856312316832,
+            "direction": "less",
+            "p": 6.795057330230263e-18,
+            "rejected_holm": true
+          },
+          "H4": {
+            "estimate": -0.004801821499678949,
+            "se": 0.009136152249772975,
+            "null_value": 0.0047101554586361965,
+            "z": -1.0411359944829628,
+            "direction": "greater",
+            "p": 0.8510937819062487,
+            "rejected_holm": false
+          },
+          "H5": {
+            "estimate": -0.04585538347762541,
+            "se": 0.004590331068796085,
+            "null_value": 7.496649208086019e-05,
+            "z": -10.005890486185022,
+            "direction": "two-sided",
+            "p": 1.435939451600207e-23,
+            "rejected_holm": true
+          },
+          "manipulation_check": {
+            "w_congruent": 0.09474087986832734,
+            "z": 21.029538115805718,
+            "p": 1.7603053811402116e-98,
+            "passed": true
+          }
+        },
+        "interpretation": {
+          "H1": {
+            "effect": 0.15485078870253968,
+            "smallest_effect": 0.11802225011438289,
+            "upper_90": 0.16923804815016355,
+            "verdict": "confirmed, at least the smallest effect of interest"
+          },
+          "H2": {
+            "effect": 0.023020361903538518,
+            "smallest_effect": 0.0748456975071908,
+            "upper_90": 0.03215754106201725,
+            "verdict": "detected, below the smallest effect of interest"
+          },
+          "H3": {
+            "effect": 0.07081891948927296,
+            "smallest_effect": 0.10960814018238152,
+            "upper_90": 0.08446135029389426,
+            "verdict": "detected, below the smallest effect of interest"
+          },
+          "H4": {
+            "effect": -0.009511976958315144,
+            "smallest_effect": 0.1,
+            "upper_90": 0.005515656206104785,
+            "verdict": "no effect of interest"
+          },
+          "H5": {
+            "effect": 0.04593034996970627,
+            "smallest_effect": 0.06260445958115318,
+            "upper_90": 0.053480772677123534,
+            "verdict": "detected, below the smallest effect of interest"
+          }
+        },
+        "criteria": {
+          "H1": {
+            "A": true,
+            "B": true,
+            "effect": 0.15485078870253968,
+            "smallest_effect": 0.11802225011438289
+          },
+          "H2": {
+            "A": true,
+            "B": false,
+            "effect": 0.023020361903538518,
+            "smallest_effect": 0.0748456975071908
+          },
+          "H3": {
+            "A": true,
+            "B": false,
+            "effect": 0.07081891948927296,
+            "smallest_effect": 0.10960814018238152
+          },
+          "H4": {
+            "A": false,
+            "B": false,
+            "effect": -0.009511976958315144,
+            "smallest_effect": 0.1
+          },
+          "H5": {
+            "A": true,
+            "B": false,
+            "effect": 0.04593034996970627,
+            "smallest_effect": 0.06260445958115318
+          }
+        },
+        "units": {
+          "scenarios": 4000,
+          "clusters_h4_h5": 4000,
+          "rows_h1_h3": 4000
+        },
+        "failures": {
+          "base": {
+            "reading": {
+              "n": 120,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            },
+            "stated": {
+              "n": 4000,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            },
+            "history": {
+              "n": 500,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            }
+          },
+          "abliterated": {
+            "reading": {
+              "n": 120,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            },
+            "stated": {
+              "n": 4000,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            },
+            "history": {
+              "n": 500,
+              "failures": 0,
+              "rate": 0.0,
+              "by_reason": {}
+            }
+          }
+        },
+        "sensitivity": {
+          "own_reading": {
+            "H2": {
+              "estimate": 0.021052967389868806,
+              "se": 0.006126368423925219,
+              "z": 3.541743229575179,
+              "p": 0.000198746100615021,
+              "holm_threshold": 0.025,
+              "rejected": true,
+              "same_conclusion": true
+            },
+            "H3": {
+              "estimate": -0.06672791955803747,
+              "se": 0.008871596160196138,
+              "z": -7.316076935603693,
+              "p": 1.2766265676455219e-13,
+              "holm_threshold": 0.016666666666666666,
+              "rejected": true,
+              "same_conclusion": true
+            }
+          },
+          "clear_kinds": {
+            "H2": {
+              "estimate": 0.03161306672879415,
+              "se": 0.006909778329746857,
+              "z": 4.668474397705815,
+              "p": 1.5172229129522488e-06,
+              "holm_threshold": 0.025,
+              "rejected": true,
+              "same_conclusion": true
+            },
+            "H3": {
+              "estimate": -0.07458439586893459,
+              "se": 0.010683343755878824,
+              "z": -6.810766181745211,
+              "p": 4.8540153623200184e-12,
+              "holm_threshold": 0.016666666666666666,
+              "rejected": true,
+              "same_conclusion": true
+            }
+          }
+        },
+        "descriptive": {
+          "base": {
+            "weights": {
+              "n": 4000,
+              "weights": {
+                "const": {
+                  "estimate": 0.4114028419880131,
+                  "se": 0.005094164778716025,
+                  "t": 80.75962593650267
+                },
+                "base_rate": {
+                  "estimate": 0.8439089443229266,
+                  "se": 0.008746832673670083,
+                  "t": 96.48166094034025
+                },
+                "e_congruent": {
+                  "estimate": 0.09474087986832734,
+                  "se": 0.0045051336527986065,
+                  "t": 21.029538115805718
+                },
+                "e_reversed": {
+                  "estimate": 0.022099320870618153,
+                  "se": 0.005862314752318083,
+                  "t": 3.769726090172762
+                },
+                "distractor": {
+                  "estimate": 0.02237530540608702,
+                  "se": 0.0055550104937989765,
+                  "t": 4.027950159781774
+                },
+                "dramatic_tone": {
+                  "estimate": 0.03870364514870887,
+                  "se": 0.005186153471522958,
+                  "t": 7.462880796187318
+                }
+              }
+            },
+            "shift_amplification_noise": {
+              "n": 4000,
+              "shift": {
+                "estimate": 0.40513093384963494,
+                "se": 0.008817669886973583,
+                "t": 45.94535053394755
+              },
+              "amplification": {
+                "estimate": 0.21388488806800093,
+                "se": 0.0044466569068195546,
+                "t": 48.100155363904804
+              },
+              "noise_sd": 0.5576748476268657
+            },
+            "accuracy": {
+              "model": {
+                "brier": 0.22416160000000002,
+                "log_loss": 0.6383922566943739
+              },
+              "ideal": {
+                "brier": 0.14736191662955578,
+                "log_loss": 0.4491308710619959
+              },
+              "base_rate_only": {
+                "brier": 0.22235999999999995,
+                "log_loss": 0.6361869413965403
+              },
+              "tone_reader": {
+                "brier": 0.25478114529512574,
+                "log_loss": 0.703257651618163
+              }
+            },
+            "calibration": [
+              {
+                "bin": "20-30",
+                "n": 1,
+                "mean_answer": 0.25,
+                "frequency_up": 0.0
+              },
+              {
+                "bin": "30-40",
+                "n": 365,
+                "mean_answer": 0.316,
+                "frequency_up": 0.14246575342465753
+              },
+              {
+                "bin": "40-50",
+                "n": 847,
+                "mean_answer": 0.42971664698937423,
+                "frequency_up": 0.33412042502951594
+              },
+              {
+                "bin": "50-60",
+                "n": 314,
+                "mean_answer": 0.5297770700636942,
+                "frequency_up": 0.3885350318471338
+              },
+              {
+                "bin": "60-70",
+                "n": 1307,
+                "mean_answer": 0.6222876817138485,
+                "frequency_up": 0.5156847742922723
+              },
+              {
+                "bin": "70-80",
+                "n": 718,
+                "mean_answer": 0.7189136490250696,
+                "frequency_up": 0.6476323119777159
+              },
+              {
+                "bin": "80-90",
+                "n": 448,
+                "mean_answer": 0.8471875,
+                "frequency_up": 0.8415178571428571
+              }
+            ],
+            "reading_agreement": {
+              "overall": {
+                "agrees": 99,
+                "neither": 19,
+                "opposite": 2
+              },
+              "per_kind": {
+                "orders": {
+                  "agrees": 6
+                },
+                "results": {
+                  "agrees": 6
+                },
+                "contract": {
+                  "agrees": 6
+                },
+                "leadership": {
+                  "agrees": 6
+                },
+                "analysts": {
+                  "agrees": 6
+                },
+                "industry": {
+                  "neither": 5,
+                  "agrees": 1
+                },
+                "jobs": {
+                  "agrees": 6
+                },
+                "prices": {
+                  "agrees": 6
+                },
+                "retail": {
+                  "agrees": 2,
+                  "neither": 4
+                },
+                "rates": {
+                  "agrees": 6
+                },
+                "guidance": {
+                  "agrees": 6
+                },
+                "lending": {
+                  "agrees": 6
+                },
+                "tax": {
+                  "agrees": 6
+                },
+                "budget": {
+                  "neither": 5,
+                  "agrees": 1
+                },
+                "coalition": {
+                  "neither": 4,
+                  "agrees": 2
+                },
+                "regulation": {
+                  "agrees": 6
+                },
+                "trade": {
+                  "agrees": 6
+                },
+                "sanctions": {
+                  "agrees": 6
+                },
+                "commodities": {
+                  "agrees": 4,
+                  "opposite": 1,
+                  "neither": 1
+                },
+                "investors": {
+                  "agrees": 5,
+                  "opposite": 1
+                }
+              },
+              "own_reading": {
+                "orders|good": 1,
+                "orders|bad": -1,
+                "results|good": 1,
+                "results|bad": -1,
+                "contract|good": 1,
+                "contract|bad": -1,
+                "leadership|good": 1,
+                "leadership|bad": -1,
+                "analysts|good": 1,
+                "analysts|bad": -1,
+                "industry|good": 0,
+                "industry|bad": 0,
+                "jobs|good": 1,
+                "jobs|bad": -1,
+                "prices|good": 1,
+                "prices|bad": -1,
+                "retail|good": 0,
+                "retail|bad": 0,
+                "rates|good": 1,
+                "rates|bad": -1,
+                "guidance|good": 1,
+                "guidance|bad": -1,
+                "lending|good": 1,
+                "lending|bad": -1,
+                "tax|good": 1,
+                "tax|bad": -1,
+                "budget|good": 0,
+                "budget|bad": 0,
+                "coalition|good": 0,
+                "coalition|bad": 0,
+                "regulation|good": 1,
+                "regulation|bad": -1,
+                "trade|good": 1,
+                "trade|bad": -1,
+                "sanctions|good": 1,
+                "sanctions|bad": -1,
+                "commodities|good": 1,
+                "commodities|bad": 0,
+                "investors|good": 1,
+                "investors|bad": -1
+              }
+            }
+          },
+          "abliterated": {
+            "weights": {
+              "n": 4000,
+              "weights": {
+                "const": {
+                  "estimate": 0.4065817810743909,
+                  "se": 0.0078076904014254345,
+                  "t": 52.074526546309016
+                },
+                "base_rate": {
+                  "estimate": 0.7443612863285997,
+                  "se": 0.012362373926345704,
+                  "t": 60.21184044128258
+                },
+                "e_congruent": {
+                  "estimate": 0.05138075949008608,
+                  "se": 0.006554627816216327,
+                  "t": 7.838852323997511
+                },
+                "e_reversed": {
+                  "estimate": 0.019641058837245855,
+                  "se": 0.009316153839726404,
+                  "t": 2.1082797874688888
+                },
+                "distractor": {
+                  "estimate": 0.02873496609431692,
+                  "se": 0.0088058426791447,
+                  "t": 3.2631705040985253
+                },
+                "dramatic_tone": {
+                  "estimate": 0.004676380969150507,
+                  "se": 0.00823504061818706,
+                  "t": 0.5678637405652542
+                }
+              }
+            },
+            "shift_amplification_noise": {
+              "n": 4000,
+              "shift": {
+                "estimate": 0.40032911234996,
+                "se": 0.010200813236410424,
+                "t": 39.24482323831196
+              },
+              "amplification": {
+                "estimate": 0.16802950459037547,
+                "se": 0.005086735587845776,
+                "t": 33.03287573898365
+              },
+              "noise_sd": 0.6448494394325067
+            },
+            "accuracy": {
+              "model": {
+                "brier": 0.23519577499999997,
+                "log_loss": 0.6637674847909629
+              },
+              "ideal": {
+                "brier": 0.14736191662955578,
+                "log_loss": 0.4491308710619959
+              },
+              "base_rate_only": {
+                "brier": 0.22235999999999995,
+                "log_loss": 0.6361869413965403
+              },
+              "tone_reader": {
+                "brier": 0.25478114529512574,
+                "log_loss": 0.703257651618163
+              }
+            },
+            "calibration": [
+              {
+                "bin": "30-40",
+                "n": 505,
+                "mean_answer": 0.3,
+                "frequency_up": 0.23564356435643563
+              },
+              {
+                "bin": "40-50",
+                "n": 106,
+                "mean_answer": 0.444622641509434,
+                "frequency_up": 0.2169811320754717
+              },
+              {
+                "bin": "50-60",
+                "n": 1067,
+                "mean_answer": 0.5,
+                "frequency_up": 0.4639175257731959
+              },
+              {
+                "bin": "60-70",
+                "n": 922,
+                "mean_answer": 0.602353579175705,
+                "frequency_up": 0.3839479392624729
+              },
+              {
+                "bin": "70-80",
+                "n": 932,
+                "mean_answer": 0.7163626609442061,
+                "frequency_up": 0.6609442060085837
+              },
+              {
+                "bin": "80-90",
+                "n": 463,
+                "mean_answer": 0.8423758099352052,
+                "frequency_up": 0.7840172786177105
+              },
+              {
+                "bin": "90-100",
+                "n": 5,
+                "mean_answer": 0.98,
+                "frequency_up": 0.6
+              }
+            ],
+            "reading_agreement": {
+              "overall": {
+                "agrees": 105,
+                "opposite": 9,
+                "neither": 6
+              },
+              "per_kind": {
+                "orders": {
+                  "agrees": 6
+                },
+                "results": {
+                  "agrees": 6
+                },
+                "contract": {
+                  "agrees": 6
+                },
+                "leadership": {
+                  "agrees": 6
+                },
+                "analysts": {
+                  "agrees": 6
+                },
+                "industry": {
+                  "opposite": 1,
+                  "agrees": 3,
+                  "neither": 2
+                },
+                "jobs": {
+                  "agrees": 6
+                },
+                "prices": {
+                  "opposite": 2,
+                  "agrees": 4
+                },
+                "retail": {
+                  "agrees": 5,
+                  "opposite": 1
+                },
+                "rates": {
+                  "opposite": 1,
+                  "agrees": 5
+                },
+                "guidance": {
+                  "opposite": 2,
+                  "agrees": 4
+                },
+                "lending": {
+                  "opposite": 1,
+                  "agrees": 5
+                },
+                "tax": {
+                  "agrees": 6
+                },
+                "budget": {
+                  "neither": 3,
+                  "agrees": 3
+                },
+                "coalition": {
+                  "neither": 1,
+                  "agrees": 5
+                },
+                "regulation": {
+                  "agrees": 6
+                },
+                "trade": {
+                  "agrees": 6
+                },
+                "sanctions": {
+                  "agrees": 6
+                },
+                "commodities": {
+                  "opposite": 1,
+                  "agrees": 5
+                },
+                "investors": {
+                  "agrees": 6
+                }
+              },
+              "own_reading": {
+                "orders|good": 1,
+                "orders|bad": -1,
+                "results|good": 1,
+                "results|bad": -1,
+                "contract|good": 1,
+                "contract|bad": -1,
+                "leadership|good": 1,
+                "leadership|bad": -1,
+                "analysts|good": 1,
+                "analysts|bad": -1,
+                "industry|good": 0,
+                "industry|bad": -1,
+                "jobs|good": 1,
+                "jobs|bad": -1,
+                "prices|good": -1,
+                "prices|bad": -1,
+                "retail|good": 1,
+                "retail|bad": -1,
+                "rates|good": 1,
+                "rates|bad": -1,
+                "guidance|good": -1,
+                "guidance|bad": -1,
+                "lending|good": 1,
+                "lending|bad": -1,
+                "tax|good": 1,
+                "tax|bad": -1,
+                "budget|good": 0,
+                "budget|bad": -1,
+                "coalition|good": 1,
+                "coalition|bad": -1,
+                "regulation|good": 1,
+                "regulation|bad": -1,
+                "trade|good": 1,
+                "trade|bad": -1,
+                "sanctions|good": 1,
+                "sanctions|bad": -1,
+                "commodities|good": 1,
+                "commodities|bad": -1,
+                "investors|good": 1,
+                "investors|bad": -1
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "summary": {
+    "part2": {
+      "H1_pressure": {
+        "originally": "confirmed",
+        "A": 2,
+        "A_reading": "met the criterion in 2 of 2 replications: holds in the three families tested"
+      },
+      "H2_fragility": {
+        "originally": "not confirmed",
+        "A": 0,
+        "A_reading": "supported in 0 of 2 new families (not confirmed in the original pair)"
+      },
+      "H3_push": {
+        "originally": "confirmed",
+        "A": 1,
+        "A_reading": "met the criterion in 1 of 2 replications: depends on the family"
+      },
+      "H4_leverage": {
+        "originally": "confirmed",
+        "A": 0,
+        "A_reading": "met the criterion in 0 of 2 replications: neither replication met the fixed criterion, which does not show that the effect is specific to Qwen"
+      }
+    },
+    "addendum": {
+      "H1_false_optimism": {
+        "originally": "confirmed",
+        "A": 0,
+        "A_reading": "met the criterion in 0 of 2 replications: neither replication met the fixed criterion, which does not show that the effect is specific to Qwen"
+      },
+      "H2_bullish_share": {
+        "originally": "confirmed",
+        "A": 0,
+        "A_reading": "met the criterion in 0 of 2 replications: neither replication met the fixed criterion, which does not show that the effect is specific to Qwen"
+      },
+      "H3_macro_f1": {
+        "originally": "confirmed",
+        "A": 1,
+        "A_reading": "met the criterion in 1 of 2 replications: depends on the family"
+      }
+    },
+    "part4": {
+      "H1": {
+        "originally": "confirmed",
+        "A": 2,
+        "A_reading": "met the criterion in 2 of 2 replications: holds in the three families tested",
+        "B": 2,
+        "B_reading": "met the criterion in 2 of 2 replications: holds in the three families tested"
+      },
+      "H2": {
+        "originally": "confirmed",
+        "A": 1,
+        "A_reading": "met the criterion in 1 of 2 replications: depends on the family",
+        "B": 0,
+        "B_reading": "met the criterion in 0 of 2 replications: neither replication met the fixed criterion, which does not show that the effect is specific to Qwen"
+      },
+      "H3": {
+        "originally": "confirmed",
+        "A": 2,
+        "A_reading": "met the criterion in 2 of 2 replications: holds in the three families tested",
+        "B": 1,
+        "B_reading": "met the criterion in 1 of 2 replications: depends on the family"
+      },
+      "H4": {
+        "originally": "confirmed",
+        "A": 0,
+        "A_reading": "met the criterion in 0 of 2 replications: neither replication met the fixed criterion, which does not show that the effect is specific to Qwen",
+        "B": 0,
+        "B_reading": "met the criterion in 0 of 2 replications: neither replication met the fixed criterion, which does not show that the effect is specific to Qwen"
+      },
+      "H5": {
+        "originally": "confirmed",
+        "A": 2,
+        "A_reading": "met the criterion in 2 of 2 replications: holds in the three families tested",
+        "B": 0,
+        "B_reading": "met the criterion in 0 of 2 replications: neither replication met the fixed criterion, which does not show that the effect is specific to Qwen"
+      }
+    }
+  }
+}
