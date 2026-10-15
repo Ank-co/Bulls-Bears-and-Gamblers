@@ -1,0 +1,9 @@
+{
+  "advice": {
+    "items": 240,
+    "seconds": 810.637,
+    "ms_per_item": 3377.654,
+    "server_model": "gemma-4-26b-a4b-abliterated",
+    "note": "sequential requests, replication"
+  }
+}

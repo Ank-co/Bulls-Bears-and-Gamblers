@@ -1,0 +1,9 @@
+{
+  "test": {
+    "items": 2388,
+    "seconds": 219.292,
+    "ms_per_item": 91.831,
+    "server_model": "llama-3.1-8b-base-i1",
+    "note": "sequential requests, replication"
+  }
+}

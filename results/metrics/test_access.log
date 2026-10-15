@@ -3,3 +3,5 @@
 2026-10-13T07:09:11 part3_analyze models=['qwen3-1.7b-lora-s0', 'finbert', 'tfidf-logreg', 'qwen3-1.7b-zeroshot']
 2026-10-14T02:52:14 part4_analyze models=['base', 'abliterated']
 2026-10-14T13:26:30 part4_explore models=['base', 'abliterated'] (exploratory, after the pre-registered analysis)
+2026-10-14T23:40:27 replication_run pair=llama what=['part2', 'addendum', 'part4'] preregistration=7ba9bd2
+2026-10-15T00:47:10 replication_run pair=gemma what=['part2', 'addendum', 'part4'] preregistration=7ba9bd2

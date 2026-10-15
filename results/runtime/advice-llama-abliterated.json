@@ -1,0 +1,9 @@
+{
+  "advice": {
+    "items": 240,
+    "seconds": 275.528,
+    "ms_per_item": 1148.033,
+    "server_model": "llama-3.1-8b-abliterated",
+    "note": "sequential requests, replication"
+  }
+}

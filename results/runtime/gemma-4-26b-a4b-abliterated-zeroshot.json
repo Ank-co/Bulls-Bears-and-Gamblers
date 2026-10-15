@@ -1,0 +1,9 @@
+{
+  "test": {
+    "items": 2388,
+    "seconds": 1279.365,
+    "ms_per_item": 535.747,
+    "server_model": "gemma-4-26b-a4b-abliterated",
+    "note": "sequential requests, replication"
+  }
+}

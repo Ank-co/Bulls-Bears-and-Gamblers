@@ -25,5 +25,29 @@
     "failures": 0,
     "mean_prompt_tokens": 396.0,
     "note": "sequential requests"
+  },
+  "test-reading": {
+    "items": 120,
+    "seconds": 23.424,
+    "ms_per_item": 195.2,
+    "server_model": "llama-3.1-8b-abliterated",
+    "failures": 0,
+    "note": "sequential requests, replication"
+  },
+  "test-stated": {
+    "items": 4000,
+    "seconds": 1287.771,
+    "ms_per_item": 321.943,
+    "server_model": "llama-3.1-8b-abliterated",
+    "failures": 0,
+    "note": "sequential requests, replication"
+  },
+  "test-history": {
+    "items": 500,
+    "seconds": 173.065,
+    "ms_per_item": 346.13,
+    "server_model": "llama-3.1-8b-abliterated",
+    "failures": 0,
+    "note": "sequential requests, replication"
   }
 }

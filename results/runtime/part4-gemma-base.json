@@ -25,5 +25,29 @@
     "failures": 0,
     "mean_prompt_tokens": 425.5,
     "note": "sequential requests"
+  },
+  "test-reading": {
+    "items": 120,
+    "seconds": 124.426,
+    "ms_per_item": 1036.883,
+    "server_model": "gemma-4-26b-a4b-base-i1",
+    "failures": 0,
+    "note": "sequential requests, replication"
+  },
+  "test-stated": {
+    "items": 4000,
+    "seconds": 5381.761,
+    "ms_per_item": 1345.44,
+    "server_model": "gemma-4-26b-a4b-base-i1",
+    "failures": 0,
+    "note": "sequential requests, replication"
+  },
+  "test-history": {
+    "items": 500,
+    "seconds": 713.466,
+    "ms_per_item": 1426.932,
+    "server_model": "gemma-4-26b-a4b-base-i1",
+    "failures": 0,
+    "note": "sequential requests, replication"
   }
 }
