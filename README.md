@@ -1,6 +1,9 @@
 # Bulls, Bears and Gamblers
 
 [![tests](https://github.com/Ank-co/Bulls-Bears-and-Gamblers/actions/workflows/tests.yml/badge.svg)](https://github.com/Ank-co/Bulls-Bears-and-Gamblers/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+![Pre-registered](https://img.shields.io/badge/experiments-pre--registered-purple)
+![GPU](https://img.shields.io/badge/hardware-RTX%205070%208%20GB-76B900)
 
 **Four questions about language models in markets, answered with experiments on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
 
