@@ -13,11 +13,11 @@ permissions:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -31,11 +31,11 @@ jobs:
         run: python -m pytest -q tests
 
   audit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Known vulnerabilities in the lock file
@@ -43,4 +43,8 @@ jobs:
           pip install pip-audit
           # torch is pinned with a CUDA local version (+cu128) that the vulnerability database does not index
           grep -v '^torch==' requirements.lock.txt > lock-audit.txt
-          pip-audit --requirement lock-audit.txt --no-deps --disable-pip --progress-spinner off
+          # PYSEC-2026-3447 (setuptools < 83, CVE-2026-59890): MANIFEST.in exclusions can miss
+          # NFD-normalized file names on macOS when an sdist is built. This project never builds an
+          # sdist and runs on Linux; torch 2.11 requires setuptools < 82, so the fix cannot be installed.
+          pip-audit --requirement lock-audit.txt --no-deps --disable-pip --progress-spinner off \
+            --ignore-vuln PYSEC-2026-3447
