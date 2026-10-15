@@ -5,6 +5,8 @@
 ![Pre-registered](https://img.shields.io/badge/experiments-pre--registered-purple)
 ![GPU](https://img.shields.io/badge/hardware-RTX%205070%208%20GB-76B900)
 
+**Main finding.** Removing a model's refusal behaviour (abliteration) makes it follow a client who sounds like a gambler instead of protecting them: it puts more of their savings in high-risk products, in all three model families tested (Qwen3.6, Gemma 4, Llama 3.1). The optimism reported for abliterated models does not replicate: it appears with the Qwen pair only.
+
 **Four questions about language models in markets, answered with experiments on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
 
 Each experiment fixes its protocol before the test data are opened (in Part 4 it was committed only after the run, a deviation reported on its page), opens the test data once, and computes every score with code from what the models answer. No model grades another model's text.
@@ -15,7 +17,7 @@ Each experiment fixes its protocol before the test data are opened (in Part 4 it
 
 | | Question | Main result | Tests fixed in advance |
 |---|---|---|---|
-| [Part 1](docs/part1.md) | Can a small model fine-tuned on the laptop read market sentiment better than a model twenty times its size? | Yes: macro-F1 **0.884** for Qwen3-1.7B with LoRA, against 0.757 for the 35B model zero-shot | Protocol committed before the test set was opened |
+| [Part 1](docs/part1.md) | Building the sentiment readers and the benchmark used in the later parts: how well does each model read market tweets? | Qwen3-1.7B fine-tuned with LoRA reaches macro-F1 **0.884**, against 0.757 for the 35B model zero-shot (a supervised model is expected to win; the gap and the errors are what matter) | Protocol committed before the test set was opened |
 | [Part 2](docs/part2.md) | When a client sounds like a gambler, does the model protect them, and what changes once its refusals are removed? | The base model protects; the abliterated model follows the client (**+43 points** of savings in high-risk products for gamblers and loss-chasers), also with Gemma 4 and Llama 3.1 | 3 of 4 confirmed as pre-registered; with scenarios as units, H4 (leverage) is no longer significant: 2 of 4 |
 | [Addendum](docs/addendum.md) | Does the same edit change how the model reads the news? | Tweets that are not bullish read as bullish: **23%** against 11%, reversed with Gemma 4 and Llama 3.1 | 3 of 3 confirmed |
 | [Part 3](docs/part3.md) | Does a model's reading of real headlines move with stock prices? | The fine-tuned model lines up best with the move around the news; what is left after it cannot be separated from memory | 2 of 3 confirmed, the third not separable from look-ahead |
@@ -28,6 +30,8 @@ Each experiment fixes its protocol before the test data are opened (in Part 4 it
   <source media="(prefers-color-scheme: dark)" srcset="docs/figures/part1-dark.svg">
   <img alt="Macro-F1 and direction errors of each model on the test set" src="docs/figures/part1-light.svg" width="100%">
 </picture>
+
+This part builds the tools of the later ones: the readers whose reading of real headlines Part 3 links to prices, and the labelled benchmark the addendum uses. A fine-tuned model beating models used zero-shot is expected; what this part measures is how large the gap is and which errors each reader makes.
 
 Classify 2,388 held-out financial tweets as bullish, bearish or neutral. Qwen3-1.7B, fine-tuned with LoRA in 22 minutes, reaches a macro-F1 of **0.884 ± 0.003** over three seeds, against 0.764 for TF-IDF and 0.757 for a 35B model used zero-shot (p < 10⁻⁴ for every comparison). It confuses bullish and bearish tweets 7 times less often than TF-IDF or FinBERT, and runs in 58 ms per tweet against 638 ms for the 35B model. [Protocol, table and details](docs/part1.md)
 

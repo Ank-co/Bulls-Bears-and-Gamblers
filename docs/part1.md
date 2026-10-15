@@ -2,6 +2,8 @@
 
 *Short version in the [README](../README.md).*
 
+This part builds the tools of the later ones: the readers whose reading of real headlines Part 3 links to prices, and the labelled benchmark the addendum uses. A fine-tuned model beating models used zero-shot is expected; what this part measures is how large the gap is and which errors each reader makes.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="figures/part1-dark.svg">
   <img alt="Macro-F1 and direction errors of each model on the test set" src="figures/part1-light.svg" width="100%">
