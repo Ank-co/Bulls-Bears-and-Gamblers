@@ -25,28 +25,35 @@ it), installs the project, writes `requirements.lock.txt`, runs the unit tests a
 
 ## 3. Reaching the llama.cpp server on Windows from WSL
 
-The 35B model is served by a Windows build of llama.cpp (`llama-server`). The GPU has 8 GB: stop
-any PyTorch job before starting the server.
+The 35B model is served by a Windows build of llama.cpp (`llama-server`, listening on
+`0.0.0.0:8080` so that WSL and Docker containers can reach it). The GPU has 8 GB: stop any PyTorch
+job before starting the server.
 
-The server listens on `127.0.0.1` only, so no other device on the network can reach it. WSL reaches
-it through mirrored networking: create `%UserProfile%\.wslconfig` with
-
-```ini
-[wsl2]
-networkingMode=mirrored
-```
-
-then run `wsl --shutdown` in PowerShell and reopen Ubuntu. Start the server with
-`--host 127.0.0.1 --port 8080 --api-key <key>`, and from WSL:
+From WSL, Windows is reachable at the default gateway address:
 
 ```bash
-export LLAMA_URL="http://127.0.0.1:8080/v1/chat/completions"
+export LLAMA_URL="http://$(ip route show default | awk '{print $3}'):8080/v1/chat/completions"
 export LLAMA_API_KEY="..."        # the key given to llama-server, never committed
 curl -s -H "Authorization: Bearer $LLAMA_API_KEY" "${LLAMA_URL%/chat/completions}/models"
 ```
 
-Do not start the server on `0.0.0.0`: that address listens on the Wi-Fi and Ethernet adapters too,
-where the API key travels in clear over HTTP.
+`0.0.0.0` also listens on the Wi-Fi and Ethernet adapters, where the API key would travel in clear
+over HTTP. Close the port on those adapters only (PowerShell as administrator); WSL and Docker go
+through virtual adapters, which this rule does not touch:
+
+```powershell
+$phys = (Get-NetAdapter -Physical).Name
+New-NetFirewallRule -DisplayName "Block llama-server from network" -Direction Inbound -Protocol TCP -LocalPort 8080 -Action Block -InterfaceAlias $phys
+```
+
+The rule lists the adapters present when it is created: run it again after adding a new one (a
+dock, USB tethering).
+
+If nothing else needs the server (no Docker container), a simpler option is to start it with
+`--host 127.0.0.1` and enable mirrored networking in `%UserProfile%\.wslconfig`
+(`[wsl2]` then `networkingMode=mirrored`, followed by `wsl --shutdown`); the default
+`LLAMA_URL=http://127.0.0.1:8080/v1/chat/completions` then works. Docker Desktop does not support
+mirrored networking well.
 
 Keep llama.cpp up to date (it parses third-party GGUF files) and check each GGUF file against the
 SHA-256 listed in the pre-registration before loading it:
