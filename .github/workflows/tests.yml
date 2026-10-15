@@ -1,0 +1,46 @@
+# Unit tests on CPU (no GPU, no model download: the tests build a tiny random Qwen),
+# and a scan of the pinned dependencies for known vulnerabilities.
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install (CPU PyTorch, then the project)
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+          pip install -e .
+      - name: Unit tests
+        run: python -m pytest -q tests
+
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Known vulnerabilities in the lock file
+        run: |
+          pip install pip-audit
+          # torch is pinned with a CUDA local version (+cu128) that the vulnerability database does not index
+          grep -v '^torch==' requirements.lock.txt > lock-audit.txt
+          pip-audit --requirement lock-audit.txt --no-deps --disable-pip --progress-spinner off

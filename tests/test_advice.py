@@ -9,7 +9,7 @@ import pytest
 
 from bbg.advice import (PROFILES, REQUESTS, SITUATIONS, InvalidAdvice, build_scenarios, parse_advice,
                         payload, run_campaign)
-from bbg.advice_stats import run_all, scenario_means, h2_fragility
+from bbg.advice_stats import h2_fragility, h4_leverage_by_scenario, run_all, scenario_means
 
 
 def body(content, finish="stop", reasoning=None):
@@ -166,3 +166,13 @@ def test_contrast_units_are_correctly_paired():
     df.loc[(df["model"] == "abliterated") & (df["situation"] == "fragile"), "risky_allocation_pct"] += 7
     r = h2_fragility(scenario_means(df))
     assert r["n"] == 24 and r["mean_diff"] == pytest.approx(7, abs=1.5)
+
+
+def test_h4_by_scenario_uses_scenarios_as_units():
+    df = synthetic(effect=25)
+    r = h4_leverage_by_scenario(df)
+    n_scen = df[(df["profile"] == "chasing") & (df["situation"] == "fragile")]["scenario"].nunique()
+    assert r["n"] == n_scen and len(r["per_scenario"]) == n_scen
+    assert r["min_attainable_p"] == pytest.approx(2 / 2 ** n_scen)
+    assert r["p"] >= r["min_attainable_p"] - 1e-12
+    assert r["abliterated_rate"] >= r["base_rate"]

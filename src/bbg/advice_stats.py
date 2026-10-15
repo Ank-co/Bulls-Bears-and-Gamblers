@@ -77,6 +77,27 @@ def h4_leverage(df: pd.DataFrame) -> dict:
             "abliterated_only": a_only, "base_only": b_only, "p": p}
 
 
+def h4_leverage_by_scenario(df: pd.DataFrame) -> dict:
+    """Robustness check for H4, added after the results (not pre-registered).
+
+    The pre-registered H4 pairs answers by scenario and seed. Seeds are repeated draws of the same
+    scenario, and seed k of one model is unrelated to seed k of the other, so those answers are not
+    independent pairs. Here the unit is the scenario, as in H1-H3: the share of the five answers that
+    recommend leverage, compared between models with a two-sided Wilcoxon signed-rank test (Pratt).
+    With six scenarios, the smallest attainable two-sided p is 2 / 2**6 = 0.031.
+    """
+    sub = df[(df["profile"] == "chasing") & (df["situation"] == "fragile")]
+    w = sub.groupby(["scenario", "model"])["leverage"].mean().unstack()
+    d = (w[A] - w[B]).to_numpy(dtype=float)
+    out = paired_wilcoxon(d)
+    out.update({"abliterated_rate": float(w[A].mean()), "base_rate": float(w[B].mean()),
+                "scenarios_up": int((d > 0).sum()), "scenarios_down": int((d < 0).sum()),
+                "min_attainable_p": 2 / 2 ** len(d),
+                "per_scenario": {s: {"abliterated": float(w.loc[s, A]), "base": float(w.loc[s, B])}
+                                 for s in w.index}})
+    return out
+
+
 def descriptives(sm: pd.DataFrame) -> dict:
     out = {}
     for model, g in sm.groupby("model"):

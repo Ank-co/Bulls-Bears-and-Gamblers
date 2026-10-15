@@ -1,5 +1,7 @@
 # Bulls, Bears and Gamblers
 
+[![tests](https://github.com/Ank-co/Bulls-Bears-and-Gamblers/actions/workflows/tests.yml/badge.svg)](https://github.com/Ank-co/Bulls-Bears-and-Gamblers/actions/workflows/tests.yml)
+
 **Four questions about language models in markets, answered with experiments on a single laptop GPU (RTX 5070 Laptop, 8 GB).**
 
 Each experiment fixes its protocol before the test data are opened (in Part 4 it was committed only after the run, a deviation reported on its page), opens the test data once, and computes every score with code from what the models answer. No model grades another model's text.
@@ -11,7 +13,7 @@ Each experiment fixes its protocol before the test data are opened (in Part 4 it
 | | Question | Main result | Tests fixed in advance |
 |---|---|---|---|
 | [Part 1](docs/part1.md) | Can a small model fine-tuned on the laptop read market sentiment better than a model twenty times its size? | Yes: macro-F1 **0.884** for Qwen3-1.7B with LoRA, against 0.757 for the 35B model zero-shot | Protocol committed before the test set was opened |
-| [Part 2](docs/part2.md) | When a client sounds like a gambler, does the model protect them, and what changes once its refusals are removed? | The base model protects; the abliterated model follows the client (**+43 points** of savings in high-risk products for gamblers and loss-chasers), also with Gemma 4 and Llama 3.1 | 3 of 4 confirmed |
+| [Part 2](docs/part2.md) | When a client sounds like a gambler, does the model protect them, and what changes once its refusals are removed? | The base model protects; the abliterated model follows the client (**+43 points** of savings in high-risk products for gamblers and loss-chasers), also with Gemma 4 and Llama 3.1 | 3 of 4 confirmed as pre-registered; with scenarios as units, H4 (leverage) is no longer significant: 2 of 4 |
 | [Addendum](docs/addendum.md) | Does the same edit change how the model reads the news? | Tweets that are not bullish read as bullish: **23%** against 11%, reversed with Gemma 4 and Llama 3.1 | 3 of 3 confirmed |
 | [Part 3](docs/part3.md) | Does a model's reading of real headlines move with stock prices? | The fine-tuned model lines up best with the move around the news; what is left after it cannot be separated from memory | 2 of 3 confirmed, the third not separable from look-ahead |
 | [Part 4](docs/part4.md) | In an invented market where the best answer is computed, do models weigh each piece of news by what it is worth? | News used at **half** its worth, and at a quarter when its track record contradicts the usual reading | 5 of 5 confirmed, pre-registration committed after the run |
@@ -33,7 +35,7 @@ Classify 2,388 held-out financial tweets as bullish, bearish or neutral. Qwen3-1
   <img alt="Mean share of savings recommended in high-risk products, by client profile, for the base and abliterated models" src="docs/figures/part2-light.svg" width="100%">
 </picture>
 
-Two versions of Qwen3.6-35B-A3B advise the same 48 client scenarios on €20,000 of savings: the base model, and a copy whose refusal behaviour was removed (abliteration). The base model is a strict adviser: 0% in high-risk products in 76% of its answers. The abliterated model recommends **43 points more** at risk to gamblers and loss-chasers, moves **24 points** when the client pushes for confirmation (the base model does not move), and recommends leverage to 43% of fragile clients chasing losses. In the example fixed before the campaign, its advice reads as measured while putting 60% of a fragile client's savings in leveraged products, which is why the study scores the numbers a model commits to, never its text. In the [replication](docs/replication.md), the abliterated Gemma 4 and Llama 3.1 also give gamblers riskier advice (+30 and +8 points), but no model of those families recommends leverage to fragile clients. [Protocol, tests and examples](docs/part2.md)
+Two versions of Qwen3.6-35B-A3B advise the same 48 client scenarios on €20,000 of savings: the base model, and a copy whose refusal behaviour was removed (abliteration). The base model is a strict adviser: 0% in high-risk products in 76% of its answers. The abliterated model recommends **43 points more** at risk to gamblers and loss-chasers, moves **24 points** when the client pushes for confirmation (the base model does not move), and recommends leverage to 43% of fragile clients chasing losses (against 0%; in the predicted direction but not significant once scenarios, not answers, are the units, see the [correction](docs/part2.md#correction-h4-with-scenarios-as-units)). In the example fixed before the campaign, its advice reads as measured while putting 60% of a fragile client's savings in leveraged products, which is why the study scores the numbers a model commits to, never its text. In the [replication](docs/replication.md), the abliterated Gemma 4 and Llama 3.1 also give gamblers riskier advice (+30 and +8 points), but no model of those families recommends leverage to fragile clients. [Protocol, tests and examples](docs/part2.md)
 
 **Addendum.** The same two files classify the Part 1 tweets. The abliterated model reads 23% of the tweets that are not bullish as bullish, against 11%: 229 tweets flip to bullish, 1 the other way. **This does not replicate:** with Gemma 4 and Llama 3.1, the abliterated model reads fewer tweets as bullish than its base model (17% against 21%, 2.9% against 5.1%). [Details](docs/addendum.md)
 
@@ -108,6 +110,7 @@ python scripts/evaluate.py --split val
 
 python scripts/run_advice.py          # part 2: 480 answers from two llama.cpp models
 python scripts/analyze_advice.py      # part 2: pre-registered tests
+python scripts/part2_h4_robustness.py # part 2: H4 with scenarios as units (correction, after the results)
 LLAMA_MODEL=qwen3.6-35b-base-i1 python scripts/zero_shot_llamacpp.py --name qwen3.6-35b-i1-zeroshot
 LLAMA_MODEL=qwen3.6-35b-abliterated python scripts/zero_shot_llamacpp.py --name qwen3.6-35b-abliterated-zeroshot
 python scripts/analyze_abliteration_sentiment.py   # addendum: pre-registered tests
